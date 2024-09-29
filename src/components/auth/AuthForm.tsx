@@ -1,36 +1,62 @@
 import { UserRound, Lock } from "lucide-react";
+import { useState } from "react";
+
+import TabButton from "./TabButton";
 
 const AuthForm: React.FC = () => {
+    const [activeTab, setActiveTab] = useState<string>("");
+
+    const handleTabClick = (label: string) => {
+        setActiveTab(label);
+    }
+
     return (
-        <div >
-            <button className="bg-[#408C60] text-white font-bold py-2 px-4 rounded-tl-lg shadow-md">Log In</button>
-            <button className="bg-transparent text-white font-bold py-2 px-4 rounded-tr-lg">Sign In</button>
-    
-            <div className="login_card rounded-lg shadow-lg relative">
+        <div className="flex flex-col items-center">
+{/* TODO: Fix TabButton mb */}
+            <div className="flex w-[500px]">
+                <TabButton
+                    label="Login"
+                    isActive={activeTab === "Login"}
+                    onClick={() => handleTabClick("Login")}
+                />
+                <TabButton
+                    label="Sign Up"
+                    isActive={activeTab === "Sign Up"}
+                    onClick={() => handleTabClick("Sign Up")}
+                />
+            </div>
+{/* TODO: InputText component */}
+            <div className="login_card flex items-center flex-col  w-[500px]">
                 <form className="space-y-4">
         
-                    <div className="relative">
-                        <UserRound
-                            size={24}
-                            color="white"
-                            className="absolute"
-                        />
-                        <input
-                            type="text"
-                            className="pl-10 rounded-lg border-none text-white bg-transparent border-2 border-white"
-                            placeholder="Enter a username..."
-                        />
-                    </div>
+                <div className="flex items-center bg-transparent border-3 border-white rounded-2xl px-4 py-2 w-full">
+                <UserRound size={28} color="white" className="mr-6"/>
+                    <input type="text"
+                        className="bg-transparent placeholder-white/60 focus:outline-none focus:ring-0 w-full"
+                        placeholder="Enter an username..."
+                    />
+                </div>
+
+                <div className="flex items-center bg-transparent border-3 border-white rounded-2xl px-4 py-2 w-full">
+                    <Lock size={28} color="white" className="mr-6"/>
+                    <input type="text"
+                        className="bg-transparent placeholder-white/60 focus:outline-none focus:ring-0 w-full"
+                        placeholder="Enter a password..."
+                    />
+                </div>
         
-                    <div className="relative">
-                        <input type="password" className="w-full px-4 py-3 rounded-lg border-none focus:ring-2 focus:ring-[#408C60] placeholder-gray-500 text-white bg-transparent border-2 border-white" placeholder="Enter a password..." />
-                        <Lock />
+{/* TODO: InputButton component */}
+                    <div className="flex justify-around pt-10">
+                        <button type="reset" className="py-2 px-6 bg-transparent border-3 border-white font-semibold rounded-2xl 
+                            hover:shadow-2xl transition duration-300">
+                            Reset
+                        </button>
+                        <button type="submit" className="py-2 px-6 bg-transparent border-3 border-white font-semibold rounded-2xl
+                            hover:shadow-2xl transition duration-300">
+                            Login
+                        </button>
                     </div>
 
-                    <div className="flex justify-between mt-8">
-                        <button type="reset" className="py-2 px-6 bg-transparent border-3 border-white text-white rounded-lg hover:bg-white hover:border-6 transition duration-300">Reset</button>
-                        <button type="submit" className="py-2 px-6 bg-transparent border-3 border-white text-white text-bold rounded-lg hover:bg-white hover:text-[#50C878] transition duration-300">Login</button>
-                    </div>
                 </form>
             </div>
         </div>
