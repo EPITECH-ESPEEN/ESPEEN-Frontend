@@ -259,6 +259,7 @@ body.achromatopsia.dark .title {
   margin-top: 150px;
   padding: 30px;
   border-radius: 0.2rem;
+  background: #50C878;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 500px;
 }
@@ -276,8 +277,10 @@ body.achromatopsia.dark .title {
   text-align: center;
 }
 
-.login_button:hover {
-  background-color: #5a6268;
+
+
+.login_button:clicked {
+  background-color: #408C60;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 

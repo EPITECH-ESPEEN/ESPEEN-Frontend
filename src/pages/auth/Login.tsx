@@ -3,6 +3,8 @@
 // import { useSelector } from "react-redux";
 // import { useNavigate } from "react-router-dom";
 
+import AuthForm from "../../components/auth/AuthForm";
+
 const Login = () => {
 //   const [email, setEmail] = useState("");
 //   const [password, setPassword] = useState("");
@@ -29,43 +31,41 @@ const Login = () => {
 //     login(loginData);
 //   };
 
-  return (
-    <div className="row wrapper">
-      <div className="col-10 col-lg-5">
-        <form
-          className="shadow rounded bg-body"
-        //   onSubmit={submitHandler}
-        >
-          <h2 className="mb-4">Login</h2>
-          <div className="mb-3">
-            <label htmlFor="email_field" className="form-label">Email</label>
-            <input
-              type="email"
-              id="email_field"
-              className="form-control"
-              name="email"
-            //   value={email}
-            //   onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="password_field" className="form-label">Password</label>
-            <input
-              type="password"
-              id="password_field"
-              className="form-control"
-              name="password"
-            //   value={password}
-            //   onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          {/* <button id="login_button" type="submit" className="btn w-100 py-2" disabled={isLoading}>
-            {isLoading ? "Authenticating..." : "LOGIN"}
-          </button> */}
+    return (
+        <div className="page-container">
+            <div className="ml-20">
+                <h1 className="text-4xl font-bold">Espeen</h1>
+                <p className="text-gray-500">Spin actions into reactions!</p>
+            </div>
+            <AuthForm />
+            
+            {/* <div className="login_card">
+                <div className="flex justify-between">
+                    <button className="login_card text-white font-bold py-2 px-4 rounded-tl-lg shadow-md">Log In</button>
+                    <button className="login_card text-white font-bold py-2 px-4 rounded-tr-lg">Sign In</button>
+                </div>
+
+                <form className="space-y-4">
+                <div className="relative">
+                <input
+                    type="text"
+                    className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:ring-2 focus:ring-[#408C60] placeholder-gray-500 text-gray-700"
+                    placeholder=`{}"Enter a username..."``
+                />
+
+            </div>
+            <div className="relative">
+                <input type="password" className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:ring-2 focus:ring-[#408C60] placeholder-gray-500 text-gray-700" placeholder="Enter a password..."/>
+            </div>
+
+            <div className="flex justify-between mt-8">
+                <button type="reset" className="login_button">Reset</button>
+                <button type="submit" className="login_button">Login</button>
+            </div>
         </form>
-      </div>
-  </div>
-  );
+        </div> */}
+    </div>
+    );
 };
 
 export default Login;
