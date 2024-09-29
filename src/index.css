@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color: var(--color-black);
+  background-color: var(--color-gray-1);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* colors */
+:root {
+  --color-white: #ffffff;
+  --color-black: #2d425c;
+  --color-black-1: #405d80;
+
+  --color-gray-1: #f5f6fa;
+  --color-gray-2: #dfe1e9;
+  --color-gray-3: #919cab;
+
+  --color-blue-1: #035ec2;
+  --color-blue-2: #2f6eb7;
+
+  --color-success: #4caf50;
+  --color-failure: #f44336;
+  --color-warning: #ff9800;
+  --color-info: #2196f3;
+}
+
+/* sizes */
+:root {
+  --size-05: 0.5rem;
+  --size-1: 1rem;
+  --size-2: 2rem;
+  --size-3: 3rem;
+  --size-4: 4rem;
+  --size-5: 5rem;
+  --size-6: 6rem;
+  --size-7: 7rem;
+  --size-8: 8rem;
+  --size-9: 9rem;
+}
+
+/* weights */
+:root {
+  --weight-thin: 100;
+  --weight-extralight: 200;
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+  --weight-black: 900;
+}

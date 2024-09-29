@@ -1,3 +1,5 @@
+@import "./index.css";
+
 .App {
   text-align: center;
 }
@@ -39,7 +41,7 @@
 
 /* Base Styles */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Montserrat Alternates, sans-serif;
   margin: 0;
   padding: 0;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -51,6 +53,14 @@ body {
   align-items: center;
   padding: 20px;
   background-color: #50C878; /* Default Emerald Green */
+}
+
+.navbar-off {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #282c34; /* Default Emerald Green */
 }
 
 .navbar ul {
@@ -253,10 +263,23 @@ body.achromatopsia.dark .title {
   align-items: center;
 }
 
+.homepage-h1 {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  color:#50C878;
+}
+
+.homepage-h2 {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color:#50C878
+}
+
 .login_card{
   margin-top: 150px;
   padding: 30px;
   border-radius: 0.2rem;
+  background: #50C878;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 500px;
 }
@@ -274,8 +297,10 @@ body.achromatopsia.dark .title {
   text-align: center;
 }
 
-.login_button:hover {
-  background-color: #5a6268;
+
+
+.login_button:clicked {
+  background-color: #408C60;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
 
