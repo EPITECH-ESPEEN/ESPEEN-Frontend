@@ -25,7 +25,7 @@ const Header: React.FC = () => {
 
     if (user) {
         return (
-            <nav className="navbar flex justify-between items-center px-5 py-3 drop-shadow-xl md:flex">
+            <nav className="navbar flex justify-between items-center px-5 py-5 drop-shadow-xl md:flex">
 
 {/* TODO: Change to /home (EPSEED profile)*/}
             <Link to="/">

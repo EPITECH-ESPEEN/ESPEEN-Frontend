@@ -263,13 +263,13 @@ body.achromatopsia.dark .title {
   align-items: center;
 }
 
-.home-h1 {
-  font-size: 2.5rem;
+.homepage-h1 {
+  font-size: 5rem;
   margin-bottom: 20px;
-  color:#50C878
+  color:#50C878;
 }
 
-.home-h2 {
+.homepage-h2 {
   font-size: 1rem;
   margin-bottom: 20px;
   color:#50C878
