@@ -1,37 +1,41 @@
-// import React, { useEffect, useState } from "react";
-// import { useLoginMutation } from "../../redux/api/authApi";
-// import { useSelector } from "react-redux";
-// import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
+import { RootState } from "../../redux/store";
+import { useLoginMutation } from "../../redux/api/authApi";
+
+import MetaData from "../../components/layout/MetaData";
 import AuthForm from "../../components/auth/AuthForm";
+import { Eclipse } from "lucide-react";
 
-const Login = () => {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
+const Login: React.FC = () => {
+    const [username, setUsername] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
 
-//   const navigate = useNavigate();
+    const navigate = useNavigate();
 
-//   const[login, { isLoading, data }] = useLoginMutation();
-//   const { isAuthenticated } = useSelector((state) => state.auth);
+    const [login, { isLoading, data }] = useLoginMutation();
+    const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
-//   useEffect(() => {
-//     if (isAuthenticated) {
-//       navigate("/");
-//     }
-//   }, [isAuthenticated, navigate]);
+    useEffect(() => {
+        if (isAuthenticated)
+// TODO: Change to /home (EPSEED profile)
+            navigate("/");
+    }, [isAuthenticated, navigate]);
 
-//   const submitHandler = (e) => {
-//     e.preventDefault();
-
-//     const loginData = {
-//       email,
-//       password,
-//     };
-
-//     login(loginData);
-//   };
+    const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const loginData = {
+            username,
+            password,
+        };
+        login(loginData);
+    };
 
     return (
+        <>
+        <MetaData title={'Sign in'} />
         <div className="page-container">
             <div className="ml-20">
                 <h1 className="text-4xl font-bold">Espeen</h1>
@@ -65,6 +69,7 @@ const Login = () => {
         </form>
         </div> */}
     </div>
+    </>
     );
 };
 
