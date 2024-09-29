@@ -270,13 +270,12 @@ body.achromatopsia.dark .title {
 }
 
 .homepage-h2 {
-  font-size: 1rem;
+  font-size: 2.5rem;
   margin-bottom: 20px;
   color:#50C878
 }
 
 .login_card{
-  margin-top: 150px;
   padding: 30px;
   border-radius: 0.2rem;
   background: #50C878;
@@ -297,14 +296,10 @@ body.achromatopsia.dark .title {
   text-align: center;
 }
 
-
-
 .login_button:clicked {
   background-color: #408C60;
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
 }
-
-
 
 #login_btn,
 #logout_btn,
