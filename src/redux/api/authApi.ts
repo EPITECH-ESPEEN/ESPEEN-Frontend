@@ -7,6 +7,12 @@ interface LoginRequestBody {
     password: string;
 }
 
+interface RegisterRequestBody {
+    username: string;
+    email: string;
+    password: string;
+}
+
 export const authApi = createApi({
     reducerPath: "authApi",
     baseQuery: fetchBaseQuery({ baseUrl: "/api" }),
@@ -31,7 +37,24 @@ export const authApi = createApi({
         logout: builder.query<void, void>({
             query: () => "/logout",
         }),
+        register: builder.mutation<void, RegisterRequestBody>({
+            query(body) {
+                return {
+                    url: "/register",
+                    method: "POST",
+                    body,
+                };
+            },
+            async onQueryStarted(args, { dispatch, queryFulfilled }) {
+                try {
+                    await queryFulfilled;
+                    await dispatch(userApi.endpoints.getProfile.initiate());
+                } catch (error) {
+                    console.log(error);
+                }
+            },
+        }),
     }),
 });
 
-export const { useLoginMutation, useLazyLogoutQuery } = authApi;
+export const { useLoginMutation, useLazyLogoutQuery, useRegisterMutation } = authApi;
