@@ -1,25 +1,33 @@
+/*
+    Authors:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤
+    ┏━U━━━U━━━━━━━━━━━━━┓
+    ┃ Have a good day !             ┃
+    ┗━━━━━━━━━━━━━━━━━━━┛
+*/
+
+/* ----- IMPORTS ----- */
 import React from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-
-// import Loader from "../layout/Loader";
 import { RootState } from "../../redux/store";
 
+
+/* ----- PROPS ----- */
 interface PrivateRouteProps {
-    children: React.ReactNode;
+    children: React.FC<{}>
 }
 
+
+/* ----- COMPONENT ----- */
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
     const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
-    // if (loading) {
-    //     return <Loader />;
-    // }
-
-    if (!isAuthenticated) {
+    if (!isAuthenticated)
         return <Navigate to="/login" replace />;
-    }
-
     return <>{children}</>;
 };
 

@@ -1,7 +1,20 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+/*
+    Authors:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
+    („• ֊ •„)❤
+    ┏━U━━━U━━━━━━━━━━━━━┓
+    ┃ Have a good day !             ┃
+    ┗━━━━━━━━━━━━━━━━━━━┛
+*/
+
+/* ----- IMPORTS ----- */
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setIsAuthenticated, setUser } from "../features/userSlice";
 
+
+/* ----- TYPES ----- */
 interface User {
     id: string;
     username: string;
@@ -13,6 +26,8 @@ interface ProfileResponse {
     user: User;
 }
 
+
+/* ----- FUNCTIONS ----- */
 export const userApi = createApi({
     reducerPath: "userApi",
     baseQuery: fetchBaseQuery({ baseUrl: "/api" }),
@@ -23,7 +38,6 @@ export const userApi = createApi({
                 url: "/users",
             }),
         }),
-    
         getProfile: builder.query<User, void>({
             query: () => `/profile`,
             transformResponse: (result: ProfileResponse) => result.user,

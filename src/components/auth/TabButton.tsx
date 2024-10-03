@@ -1,11 +1,27 @@
+/*
+    Authors:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤
+    ┏━U━━━U━━━━━━━━━━━━━┓
+    ┃ Have a good day !             ┃
+    ┗━━━━━━━━━━━━━━━━━━━┛
+*/
+
+/* ----- IMPORTS ----- */
 import { useState } from "react";
 
-type TabButtonProps = {
+
+/* ----- PROPS ----- */
+interface TabButtonProps {
     label: string;
     isActive: boolean;
     onClick: () => void;
 };
 
+
+/* ----- COMPONENT ----- */
 //TODO: Custom shadow, custom size, custom color
 const TabButton: React.FC<TabButtonProps> = ({ label, isActive, onClick }) => {
     return (

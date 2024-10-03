@@ -10,11 +10,17 @@
 */
 
 /* ----- IMPORTS ----- */
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import React from "react";
 
 
-/* ----- FUNCTIONS ----- */
-export function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs))
-}
+/* ----- COMPONENT ----- */
+const AreaPage: React.FC = () => {
+    return (
+        <div>
+            <div>Area Page</div>
+        </div>
+    );
+};
+
+export default AreaPage;
+

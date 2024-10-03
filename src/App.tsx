@@ -1,40 +1,45 @@
+/*
+    Authors:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤
+    ┏━U━━━U━━━━━━━━━━━━━┓
+    ┃ Have a good day !             ┃
+    ┗━━━━━━━━━━━━━━━━━━━┛
+*/
+
+/* ----- IMPORTS ----- */
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import './App.css';
-
-import Header from "./components/layout/Header";
+import NavBar from "./components/layout/navbar/laptop";
 import Footer from "./components/layout/Footer";
 import PrivateRoute from "./components/auth/PrivateRoute";
-import Login from "./pages/auth/Login";
-import Home from "./pages/Home";
+import { getPagesConfigs } from "./router/routesConfig";
 
+
+/* ----- COMPONENT ----- */
 function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Header />
-        <body className="pages App-header">
-          <Routes>
-            
-            <Route path="/" element={
-              <PrivateRoute>
-                <Login />
-              </PrivateRoute>}
-            />
-            
-            <Route path="/login" element={<Login />} />
+    const pagesConfigs = getPagesConfigs();
 
-            <Route path="/home" element={
-              <PrivateRoute>
-                <Home />
-              </PrivateRoute>}
-            />
-          </Routes>
-        </body>
-      </div>
-      <Footer />
-    </Router>
-  );
+    return (
+        <Router>
+            <header><NavBar /></header>
+            <body>
+                <div className="h-[80px]"></div>
+                <Routes>
+                    {pagesConfigs.map((pageConfig) => {
+                        const content: React.ReactElement = pageConfig.logged ?
+                            <PrivateRoute>{pageConfig.content}</PrivateRoute>:
+                            <pageConfig.content />;
+                        return (
+                            <Route key={pageConfig.name} path={pageConfig.path} element={content} />
+                        );
+                    })}
+                </Routes>
+            </body>
+            <footer><Footer /></footer>
+        </Router>
+    );
 }
 
 export default App;

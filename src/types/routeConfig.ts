@@ -9,12 +9,10 @@
     ┗━━━━━━━━━━━━━━━━━━━┛
 */
 
-/* ----- IMPORTS ----- */
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
-
-
-/* ----- FUNCTIONS ----- */
-export function cn(...inputs: ClassValue[]) {
-    return twMerge(clsx(inputs))
+export type PageConfig = {
+    name: string;
+    content: React.FC;
+    logged: boolean;
+    accessible: boolean;
+    path: string;
 }
