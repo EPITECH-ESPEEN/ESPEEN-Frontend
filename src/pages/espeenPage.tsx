@@ -11,7 +11,7 @@
 
 /* ----- IMPORTS ----- */
 import React from "react";
-import MetaData from "../components/layout/MetaData";
+import MetaData from "../components/layout/metaData";
 
 
 /* ----- COMPONENT ----- */
@@ -19,6 +19,7 @@ const EspeenPage: React.FC = () => {
     return (
         <div>
             <MetaData title="" />
+            <div className="h-[80px]"></div>
             <div>Espeen Page</div>
         </div>
     );

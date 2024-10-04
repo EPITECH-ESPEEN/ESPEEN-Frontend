@@ -12,9 +12,9 @@
 /* ----- IMPORTS ----- */
 import React from "react";
 import css from "./laptop.module.css";
-import EspeenIcon from "../../icons/espeenIcon";
+import EspeenIcon from "../../../icons/espeenIcon";
 import { CircleUserRound } from "lucide-react";
-import { getPagesConfigs } from "../../../router/routesConfig";
+import { getPagesConfigs } from "../../../../router/routesConfig";
 import { NavLink } from "react-router-dom";
 
 

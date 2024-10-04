@@ -11,24 +11,32 @@
 /* ----- IMPORTS ----- */
 import React from "react";
 import css from "./navbar.module.css";
+import { useLocation } from "react-router-dom";
 
 
 /* ----- COMPONENTS ----- */
-import Laptop from "./laptop";
-import Mobile from "./mobile";
+import Laptop from "./laptop/laptop";
+import Mobile from "./mobile/mobile";
 
 
 /* ----- COMPONENT ----- */
 const NavBar: React.FC = () => {
+    const location = useLocation();
+
     return (
-        <div className={css.navbar}>
-            <div className={css.laptop}>
-                <Laptop />
+        <>
+        {
+            location.pathname !== "/login" &&
+            <div className={css.navbar}>
+                <div className={css.laptop}>
+                    <Laptop />
+                </div>
+                <div className={css.mobile}>
+                    <Mobile />
+                </div>
             </div>
-            <div className={css.mobile}>
-                <Mobile />
-            </div>
-        </div>
+        }
+        </>
     );
 };
 

@@ -12,8 +12,8 @@
 /* ----- IMPORTS ----- */
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/layout/navbar/navbar";
-import Footer from "./components/layout/Footer";
-import PrivateRoute from "./components/auth/PrivateRoute";
+import Footer from "./components/layout/footer";
+import PrivateRoute from "./components/auth/privateRoute";
 import { getPagesConfigs } from "./router/routesConfig";
 
 
@@ -25,7 +25,6 @@ function App() {
         <Router>
             <header><NavBar /></header>
             <body>
-                <div className="h-[80px]"></div>
                 <Routes>
                     {pagesConfigs.map((pageConfig) => {
                         const content: React.ReactElement = pageConfig.logged ?

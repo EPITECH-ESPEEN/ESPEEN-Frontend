@@ -10,63 +10,37 @@
 */
 
 .textStyle-title {
-    font-size: 40px;
-    font-weight: 700;
-}
-
-.textStyle-navbarLink {
-    font-size: 25px;
-    font-weight: 600;
-}
-
-.textStyle-huge {
-    font-size: 100px;
-    font-weight: 900;
-}
-
-.textStyle-text {
-    font-size: 25px;
-    font-weight: 700;
-}
-
-.textStyle-cardTitle {
     font-size: 30px;
     font-weight: 700;
 }
 
-.textStyle-cardText {
+.textStyle-navbarLink {
     font-size: 20px;
+    font-weight: 600;
+}
+
+.textStyle-huge {
+    font-size: 80px;
+    font-weight: 900;
+}
+
+.textStyle-text {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.textStyle-cardTitle {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.textStyle-cardText {
+    font-size: 18px;
     font-weight: 500;
 }
 
 
 @media screen and (max-width: 900px) {
-    .textStyle-title {
-        font-size: 30px;
-    }
-
-    .textStyle-navbarLink {
-        font-size: 20px;
-    }
-
-    .textStyle-huge {
-        font-size: 80px;
-    }
-
-    .textStyle-text {
-        font-size: 20px;
-    }
-
-    .textStyle-cardTitle {
-        font-size: 25px;
-    }
-
-    .textStyle-cardText {
-        font-size: 15px;
-    }
-}
-
-@media screen and (max-width: 768px) {
     .textStyle-title {
         font-size: 20px;
     }
