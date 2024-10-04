@@ -11,7 +11,7 @@
 
 /* ----- IMPORTS ----- */
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavBar from "./components/layout/navbar/laptop";
+import NavBar from "./components/layout/navbar/navbar";
 import Footer from "./components/layout/Footer";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import { getPagesConfigs } from "./router/routesConfig";
@@ -29,7 +29,7 @@ function App() {
                 <Routes>
                     {pagesConfigs.map((pageConfig) => {
                         const content: React.ReactElement = pageConfig.logged ?
-                            <PrivateRoute>{pageConfig.content}</PrivateRoute>:
+                            <PrivateRoute><pageConfig.content /></PrivateRoute>:
                             <pageConfig.content />;
                         return (
                             <Route key={pageConfig.name} path={pageConfig.path} element={content} />

@@ -38,3 +38,56 @@
     font-size: 20px;
     font-weight: 500;
 }
+
+
+@media screen and (max-width: 900px) {
+    .textStyle-title {
+        font-size: 30px;
+    }
+
+    .textStyle-navbarLink {
+        font-size: 20px;
+    }
+
+    .textStyle-huge {
+        font-size: 80px;
+    }
+
+    .textStyle-text {
+        font-size: 20px;
+    }
+
+    .textStyle-cardTitle {
+        font-size: 25px;
+    }
+
+    .textStyle-cardText {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .textStyle-title {
+        font-size: 20px;
+    }
+
+    .textStyle-navbarLink {
+        font-size: 15px;
+    }
+
+    .textStyle-huge {
+        font-size: 60px;
+    }
+
+    .textStyle-text {
+        font-size: 15px;
+    }
+
+    .textStyle-cardTitle {
+        font-size: 20px;
+    }
+
+    .textStyle-cardText {
+        font-size: 10px;
+    }
+}

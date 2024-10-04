@@ -1,0 +1,87 @@
+/*
+    Author:
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤
+    ┏━U━━━U━━━━━━━━━━━━━┓
+    ┃ Have a good day !             ┃
+    ┗━━━━━━━━━━━━━━━━━━━┛
+*/
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-green);
+    padding: 0 20px;
+
+    box-shadow: 0px 8px 4px 0px rgba(0, 0, 0, 0.25);
+    -webkit-box-shadow: 0px 8px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.sidebar {
+    position: fixed;
+    padding-top: 100px;
+    right: 0px;
+    height: 100vh;
+    width: 60vw;
+    background-color: var(--color-green-2);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.navbarLinksContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+    gap: 20px;
+}
+
+.bottom {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.slideIn {
+    transform: translateX(0);
+}
+
+.slideOut {
+    transform: translateX(100vw);
+}
+
+.navbarLink {
+    display: flex;
+    width: 100%;
+    transition: border-bottom 0.3s;
+    padding: 20px;
+}
+
+.activeLink {
+    border-left: 3px solid var(--color-light);
+}
+
+.overlay {
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    height: 100vh;
+    width: 100vw;
+    z-index: 998;
+    transition: all 0.3s;;
+}
+
+.overlayShow {
+    backdrop-filter: blur(4px);
+    background-color: var(--color-dark-05);
+}

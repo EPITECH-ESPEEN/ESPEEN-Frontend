@@ -13,7 +13,7 @@
 import React from "react";
 import css from "./laptop.module.css";
 import EspeenIcon from "../../icons/espeenIcon";
-import { UserRound } from "lucide-react";
+import { CircleUserRound } from "lucide-react";
 import { getPagesConfigs } from "../../../router/routesConfig";
 import { NavLink } from "react-router-dom";
 
@@ -40,7 +40,7 @@ const NavBar: React.FC = () => {
                 })}
             </div>
             <NavLink to="/profile">
-                <UserRound size={48} stroke="var(--color-light)"/>
+                <CircleUserRound size={48} stroke="var(--color-light)"/>
             </NavLink>
         </div>
     );

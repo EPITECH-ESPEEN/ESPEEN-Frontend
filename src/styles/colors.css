@@ -13,10 +13,12 @@
 :root {
     --color-green: #50C878;
     --color-green-2: #3E935A;
-    --color-dark: #36454F;
+    --color-dark: #36454f;
     --color-light: #F7F7F7;
     --color-gray: #C3CCD2;
     --color-red: #FF6961;
+
+    --color-dark-05: rgba(54, 69, 79, 0.5);
 }
 
 .color-green {

@@ -18,7 +18,7 @@ import { RootState } from "../../redux/store";
 
 /* ----- PROPS ----- */
 interface PrivateRouteProps {
-    children: React.FC<{}>
+    children: React.ReactNode;
 }
 
 
