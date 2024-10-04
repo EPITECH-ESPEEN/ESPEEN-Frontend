@@ -39,6 +39,11 @@
     font-weight: 500;
 }
 
+.textStyle-buttonText {
+    font-size: 18px;
+    font-weight: 600;
+}
+
 
 @media screen and (max-width: 900px) {
     .textStyle-title {
@@ -62,6 +67,10 @@
     }
 
     .textStyle-cardText {
-        font-size: 10px;
+        font-size: 15px;
+    }
+
+    .textStyle-buttonText {
+        font-size: 15px;
     }
 }

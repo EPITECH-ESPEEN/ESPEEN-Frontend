@@ -11,9 +11,12 @@
 
 /* ----- IMPORTS ----- */
 import { UserRound, Mail, Lock } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRegisterMutation } from "../../redux/api/authApi";
-import css from "./loginForm.module.css";
+import css from "./authForm.module.css";
+import Button from "../buttons/default/button";
+import InputWithIcon from "../inputs/withIcon/withIcon";
+import Modal from "../modal/modal";
 
 
 /* ----- COMPONENT ----- */
@@ -21,6 +24,7 @@ const RegisterForm: React.FC = () => {
     const [username, setUsername] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
+    const [isError, setIsError] = useState<boolean>(false);
 
     const [register, { error }] = useRegisterMutation();
 
@@ -34,63 +38,36 @@ const RegisterForm: React.FC = () => {
         register(registerData);
     };
 
+    useEffect(() => {
+        if (error) {
+            setIsError(true);
+        }
+    }, [error]);
+
     return (
-        <div className={css.container}>
-            <form className={css.form} onSubmit={submitHandler}>
-                <div className={css.inputs}>
-                    <div className="flex items-center bg-transparent border-3 border-white rounded-2xl px-4 py-2 w-full">
-                        <UserRound size={28} color="white" className="mr-6"/>
-                        <input type="text"
-                            className="bg-transparent placeholder-white/60 focus:outline-none focus:ring-0 w-full"
-                            id="username_field"
-                            name="username"
-                            placeholder="Enter an username..."
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
+        <>
+            <div className={css.container}>
+                <form className={css.form} onSubmit={submitHandler}>
+                    <div className={css.inputs}>
+                        <InputWithIcon icon={<Mail size={28} color="var(--color-light)" />} type="text" value={email} setValue={setEmail} placeholder="Enter an email..." />
+                        <InputWithIcon icon={<UserRound size={28} color="var(--color-light)" />} type="text" value={username} setValue={setUsername} placeholder="Enter an username..." />
+                        <InputWithIcon icon={<Lock size={28} color="var(--color-light)" />} type="password" value={password} setValue={setPassword} placeholder="Enter a password..." />
                     </div>
-                    <div className="flex items-center bg-transparent border-3 border-white rounded-2xl px-4 py-2 w-full">
-                        <Mail size={28} color="white" className="mr-6"/>
-                        <input type="text"
-                            className="bg-transparent placeholder-white/60 focus:outline-none focus:ring-0 w-full"
-                            id="email_field"
-                            name="email"
-                            placeholder="Enter an email..."
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </div>
-                    <div className="flex items-center bg-transparent border-3 border-white rounded-2xl px-4 py-2 w-full">
-                        <Lock size={28} color="white" className="mr-6"/>
-                        <input type="password"
-                            className="bg-transparent placeholder-white/60 focus:outline-none focus:ring-0 w-full"
-                            id="password_field"
-                            name="password"
-                            placeholder="Enter a password..."
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                </div>
-                <div className={css.buttons}>
-                    <button type="reset"
-                        className="py-2 px-6 bg-transparent border-3 border-white font-semibold rounded-2xl hover:shadow-2xl transition duration-300"
-                        onClick={() => {
+                    <div className={css.buttons}>
+                        <Button type="reset" label="Reset" disabled={false} onClick={() => {
                             setUsername("");
-                            setEmail("");
                             setPassword("");
-                        }}
-                    >
-                        Reset
-                    </button>
-                    <button type="submit"
-                        className="py-2 px-6 bg-transparent border-3 border-white font-semibold rounded-2xl hover:shadow-2xl transition duration-300"
-                    >
-                        Register
-                    </button>
-                </div>
-                </form>
-        </div>
+                        }} />
+                        <Button type="submit" label="Register" disabled={username.length === 0 || password.length === 0} onClick={() => {}} />
+                    </div>
+                    </form>
+            </div>
+            {isError && error && <Modal title="Error" message="Something went wrong..." onClose={() => {
+                setUsername("");
+                setPassword("");
+                setIsError(false);
+            }} />}
+        </>
     )
 };
 
