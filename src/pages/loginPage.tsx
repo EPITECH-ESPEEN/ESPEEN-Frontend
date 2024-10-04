@@ -38,7 +38,7 @@ const Login: React.FC = () => {
 // TODO: grid responsive
     return (
         <>
-            {/* <MetaData title="Sign in" />
+            <MetaData title="Sign in" />
             <div className="grid grid-cols-2 w-full mt-40 items-start justify-center min-h-screen">
                 <div className="flex flex-col col-start-1">
                     <div className="homepage-h1 text-8xl font-black">
@@ -63,7 +63,7 @@ const Login: React.FC = () => {
                     </div >
                     {activeTab === "Login" ? <LoginForm /> : <RegisterForm />}
                 </div>
-            </div> */}
+            </div>
         </>
     );
 };

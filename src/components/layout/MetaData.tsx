@@ -24,7 +24,7 @@ interface MetaDataProps {
 const MetaData: React.FC<MetaDataProps> = ({ title }) => {
     return (
         <Helmet>
-            <title>{`ESPEEN | ${title}`}</title>
+            <title>{`ESPEEN${title !== "" ? ` | ${title}` : ""}`}</title>
         </Helmet>
     );
 };

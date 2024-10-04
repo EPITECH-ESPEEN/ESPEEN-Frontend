@@ -11,12 +11,14 @@
 
 /* ----- IMPORTS ----- */
 import React from "react";
+import MetaData from "../components/layout/MetaData";
 
 
 /* ----- COMPONENT ----- */
 const EspeenPage: React.FC = () => {
     return (
         <div>
+            <MetaData title="" />
             <div>Espeen Page</div>
         </div>
     );

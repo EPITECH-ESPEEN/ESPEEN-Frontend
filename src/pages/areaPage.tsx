@@ -11,12 +11,14 @@
 
 /* ----- IMPORTS ----- */
 import React from "react";
+import MetaData from "../components/layout/MetaData";
 
 
 /* ----- COMPONENT ----- */
 const AreaPage: React.FC = () => {
     return (
         <div>
+            <MetaData title="AREA" />
             <div>Area Page</div>
         </div>
     );

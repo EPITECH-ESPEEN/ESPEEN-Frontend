@@ -11,12 +11,14 @@
 
 /* ----- IMPORTS ----- */
 import React from "react";
+import MetaData from "../components/layout/MetaData";
 
 
 /* ----- COMPONENT ----- */
 const ProfilePage: React.FC = () => {
     return (
         <div>
+            <MetaData title="Profile" />
             <div>Profile Page</div>
         </div>
     );
