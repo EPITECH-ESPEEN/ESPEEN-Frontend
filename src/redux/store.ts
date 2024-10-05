@@ -1,9 +1,22 @@
-import { configureStore } from "@reduxjs/toolkit";
+/*
+    Authors:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
+    („• ֊ •„)❤
+    ┏━U━━━U━━━━━━━━━━━━━┓
+    ┃ Have a good day !             ┃
+    ┗━━━━━━━━━━━━━━━━━━━┛
+*/
+
+/* ----- IMPORTS ----- */
+import { configureStore } from "@reduxjs/toolkit";
 import { userApi } from "./api/userApi";
 import { authApi } from "./api/authApi";
 import userReducer from "./features/userSlice";
 
+
+/* ----- FUNCTIONS ----- */
 export const store = configureStore({
     reducer: {
         auth: userReducer,

@@ -1,0 +1,76 @@
+/*
+    Authors:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤
+    ┏━U━━━U━━━━━━━━━━━━━┓
+    ┃ Have a good day !             ┃
+    ┗━━━━━━━━━━━━━━━━━━━┛
+*/
+
+.textStyle-title {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.textStyle-navbarLink {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.textStyle-huge {
+    font-size: 80px;
+    font-weight: 900;
+}
+
+.textStyle-text {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.textStyle-cardTitle {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.textStyle-cardText {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.textStyle-buttonText {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+@media screen and (max-width: 900px) {
+    .textStyle-title {
+        font-size: 20px;
+    }
+
+    .textStyle-navbarLink {
+        font-size: 15px;
+    }
+
+    .textStyle-huge {
+        font-size: 60px;
+    }
+
+    .textStyle-text {
+        font-size: 15px;
+    }
+
+    .textStyle-cardTitle {
+        font-size: 20px;
+    }
+
+    .textStyle-cardText {
+        font-size: 15px;
+    }
+
+    .textStyle-buttonText {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,50 @@
+/*
+    Author:
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤
+    ┏━U━━━U━━━━━━━━━━━━━┓
+    ┃ Have a good day !             ┃
+    ┗━━━━━━━━━━━━━━━━━━━┛
+*/
+
+.container {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border: 2px solid var(--color-light);
+    border-radius: 10px;
+    background-color: transparent;
+    width: 100%;
+    cursor: pointer;
+}
+
+.text {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 18px;
+    color: var(--color-light);
+}
+
+.modalContainer {
+    margin: 20px;
+    padding: 20px;
+    background-color: var(--color-light);
+    border-radius: 10px;
+}
+
+.option {
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+.optionText {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 18px;
+    color: var(--color-dark);
+}

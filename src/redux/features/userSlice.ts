@@ -1,5 +1,19 @@
+/*
+    Authors:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤
+    ┏━U━━━U━━━━━━━━━━━━━┓
+    ┃ Have a good day !             ┃
+    ┗━━━━━━━━━━━━━━━━━━━┛
+*/
+
+/* ----- IMPORTS ----- */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
+
+/* ----- TYPES ----- */
 interface User {
     id: string;
     name: string;
@@ -11,11 +25,15 @@ interface UserState {
     isAuthenticated: boolean;
 }
 
+
+/* ----- DATAS ----- */
 const initialState: UserState = {
     user: null,
     isAuthenticated: false,
 };
 
+
+/* ----- FUNCTIONS ----- */
 export const userSlice = createSlice({
     name: "UserSlice",
     initialState,

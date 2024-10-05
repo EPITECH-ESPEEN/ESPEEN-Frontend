@@ -1,0 +1,33 @@
+/*
+    Authors:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤
+    ┏━U━━━U━━━━━━━━━━━━━┓
+    ┃ Have a good day !             ┃
+    ┗━━━━━━━━━━━━━━━━━━━┛
+*/
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;;
+}
+
+.loader {
+    width: 40px;
+    aspect-ratio: 1.154;
+    --_g: no-repeat radial-gradient(farthest-side, var(--color-green) 90%,#0000);
+    background:
+        var(--_g) 50%  0,
+        var(--_g) 0    100%,
+        var(--_g) 100% 100%;
+    background-size: 35% calc(35%*1.154);
+    animation: l16 1s infinite;
+}
+@keyframes l16{
+    50%,100% {background-position: 100% 100%,50% 0,0 100%}
+}
