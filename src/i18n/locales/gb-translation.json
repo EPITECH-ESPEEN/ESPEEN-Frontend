@@ -1,0 +1,37 @@
+{
+    "langCode": "en",
+    "langName": "English",
+    "services": {
+        "linked": "Linked account",
+        "not_linked": "Link an account",
+        "add_bot": "Add a bot"
+    },
+    "languages": {
+        "select_lang": "Select language",
+        "gb": "English",
+        "fr": "French",
+        "ru": "Russian",
+        "es": "Spanish",
+        "de": "German"
+    },
+    "error": {
+        "invalid_login": "Invalid login or password",
+        "invalid_register": "Invalid registration"
+    },
+    "dico": {
+        "actions": "Actions",
+        "email": "Email",
+        "error": "Error",
+        "language": "Language",
+        "login": "Login",
+        "logout": "Logout",
+        "name": "Name",
+        "password": "Password",
+        "profile": "Profile",
+        "register": "Register",
+        "clear": "Clear",
+        "services": "Services",
+        "status": "Status",
+        "username": "Username"
+    }
+}

@@ -16,11 +16,20 @@ import EspeenIcon from "../../../icons/espeenIcon";
 import { CircleUserRound } from "lucide-react";
 import { getPagesConfigs } from "../../../../router/routesConfig";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 
 /* ----- COMPONENT ----- */
 const NavBar: React.FC = () => {
     const pagesConfigs = getPagesConfigs();
+    const { t } = useTranslation();
+
+    function getPageName(pageName: string): string {
+        if (pageName[0] === pageName[0].toUpperCase()) {
+            return pageName;
+        }
+        return t(`dico.${pageName}`);
+    }
 
     return (
         <div className={css.navbar}>
@@ -34,7 +43,7 @@ const NavBar: React.FC = () => {
                     }
                     return (
                         <NavLink key={pageConfig.name} to={pageConfig.path} className={({ isActive }) => `${isActive ? css.activeLink : ''} textStyle-navbarLink color-light ${css.navbarLink}`}>
-                            {pageConfig.name}
+                            {getPageName(pageConfig.name)}
                         </NavLink>
                     )
                 })}

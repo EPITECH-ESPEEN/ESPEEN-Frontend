@@ -10,23 +10,23 @@
 
 /* ----- IMPORTS ----- */
 import React from 'react';
-import css from "./modal.module.css";
+import css from "./modalError.module.css";
+import { useTranslation } from 'react-i18next';
 
 
 /* ----- PROPS ----- */
-interface ModalProps {
-    title: string;
+interface ModalErrorProps {
     message: string;
-    onClose?: () => void;
+    onClose: () => void;
 }
 
 
 /* ----- COMPONENT ----- */
-const Modal: React.FC<ModalProps> = ({ title, message, onClose }) => {
-    if (!title || !message) return null;
+const ModalError: React.FC<ModalErrorProps> = ({ message, onClose }) => {
+    const { t } = useTranslation();
 
     return (
-        <div className={css.modalOverlay}>
+        <div className={css.modalerrorOverlay}>
             <div className={css.card} onClick={e => e.stopPropagation()}>
                 { onClose && (
                     <div>
@@ -34,7 +34,7 @@ const Modal: React.FC<ModalProps> = ({ title, message, onClose }) => {
                     </div>
                 )}
                 <div className={css.content}>
-                    <div className="textStyle-title color-dark">{title}</div>
+                    <div className="textStyle-title color-dark">{t('dico.error')}</div>
                     <div className="textStyle-text color-dark">{message}</div>
                 </div>
             </div>
@@ -42,4 +42,4 @@ const Modal: React.FC<ModalProps> = ({ title, message, onClose }) => {
     );
 };
 
-export default Modal;
+export default ModalError;

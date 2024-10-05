@@ -20,10 +20,10 @@ import { PageConfig } from "../types/routeConfig";
 /* ----- DATAS ----- */
 const PagesConfigs: PageConfig[] = [
     { name: 'Espeen', content: EspeenPage, logged: false, accessible: true, path: "/" },
-    { name: 'Services', content: ServicesPage, logged: true, accessible: true, path: "/services" },
-    { name: 'Area', content: AreaPage, logged: true, accessible: true, path: "/area" },
-    { name: 'Profile', content: ProfilePage, logged: true, accessible: false, path: "/profile" },
-    { name: 'Login', content: LoginPage, logged: false, accessible: false, path: "/login" },
+    { name: 'services', content: ServicesPage, logged: true, accessible: true, path: "/services" },
+    { name: 'AREA', content: AreaPage, logged: true, accessible: true, path: "/area" },
+    { name: 'profile', content: ProfilePage, logged: true, accessible: false, path: "/profile" },
+    { name: 'login', content: LoginPage, logged: false, accessible: false, path: "/login" },
 ]
 
 /* ----- FUNCTIONS ----- */

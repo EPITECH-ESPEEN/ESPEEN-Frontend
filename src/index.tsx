@@ -17,12 +17,21 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { store } from "./redux/store";
+import { setDefaultLanguage } from './i18n/i18n';
 
 
 /* ----- RENDER ----- */
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
+
+if (!root) {
+    console.error("Root element not found");
+    process.exit(1);
+}
+
+setDefaultLanguage();
+
 root.render(
     <React.StrictMode>
         <Provider store={store}>

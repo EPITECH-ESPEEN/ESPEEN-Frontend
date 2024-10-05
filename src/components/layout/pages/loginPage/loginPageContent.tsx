@@ -17,10 +17,12 @@ import { NavLink } from "react-router-dom";
 import LoginForm from "../../../auth/loginForm";
 import TabButton from "../../../buttons/tabButton/tabButton";
 import RegisterForm from "../../../auth/registerForm";
+import { useTranslation } from "react-i18next";
 
 /* ----- COMPONENT ----- */
 const LoginPageContent: React.FC = () => {
     const [loginTab, setLoginTab] = useState<boolean>(true);
+    const { t } = useTranslation();
 
     return (
         <div className={css.container}>
@@ -35,12 +37,12 @@ const LoginPageContent: React.FC = () => {
                 <div className={css.formContainer}>
                     <div className={css.tabs}>
                         <TabButton
-                            label="Login"
+                            label={t("dico.login")}
                             isActive={loginTab}
                             onClick={() => setLoginTab(true)}
                             />
                         <TabButton
-                            label="Sign Up"
+                            label={t("dico.register")}
                             isActive={!loginTab}
                             onClick={() => setLoginTab(false)}
                             />

@@ -1,0 +1,37 @@
+{
+    "langCode": "fr",
+    "langName": "Français",
+    "services": {
+        "linked": "Compte lié",
+        "not_linked": "Associer un compte",
+        "add_bot": "Ajouter un bot"
+    },
+    "languages": {
+        "select_lang": "Sélectionner la langue",
+        "gb": "Anglais",
+        "fr": "Français",
+        "ru": "Russe",
+        "es": "Espagnol",
+        "de": "Allemand"
+    },
+    "error": {
+        "invalid_login": "Login ou mot de passe invalide",
+        "invalid_register": "Inscription invalide"
+    },
+    "dico": {
+        "actions": "Actes",
+        "email": "E-mail",
+        "error": "Erreur",
+        "language": "Langue",
+        "login": "Se connecter",
+        "logout": "Déconnexion",
+        "name": "Nom",
+        "password": "Mot de passe",
+        "profile": "Profil",
+        "register": "Registre",
+        "clear": "Clair",
+        "services": "Services",
+        "status": "Statut",
+        "username": "Nom d'utilisateur"
+    }
+}

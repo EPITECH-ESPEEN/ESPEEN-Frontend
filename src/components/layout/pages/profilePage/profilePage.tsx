@@ -13,17 +13,21 @@
 import React from "react";
 import Button from "../../../buttons/default/button";
 import css from "./profilePage.module.css";
+import LangSelecter from "./langSelecter";
+import { useTranslation } from "react-i18next";
 
 
 /* ----- COMPONENT ----- */
 const ProfilePageContent: React.FC = () => {
     const username = sessionStorage.getItem("username");
+    const { t } = useTranslation();
 
     return (
         <div className={css.container}>
             <div className="textStyle-title">Hello {username}</div>
+            <LangSelecter />
             <Button
-                label="Logout"
+                label={t("dico.logout")}
                 onClick={() => {
                     sessionStorage.removeItem("username");
                     sessionStorage.removeItem("token");

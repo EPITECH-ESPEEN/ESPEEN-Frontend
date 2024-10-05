@@ -1,0 +1,37 @@
+{
+    "langCode": "es",
+    "langName": "Spanish",
+    "services": {
+        "linked": "Cuenta vinculada",
+        "not_linked": "Vincular una cuenta",
+        "add_bot": "Agregar un bot"
+    },
+    "languages": {
+        "select_lang": "Seleccione idioma",
+        "gb": "Inglés",
+        "fr": "Francés",
+        "ru": "ruso",
+        "es": "Español",
+        "de": "Alemán"
+    },
+    "error": {
+        "invalid_login": "Usuario o contraseña no válidos",
+        "invalid_register": "Registro inválido"
+    },
+    "dico": {
+        "actions": "Comportamiento",
+        "email": "Correo electrónico",
+        "error": "Error",
+        "language": "Idioma",
+        "login": "Acceso",
+        "logout": "Cerrar sesión",
+        "name": "Nombre",
+        "password": "Contraseña",
+        "profile": "Perfil",
+        "register": "Registro",
+        "clear": "Claro",
+        "services": "Servicios",
+        "status": "Estado",
+        "username": "Nombre de usuario"
+    }
+}
