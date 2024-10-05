@@ -12,6 +12,7 @@
 /* ----- IMPORTS ----- */
 import React from "react";
 import MetaData from "../components/layout/metaData";
+import AreaPageContent from "../components/layout/pages/areaPage/areaPageContent";
 
 
 /* ----- COMPONENT ----- */
@@ -19,8 +20,7 @@ const AreaPage: React.FC = () => {
     return (
         <div>
             <MetaData title="AREA" />
-            <div className="h-[80px]"></div>
-            <div>Area Page</div>
+            <AreaPageContent />
         </div>
     );
 };

@@ -16,7 +16,7 @@ import { useRegisterMutation } from "../../redux/api/authApi";
 import css from "./authForm.module.css";
 import Button from "../buttons/default/button";
 import InputWithIcon from "../inputs/withIcon/withIcon";
-import ModalError from "../modal/modalError";
+import ModalError from "../modal/error/modalError";
 import { useTranslation } from "react-i18next";
 
 
