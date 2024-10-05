@@ -28,6 +28,7 @@ function App() {
 
     useEffect(() => {
         const tryConnection = async () => {
+            // TODO: REMOVE THE TOKEN FROM THE SESSION STORAGE !!!!
             const username = sessionStorage.getItem("username");
             const token = sessionStorage.getItem("token");
             if (username && token) {

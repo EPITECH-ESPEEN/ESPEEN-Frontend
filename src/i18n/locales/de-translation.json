@@ -2,6 +2,7 @@
     "langCode": "de",
     "langName": "German",
     "services": {
+        "search": "Suche einen Dienst...",
         "linked": "Verknüpftes Konto",
         "not_linked": "Ein Konto verknüpfen",
         "add_bot": "Einen Bot hinzufügen"

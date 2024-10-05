@@ -2,6 +2,7 @@
     "langCode": "en",
     "langName": "English",
     "services": {
+        "search": "Search a service...",
         "linked": "Linked account",
         "not_linked": "Link an account",
         "add_bot": "Add a bot"

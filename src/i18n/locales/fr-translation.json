@@ -2,6 +2,7 @@
     "langCode": "fr",
     "langName": "Français",
     "services": {
+        "search": "Rechercher un service...",
         "linked": "Compte lié",
         "not_linked": "Associer un compte",
         "add_bot": "Ajouter un bot"

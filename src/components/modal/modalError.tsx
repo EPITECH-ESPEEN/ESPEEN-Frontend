@@ -1,5 +1,6 @@
 /*
     Author:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
     („• ֊ •„)❤

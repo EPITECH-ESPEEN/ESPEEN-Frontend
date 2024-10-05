@@ -2,6 +2,7 @@
     "langCode": "ru",
     "langName": "Russe",
     "services": {
+        "search": "Поиск услуги...",
         "linked": "Связанный аккаунт",
         "not_linked": "Привязать аккаунт",
         "add_bot": "Добавить бота"

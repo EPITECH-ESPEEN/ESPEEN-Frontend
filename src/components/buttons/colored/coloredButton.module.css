@@ -1,0 +1,20 @@
+/*
+    Authors:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤
+    ┏━U━━━U━━━━━━━━━━━━━┓
+    ┃ Have a good day !             ┃
+    ┗━━━━━━━━━━━━━━━━━━━┛
+*/
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 15px;
+    transition: all 0.3s;
+    border-radius: 15px;
+    color: var(--color-light);
+}
