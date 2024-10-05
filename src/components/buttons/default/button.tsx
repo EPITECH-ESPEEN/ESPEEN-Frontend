@@ -16,14 +16,14 @@ import css from "./button.module.css"
 /* ----- PROPS ----- */
 interface ButtonProps {
     label: string;
-    disabled: boolean;
     onClick: () => void;
+    disabled?: boolean;
     type?: "button" | "submit" | "reset";
 };
 
 
 /* ----- COMPONENT ----- */
-const Button: React.FC<ButtonProps> = ({ label, disabled, onClick, type = "button" }) => {
+const Button: React.FC<ButtonProps> = ({ label, disabled = false, onClick, type = "button" }) => {
     return (
         <button
             type={type}

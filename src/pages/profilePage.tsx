@@ -12,6 +12,7 @@
 /* ----- IMPORTS ----- */
 import React from "react";
 import MetaData from "../components/layout/metaData";
+import ProfilePageContent from "../components/layout/pages/profilePage/profilePage";
 
 
 /* ----- COMPONENT ----- */
@@ -19,8 +20,7 @@ const ProfilePage: React.FC = () => {
     return (
         <div>
             <MetaData title="Profile" />
-            <div className="h-[80px]"></div>
-            <div>Profile Page</div>
+            <ProfilePageContent />
         </div>
     );
 };
