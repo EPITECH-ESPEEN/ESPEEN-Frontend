@@ -34,6 +34,10 @@ const LoginForm: React.FC = () => {
             password,
         };
         login(loginData);
+        if (!error) {
+            sessionStorage.setItem("username", username);
+            sessionStorage.setItem("token", password);
+        }
     };
 
     useEffect(() => {

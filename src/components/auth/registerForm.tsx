@@ -36,6 +36,10 @@ const RegisterForm: React.FC = () => {
             password,
         };
         register(registerData);
+        if (!error) {
+            sessionStorage.setItem("username", username);
+            sessionStorage.setItem("token", password);
+        }
     };
 
     useEffect(() => {
