@@ -10,6 +10,7 @@
 */
 
 .container {
+    position: relative;
     width: 100%;
     height: 100%;
     display: flex;
@@ -18,6 +19,13 @@
     align-items: center;
     padding: 50px 100px;
     gap: 50px;
+}
+
+.saveButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 20px;
 }
 
 .dividerVertical {
