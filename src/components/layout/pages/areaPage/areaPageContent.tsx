@@ -19,8 +19,8 @@ import Selecter from "../../../selecter/default/selecter";
 import SelecterWithTraduction from "../../../selecter/withTrad/selecter";
 import { IServiceSelecterItem } from "../../../../types/Services";
 import { getAreaServicesActions, getAreaServicesReactions } from "../../../../services/services";
-import { Loader } from "lucide-react";
-import Button from "../../../buttons/default/button";
+import { Loader, Save } from "lucide-react";
+import IconButton from "../../../buttons/icon/icon";
 
 
 /* ----- COMPONENT ----- */
@@ -53,11 +53,6 @@ const AreaPageContent: React.FC = () => {
         console.log("Save");
     }
 
-    const handleDelete = () => {
-        // TODO: Delete the data
-        console.log("Delete");
-    }
-
     useEffect(() => {
         if (servicesAction && servicesReaction) return;
         const fetchData = async () => {
@@ -82,6 +77,9 @@ const AreaPageContent: React.FC = () => {
         <div className="flex flex-col h-[100vh]">
             <div className="h-[80px]"></div>
             <div className={css.container}>
+                <div className={css.saveButton}>
+                    <IconButton icon={Save} onClick={handleSave} />
+                </div>
                 <div className="flex flex-col w-full">
                     <div className="textStyle-title color-light">{t("dico.action")}</div>
                     <Selecter
