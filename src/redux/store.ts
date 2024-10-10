@@ -11,20 +11,30 @@
 
 /* ----- IMPORTS ----- */
 import { configureStore } from "@reduxjs/toolkit";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import userReducer from "./features/userSlice";
 import { userApi } from "./api/userApi";
 import { authApi } from "./api/authApi";
-import userReducer from "./features/userSlice";
-
 
 /* ----- FUNCTIONS ----- */
+const persistConfig = {
+    key: "root",
+    storage,
+};
+
+const persistedReducer = persistReducer(persistConfig, userReducer);
+
 export const store = configureStore({
     reducer: {
-        auth: userReducer,
+        auth: persistedReducer,
         [userApi.reducerPath]: userApi.reducer,
         [authApi.reducerPath]: authApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat([
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }).concat([
         userApi.middleware,
         authApi.middleware,
     ]),
@@ -32,3 +42,5 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
+export const persistor = persistStore(store);

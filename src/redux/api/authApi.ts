@@ -12,6 +12,7 @@
 /* ----- IMPORTS ----- */
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { userApi } from "./userApi";
+import { logout } from "../features/userSlice";
 
 
 /* ----- TYPES ----- */
@@ -51,6 +52,13 @@ export const authApi = createApi({
         }),
         logout: builder.query<void, void>({
             query: () => "/logout",
+            async onQueryStarted(args, { dispatch, queryFulfilled }) {
+                try {
+                    dispatch(logout());
+                } catch (error) {
+                    console.log(error);
+                }
+            },
         }),
         register: builder.mutation<void, RegisterRequestBody>({
             query(body) {
