@@ -93,6 +93,7 @@ const AreaPageContent: React.FC = () => {
                         selectedValue={selectedaction}
                         onItemChange={setSelectedAction}
                         placeholder={t("area.select_action")}
+                        baseTraduction="area.label."
                     />
                 </div>
                 <Divider direction="vertical" className={css.dividerVertical} />

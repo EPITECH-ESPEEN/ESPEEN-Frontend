@@ -9,6 +9,14 @@
         "es": "Espagnol",
         "de": "Allemand"
     },
+    "color_blind": {
+        "select_color_blind": "Sélectionnez le mode daltonien",
+        "default": "Défaut",
+        "protanopia": "Protanopie",
+        "deuteranopia": "Deutéranopie",
+        "tritanopia": "Tritanopie",
+        "achromatopsia": "Achromatopsie"
+    },
     "error": {
         "invalid_login": "Login ou mot de passe invalide",
         "invalid_register": "Inscription invalide"

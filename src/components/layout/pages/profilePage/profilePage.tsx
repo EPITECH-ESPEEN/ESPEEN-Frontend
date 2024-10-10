@@ -15,6 +15,7 @@ import Button from "../../../buttons/default/button";
 import css from "./profilePage.module.css";
 import LangSelecter from "./langSelecter";
 import { useTranslation } from "react-i18next";
+import ColorBlindSelecter from "./colorBlindSelecter";
 
 
 /* ----- COMPONENT ----- */
@@ -26,6 +27,7 @@ const ProfilePageContent: React.FC = () => {
         <div className={css.container}>
             <div className="textStyle-title">Hello {username}</div>
             <LangSelecter />
+            <ColorBlindSelecter />
             <Button
                 label={t("dico.logout")}
                 onClick={() => {

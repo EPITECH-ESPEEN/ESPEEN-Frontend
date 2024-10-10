@@ -19,6 +19,7 @@ import { useTranslation } from 'react-i18next';
 
 /* ----- PROPS ----- */
 interface SelectorProps {
+    baseTraduction?: string;
     options: ISelecterItem[];
     selectedValue: ISelecterItem | null;
     onItemChange: (item: ISelecterItem) => void;
@@ -27,7 +28,7 @@ interface SelectorProps {
 
 
 /* ----- COMPONENT ----- */
-const SelecterWithTraduction: React.FC<SelectorProps> = ({ options, selectedValue, onItemChange, placeholder }) => {
+const SelecterWithTraduction: React.FC<SelectorProps> = ({ baseTraduction = "", options, selectedValue, onItemChange, placeholder }) => {
     const { t } = useTranslation();
     const [isModalVisible, setModalVisible] = useState(false);
 
@@ -40,7 +41,7 @@ const SelecterWithTraduction: React.FC<SelectorProps> = ({ options, selectedValu
         <div className={css.container}>
             <div className={css.selector} onClick={() => setModalVisible(true)}>
                 <span className={css.text}>
-                    {selectedValue ? t(`area.label.${selectedValue.label}`) : placeholder}
+                    {selectedValue ? t(`${baseTraduction}${selectedValue.label}`) : placeholder}
                 </span>
                 <ChevronDown size={24} color="var(--color-light)" />
             </div>
@@ -52,7 +53,7 @@ const SelecterWithTraduction: React.FC<SelectorProps> = ({ options, selectedValu
                         <ul className={css.optionsList}>
                             {options.map((item) => (
                                 <li key={item.value} className={css.option} onClick={() => handleSelect(item)}>
-                                    <span className={css.optionText}>{t(`area.label.${item.label}`)}</span>
+                                    <span className={css.optionText}>{t(`${baseTraduction}${item.label}`)}</span>
                                 </li>
                             ))}
                         </ul>

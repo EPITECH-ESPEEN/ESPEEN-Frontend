@@ -9,6 +9,14 @@
         "es": "Spanish",
         "de": "German"
     },
+    "color_blind": {
+        "select_color_blind": "Select color blind mode",
+        "default": "Default",
+        "protanopia": "Protanopia",
+        "deuteranopia": "Deuteranopia",
+        "tritanopia": "Tritanopia",
+        "achromatopsia": "Achromatopsia"
+    },
     "error": {
         "invalid_login": "Invalid login or password",
         "invalid_register": "Invalid registration"

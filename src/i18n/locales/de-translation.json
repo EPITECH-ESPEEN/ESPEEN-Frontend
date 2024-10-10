@@ -9,6 +9,14 @@
         "es": "Spanisch",
         "de": "Deutsch"
     },
+    "color_blind": {
+        "select_color_blind": "Wählen Sie den Farbenblindheitsmodus",
+        "default": "Standard",
+        "protanopia": "Protanopie",
+        "deuteranopia": "Deuteranopie",
+        "tritanopia": "Tritanopie",
+        "achromatopsia": "Achromatopsie"
+    },
     "error": {
         "invalid_login": "Ungültiger Login oder ungültiges Passwort",
         "invalid_register": "Ungültige Registrierung"
@@ -46,7 +54,7 @@
             "send_friend_request": "Senden Sie eine Freundschaftsanfrage",
             "send_notification": "Senden einer Benachrichtigung",
             "send_private_message": "Senden Sie eine private Nachricht",
-            "share_story": "Eine Story teilen",
+            "share_story": "Teilen Sie eine Geschichte",
             "share_video": "Ein Video teilen",
             "song_started": "Lied hat begonnen",
             "story_seen": "Geschichte gesehen",

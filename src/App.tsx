@@ -18,6 +18,7 @@ import { getPagesConfigs } from "./router/routesConfig";
 import { useEffect, useState } from "react";
 import Loader from "./components/loading/loader";
 import { useLoginMutation } from "./redux/api/authApi";
+import { setDefaultColorBlind } from "./services/colorBlind";
 
 
 /* ----- COMPONENT ----- */
@@ -39,6 +40,7 @@ function App() {
                 await login(loginData);
             }
             setLoadingRessources(false);
+            setDefaultColorBlind();
         }
         tryConnection();
     }, [login]);

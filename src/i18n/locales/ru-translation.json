@@ -9,6 +9,14 @@
         "es": "испанский",
         "de": "немецкий"
     },
+    "color_blind": {
+        "select_color_blind": "Выберите режим цветовой слепоты",
+        "default": "По умолчанию",
+        "protanopia": "протанопия",
+        "deuteranopia": "Дейтеранопия",
+        "tritanopia": "Тританопия",
+        "achromatopsia": "Ахроматопсия"
+    },
     "error": {
         "invalid_login": "Неверный логин или пароль",
         "invalid_register": "Недействительная регистрация"

@@ -9,6 +9,14 @@
         "es": "Español",
         "de": "Alemán"
     },
+    "color_blind": {
+        "select_color_blind": "Seleccionar el modo para daltónicos",
+        "default": "Por defecto",
+        "protanopia": "Protanopía",
+        "deuteranopia": "Deuteranopia",
+        "tritanopia": "Tritanopía",
+        "achromatopsia": "acromatopsia"
+    },
     "error": {
         "invalid_login": "Usuario o contraseña no válidos",
         "invalid_register": "Registro inválido"
