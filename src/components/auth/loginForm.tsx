@@ -12,12 +12,15 @@
 /* ----- IMPORTS ----- */
 import { UserRound, Lock } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 import { useLoginMutation } from "../../redux/api/authApi";
 import css from "./authForm.module.css";
 import Button from "../buttons/default/button";
 import InputWithIcon from "../inputs/withIcon/withIcon";
 import ModalError from "../modal/error/modalError";
-import { useTranslation } from "react-i18next";
 
 
 /* ----- COMPONENT ----- */
@@ -25,7 +28,11 @@ const LoginForm: React.FC = () => {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [isError, setIsError] = useState<boolean>(false);
+
+    const navigate = useNavigate();
+
     const [login, { error }] = useLoginMutation();
+    const { isAuthenticated } = useSelector((state: any) => state.auth);
     const { t } = useTranslation();
 
 
@@ -36,17 +43,16 @@ const LoginForm: React.FC = () => {
             password,
         };
         login(loginData);
-        if (!error) {
-            sessionStorage.setItem("username", username);
-            sessionStorage.setItem("token", password);
-        }
     };
 
     useEffect(() => {
+        if (isAuthenticated) {
+            navigate("/");
+        }
         if (error) {
             setIsError(true);
         }
-    }, [error]);
+    }, [error, isAuthenticated, navigate]);
 
     return (
         <>
