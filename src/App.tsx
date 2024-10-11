@@ -26,11 +26,10 @@ function App() {
     const pagesConfigs = getPagesConfigs();
     const [loadingressources, setLoadingRessources] = useState<boolean>(true);
 
-//TODO @dragusheen: Check if it's correct
     useEffect(() => {
-        setLoadingRessources(false);
         setDefaultColorBlind();
-    });    
+        setLoadingRessources(false);
+    }, []);
 
     if (loadingressources) {
         return (
