@@ -16,6 +16,7 @@ import storage from "redux-persist/lib/storage";
 import userReducer from "./features/userSlice";
 import { userApi } from "./api/userApi";
 import { authApi } from "./api/authApi";
+import { googleServiceApi } from "./api/googleServiceApi";
 
 /* ----- FUNCTIONS ----- */
 const persistConfig = {
@@ -30,6 +31,7 @@ export const store = configureStore({
         auth: persistedReducer,
         [userApi.reducerPath]: userApi.reducer,
         [authApi.reducerPath]: authApi.reducer,
+        [googleServiceApi.reducerPath]: googleServiceApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
@@ -37,6 +39,7 @@ export const store = configureStore({
         }).concat([
         userApi.middleware,
         authApi.middleware,
+        googleServiceApi.middleware,
     ]),
 });
 
