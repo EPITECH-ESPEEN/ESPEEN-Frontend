@@ -10,14 +10,14 @@
 */
 
 /* ----- IMPORTS ----- */
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import NavBar from "./components/layout/navbar/navbar";
 import Footer from "./components/layout/footer";
+import Loader from "./components/loading/loader";
 import PrivateRoute from "./components/auth/privateRoute";
 import { getPagesConfigs } from "./router/routesConfig";
-import { useEffect, useState } from "react";
-import Loader from "./components/loading/loader";
-import { useLoginMutation } from "./redux/api/authApi";
 import { setDefaultColorBlind } from "./services/colorBlind";
 
 
@@ -25,25 +25,11 @@ import { setDefaultColorBlind } from "./services/colorBlind";
 function App() {
     const pagesConfigs = getPagesConfigs();
     const [loadingressources, setLoadingRessources] = useState<boolean>(true);
-    const [login, { error }] = useLoginMutation();
 
     useEffect(() => {
-        const tryConnection = async () => {
-            // TODO: REMOVE THE TOKEN FROM THE SESSION STORAGE !!!!
-            const username = sessionStorage.getItem("username");
-            const token = sessionStorage.getItem("token");
-            if (username && token) {
-                const loginData = {
-                    username,
-                    password: token,
-                };
-                await login(loginData);
-            }
-            setLoadingRessources(false);
-            setDefaultColorBlind();
-        }
-        tryConnection();
-    }, [login]);
+        setDefaultColorBlind();
+        setLoadingRessources(false);
+    }, []);
 
     if (loadingressources) {
         return (

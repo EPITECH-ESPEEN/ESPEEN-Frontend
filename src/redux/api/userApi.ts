@@ -42,15 +42,13 @@ export const userApi = createApi({
             query: () => `/profile`,
             transformResponse: (result: ProfileResponse) => result.user,
             async onQueryStarted(args, { dispatch, queryFulfilled }) {
-            try {
-                const { data } = await queryFulfilled;
-                dispatch(setUser(data));
-                dispatch(setIsAuthenticated(true));
-                // dispatch(setLoading(false));
-            } catch (error) {
-                // dispatch(setLoading(false));
-                console.log(error);
-            }
+                try {
+                    const { data } = await queryFulfilled;
+                    dispatch(setUser(data));
+                    dispatch(setIsAuthenticated(true));
+                } catch (error) {
+                    console.log(error);
+                }
             },
             providesTags: [{ type: "User" }],
         }),
