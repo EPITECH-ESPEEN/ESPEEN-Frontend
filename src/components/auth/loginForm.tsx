@@ -11,13 +11,13 @@
 
 /* ----- IMPORTS ----- */
 import { UserRound, Lock } from "lucide-react";
-import React, { useEffect, useState } from "react";
-import { useLoginMutation } from "../../redux/api/authApi";
+import React, { useState } from "react";
 import css from "./authForm.module.css";
 import Button from "../buttons/default/button";
 import InputWithIcon from "../inputs/withIcon/withIcon";
 import ModalError from "../modal/error/modalError";
 import { useTranslation } from "react-i18next";
+import { login } from "../../services/authServices";
 
 
 /* ----- COMPONENT ----- */
@@ -25,28 +25,16 @@ const LoginForm: React.FC = () => {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [isError, setIsError] = useState<boolean>(false);
-    const [login, { error }] = useLoginMutation();
     const { t } = useTranslation();
 
 
-    const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const loginData = {
-            username,
-            password,
-        };
-        login(loginData);
-        if (!error) {
-            sessionStorage.setItem("username", username);
-            sessionStorage.setItem("token", password);
-        }
-    };
-
-    useEffect(() => {
-        if (error) {
+        if (await login(username, password))
+            window.location.reload();
+        else
             setIsError(true);
-        }
-    }, [error]);
+    };
 
     return (
         <>
@@ -65,7 +53,7 @@ const LoginForm: React.FC = () => {
                     </div>
                 </form>
             </div>
-            {isError && error && <ModalError message={t('error.invalid_login')} onClose={() => {
+            {isError && <ModalError message={t('error.invalid_login')} onClose={() => {
                 setUsername("");
                 setPassword("");
                 setIsError(false);

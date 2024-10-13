@@ -10,23 +10,19 @@
 */
 
 /* ----- IMPORTS ----- */
-import React, { useEffect } from "react";
+import React from "react";
 import MetaData from "../components/layout/metaData";
 import LoginPageContent from "../components/layout/pages/loginPage/loginPageContent";
-import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
 import { useNavigate } from "react-router-dom";
+import { isAuthenticated } from "../services/authServices";
 
 
 /* ----- COMPONENT ----- */
 const LoginPage: React.FC = () => {
     const navigate = useNavigate();
-    const { isAuthenticated } = useSelector((state: RootState) => state.auth);
 
-    useEffect(() => {
-        if (isAuthenticated)
-            navigate("/");
-    }, [isAuthenticated, navigate]);
+    if (isAuthenticated())
+        navigate("/");
 
     return (
         <>

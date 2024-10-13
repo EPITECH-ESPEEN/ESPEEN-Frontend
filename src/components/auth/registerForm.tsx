@@ -11,13 +11,13 @@
 
 /* ----- IMPORTS ----- */
 import { UserRound, Mail, Lock } from "lucide-react";
-import React, { useEffect, useState } from "react";
-import { useRegisterMutation } from "../../redux/api/authApi";
+import React, { useState } from "react";
 import css from "./authForm.module.css";
 import Button from "../buttons/default/button";
 import InputWithIcon from "../inputs/withIcon/withIcon";
 import ModalError from "../modal/error/modalError";
 import { useTranslation } from "react-i18next";
+import { register } from "../../services/authServices";
 
 
 /* ----- COMPONENT ----- */
@@ -26,28 +26,15 @@ const RegisterForm: React.FC = () => {
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [isError, setIsError] = useState<boolean>(false);
-    const [register, { error }] = useRegisterMutation();
     const { t } = useTranslation();
 
-    const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const registerData = {
-            username,
-            email,
-            password,
-        };
-        register(registerData);
-        if (!error) {
-            sessionStorage.setItem("username", username);
-            sessionStorage.setItem("token", password);
-        }
-    };
-
-    useEffect(() => {
-        if (error) {
+        if (await register(username, email, password))
+            window.location.reload();
+        else
             setIsError(true);
-        }
-    }, [error]);
+    };
 
     return (
         <>
@@ -67,8 +54,9 @@ const RegisterForm: React.FC = () => {
                     </div>
                     </form>
             </div>
-            {isError && error && <ModalError message={t('error.invalid_register')} onClose={() => {
+            {isError && <ModalError message={t('error.invalid_register')} onClose={() => {
                 setUsername("");
+                setEmail("");
                 setPassword("");
                 setIsError(false);
             }} />}

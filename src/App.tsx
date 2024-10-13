@@ -17,33 +17,23 @@ import PrivateRoute from "./components/auth/privateRoute";
 import { getPagesConfigs } from "./router/routesConfig";
 import { useEffect, useState } from "react";
 import Loader from "./components/loading/loader";
-import { useLoginMutation } from "./redux/api/authApi";
 import { setDefaultColorBlind } from "./services/colorBlind";
+import { setDefaultLanguage } from "./i18n/i18n";
 
 
 /* ----- COMPONENT ----- */
 function App() {
     const pagesConfigs = getPagesConfigs();
     const [loadingressources, setLoadingRessources] = useState<boolean>(true);
-    const [login, { error }] = useLoginMutation();
 
     useEffect(() => {
-        const tryConnection = async () => {
-            // TODO: REMOVE THE TOKEN FROM THE SESSION STORAGE !!!!
-            const username = sessionStorage.getItem("username");
-            const token = sessionStorage.getItem("token");
-            if (username && token) {
-                const loginData = {
-                    username,
-                    password: token,
-                };
-                await login(loginData);
-            }
-            setLoadingRessources(false);
+        const loadRessources = async () => {
             setDefaultColorBlind();
+            setDefaultLanguage();
+            setLoadingRessources(false);
         }
-        tryConnection();
-    }, [login]);
+        loadRessources();
+    }, []);
 
     if (loadingressources) {
         return (

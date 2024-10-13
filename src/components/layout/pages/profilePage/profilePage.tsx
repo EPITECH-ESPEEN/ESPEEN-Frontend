@@ -16,11 +16,12 @@ import css from "./profilePage.module.css";
 import LangSelecter from "./langSelecter";
 import { useTranslation } from "react-i18next";
 import ColorBlindSelecter from "./colorBlindSelecter";
+import { logout } from "../../../../services/authServices";
 
 
 /* ----- COMPONENT ----- */
 const ProfilePageContent: React.FC = () => {
-    const username = sessionStorage.getItem("username");
+    const username = localStorage.getItem("username");
     const { t } = useTranslation();
 
     return (
@@ -30,11 +31,7 @@ const ProfilePageContent: React.FC = () => {
             <ColorBlindSelecter />
             <Button
                 label={t("dico.logout")}
-                onClick={() => {
-                    sessionStorage.removeItem("username");
-                    sessionStorage.removeItem("token");
-                    window.location.reload();
-                }}
+                onClick={logout}
             />
         </div>
     );
