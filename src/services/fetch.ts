@@ -36,7 +36,7 @@ export function fetchPut(url: string, body: unknown) {
 export function fetchPost(url: string, body: unknown) {
     const completeUrl = `${API_URL}/${url}`;
     return fetch(completeUrl, {
-        method: "PUT",
+        method: "POST",
         headers: {
             'Content-Type': 'application/json',
             Authorization: "Bearer " + localStorage.getItem("authToken") || "",
