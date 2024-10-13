@@ -23,6 +23,7 @@ export const login = async (username: string, password: string): Promise<boolean
         responseJson = await response.json();
     } catch (error) {
         console.error("Error login:", error);
+        return false;
     }
     if (responseJson.access_token) {
         localStorage.setItem('authToken', responseJson.access_token);
@@ -43,6 +44,7 @@ export const register = async (username: string, email: string, password: string
         responseJson = await response.json();
     } catch (error) {
         console.error("Error register:", error);
+        return false;
     }
     if (responseJson.access_token) {
         localStorage.setItem('authToken', responseJson.access_token);
