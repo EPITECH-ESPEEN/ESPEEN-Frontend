@@ -24,7 +24,6 @@ const ProfilePageContent: React.FC = () => {
     const username = localStorage.getItem("username");
     const { t } = useTranslation();
 
-    const navigate = useNavigate();
 
     return (
         <div className={css.container}>

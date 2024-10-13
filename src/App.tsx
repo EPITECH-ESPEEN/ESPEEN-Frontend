@@ -12,14 +12,11 @@
 /* ----- IMPORTS ----- */
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import NavBar from "./components/layout/navbar/navbar";
 import Footer from "./components/layout/footer";
 import Loader from "./components/loading/loader";
 import PrivateRoute from "./components/auth/privateRoute";
 import { getPagesConfigs } from "./router/routesConfig";
-import { useEffect, useState } from "react";
-import Loader from "./components/loading/loader";
 import { setDefaultColorBlind } from "./services/colorBlind";
 import { setDefaultLanguage } from "./i18n/i18n";
 

@@ -27,11 +27,10 @@ interface ServiceCardProps {
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     const { t } = useTranslation();
 
-        const callPath = async (action: IServiceButton) => {
-                const response = await fetchGet(action.path);
-                console.log(response);
-        }
-    };
+    const callPath = async (action: IServiceButton) => {
+            const response = await fetchGet(action.path);
+            console.log(response);
+    }
 
     return (
         <div className={css.container}>
