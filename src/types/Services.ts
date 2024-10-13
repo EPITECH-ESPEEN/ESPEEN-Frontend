@@ -28,7 +28,6 @@ export interface IServiceReaction {
 export interface IService {
     service_id: number;
     name: string;
-    status: boolean;
     icon: string;
     buttons: IServiceButton[];
     actions: IServiceAction[];

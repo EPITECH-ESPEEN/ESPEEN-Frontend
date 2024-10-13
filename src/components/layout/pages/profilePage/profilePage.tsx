@@ -16,29 +16,15 @@ import css from "./profilePage.module.css";
 import LangSelecter from "./langSelecter";
 import { useTranslation } from "react-i18next";
 import ColorBlindSelecter from "./colorBlindSelecter";
-import { useLazyLogoutQuery } from "../../../../redux/api/authApi";
-import { useSelector } from 'react-redux';
-import { useNavigate } from "react-router-dom";
+import { logout } from "../../../../services/authServices";
 
 
 /* ----- COMPONENT ----- */
 const ProfilePageContent: React.FC = () => {
-    const { user } = useSelector((state: any) => state.auth);
-    const username = user.username;
+    const username = localStorage.getItem("username");
     const { t } = useTranslation();
 
     const navigate = useNavigate();
-
-    const [logout] = useLazyLogoutQuery();
-
-    const logoutHandler = () => {
-        logout();
-        navigate('/', { replace: true });
-    
-        setTimeout(() => {
-            window.location.reload();
-        }, 50);
-    };
 
     return (
         <div className={css.container}>
@@ -47,7 +33,7 @@ const ProfilePageContent: React.FC = () => {
             <ColorBlindSelecter />
             <Button
                 label={t("dico.logout")}
-                onClick={ logoutHandler}
+                onClick={logout}
             />
         </div>
     );

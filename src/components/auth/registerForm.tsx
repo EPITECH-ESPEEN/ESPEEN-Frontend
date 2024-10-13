@@ -11,16 +11,13 @@
 
 /* ----- IMPORTS ----- */
 import { UserRound, Mail, Lock } from "lucide-react";
-import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-
-import { useRegisterMutation } from "../../redux/api/authApi";
+import React, { useState } from "react";
 import css from "./authForm.module.css";
 import Button from "../buttons/default/button";
 import InputWithIcon from "../inputs/withIcon/withIcon";
 import ModalError from "../modal/error/modalError";
+import { useTranslation } from "react-i18next";
+import { register } from "../../services/authServices";
 
 
 /* ----- COMPONENT ----- */
@@ -29,31 +26,15 @@ const RegisterForm: React.FC = () => {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [isError, setIsError] = useState<boolean>(false);
-
-    const navigate = useNavigate();
-
-    const [register, { error }] = useRegisterMutation();
-    const { isAuthenticated } = useSelector((state: any) => state.auth);
     const { t } = useTranslation();
 
-    const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const registerData = {
-            email,
-            username,
-            password,
-        };
-        register(registerData);
-    };
-
-    useEffect(() => {
-        if (isAuthenticated) {
-            navigate("/");
-        }
-        if (error) {
+        if (await register(username, email, password))
+            window.location.reload();
+        else
             setIsError(true);
-        }
-    }, [error, isAuthenticated, navigate]);
+    };
 
     return (
         <>
@@ -73,8 +54,9 @@ const RegisterForm: React.FC = () => {
                     </div>
                     </form>
             </div>
-            {isError && error && <ModalError message={t('error.invalid_register')} onClose={() => {
+            {isError && <ModalError message={t('error.invalid_register')} onClose={() => {
                 setUsername("");
+                setEmail("");
                 setPassword("");
                 setIsError(false);
             }} />}

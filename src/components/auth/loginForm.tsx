@@ -11,16 +11,13 @@
 
 /* ----- IMPORTS ----- */
 import { UserRound, Lock } from "lucide-react";
-import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-
-import { useLoginMutation } from "../../redux/api/authApi";
+import React, { useState } from "react";
 import css from "./authForm.module.css";
 import Button from "../buttons/default/button";
 import InputWithIcon from "../inputs/withIcon/withIcon";
 import ModalError from "../modal/error/modalError";
+import { useTranslation } from "react-i18next";
+import { login } from "../../services/authServices";
 
 
 /* ----- COMPONENT ----- */
@@ -28,31 +25,16 @@ const LoginForm: React.FC = () => {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [isError, setIsError] = useState<boolean>(false);
-
-    const navigate = useNavigate();
-
-    const [login, { error }] = useLoginMutation();
-    const { isAuthenticated } = useSelector((state: any) => state.auth);
     const { t } = useTranslation();
 
 
-    const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const loginData = {
-            username,
-            password,
-        };
-        login(loginData);
-    };
-
-    useEffect(() => {
-        if (isAuthenticated) {
-            navigate("/");
-        }
-        if (error) {
+        if (await login(username, password))
+            window.location.reload();
+        else
             setIsError(true);
-        }
-    }, [error, isAuthenticated, navigate]);
+    };
 
     return (
         <>
@@ -71,7 +53,7 @@ const LoginForm: React.FC = () => {
                     </div>
                 </form>
             </div>
-            {isError && error && <ModalError message={t('error.invalid_login')} onClose={() => {
+            {isError && <ModalError message={t('error.invalid_login')} onClose={() => {
                 setUsername("");
                 setPassword("");
                 setIsError(false);

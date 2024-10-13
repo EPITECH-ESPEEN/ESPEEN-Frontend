@@ -18,7 +18,6 @@ async function getAreaServices(): Promise<IServiceSelecterItem[]> {
     const tmp = await getServices();
     const services: IServiceSelecterItem[] = [];
     tmp.forEach((service) => {
-        if (!service.status) return;
         services.push({
             item: {
                 label: service.name,

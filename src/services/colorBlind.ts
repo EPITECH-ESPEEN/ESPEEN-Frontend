@@ -43,7 +43,7 @@ export const colorBlindSelecterItem: ISelecterItem[] = [
 /* ----- FUNCTIONS ----- */
 export function changeColorBlind(value: string) {
     colorBlind = value;
-    sessionStorage.setItem("colorBlind", value);
+    localStorage.setItem("colorBlind", value);
 
     if (value === "")
         document.documentElement.removeAttribute("color-blind");
@@ -52,7 +52,7 @@ export function changeColorBlind(value: string) {
 }
 
 export function setDefaultColorBlind() {
-    const colorBlindValue = sessionStorage.getItem("colorBlind");
+    const colorBlindValue = localStorage.getItem("colorBlind");
     if (colorBlindValue)
         colorBlind = colorBlindValue;
     else

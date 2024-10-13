@@ -18,7 +18,10 @@ import Footer from "./components/layout/footer";
 import Loader from "./components/loading/loader";
 import PrivateRoute from "./components/auth/privateRoute";
 import { getPagesConfigs } from "./router/routesConfig";
+import { useEffect, useState } from "react";
+import Loader from "./components/loading/loader";
 import { setDefaultColorBlind } from "./services/colorBlind";
+import { setDefaultLanguage } from "./i18n/i18n";
 
 
 /* ----- COMPONENT ----- */
@@ -27,8 +30,12 @@ function App() {
     const [loadingressources, setLoadingRessources] = useState<boolean>(true);
 
     useEffect(() => {
-        setDefaultColorBlind();
-        setLoadingRessources(false);
+        const loadRessources = async () => {
+            setDefaultColorBlind();
+            setDefaultLanguage();
+            setLoadingRessources(false);
+        }
+        loadRessources();
     }, []);
 
     if (loadingressources) {

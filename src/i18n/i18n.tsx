@@ -48,17 +48,17 @@ let defaultLanguagesSet = false;
 export function setDefaultLanguage() {
     if (defaultLanguagesSet)
         return;
-    const language = sessionStorage.getItem("language");
+    const language = localStorage.getItem("language");
     if (language && i18n.language !== language)
         i18n.changeLanguage(language);
     else
-        sessionStorage.setItem("language", "gb");
+        localStorage.setItem("language", "gb");
     defaultLanguagesSet = true;
 }
 
 export function changeLanguage(language: string) {
     i18n.changeLanguage(language);
-    sessionStorage.setItem("language", language);
+    localStorage.setItem("language", language);
 }
 
 export default i18n;
