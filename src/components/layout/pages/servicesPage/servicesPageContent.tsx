@@ -35,7 +35,6 @@ const ServicesPageContent: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       const services = await getServices();
-      console.log("Services:", services);
       const tmp: IService[] = [];
       services.forEach((service) => {
         tmp.push(service);
