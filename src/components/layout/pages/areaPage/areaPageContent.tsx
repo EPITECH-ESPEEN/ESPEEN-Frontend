@@ -21,6 +21,7 @@ import { IServiceSelecterItem } from "../../../../types/Services";
 import { getAreaServicesActions, getAreaServicesReactions } from "../../../../services/services";
 import { Loader, Save } from "lucide-react";
 import IconButton from "../../../buttons/icon/icon";
+import { fetchPost } from "../../../../services/fetch";
 
 
 /* ----- COMPONENT ----- */
@@ -48,9 +49,10 @@ const AreaPageContent: React.FC = () => {
         setReactionDataOptions(servicesReaction!.find((service) => service.item.value === item.value)!.reactions);
     }
 
+    // TODO: post area
     const handleSave = () => {
-        // TODO: Save the data
-        console.log("Save");
+        const response = fetchPost("area", {})
+        console.log(response);
     }
 
     useEffect(() => {
