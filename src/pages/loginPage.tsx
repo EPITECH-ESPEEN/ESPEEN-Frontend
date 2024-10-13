@@ -10,7 +10,7 @@
 */
 
 /* ----- IMPORTS ----- */
-import React from "react";
+import React, { useEffect } from "react";
 import MetaData from "../components/layout/metaData";
 import LoginPageContent from "../components/layout/pages/loginPage/loginPageContent";
 import { useNavigate } from "react-router-dom";
@@ -21,8 +21,10 @@ import { isAuthenticated } from "../services/authServices";
 const LoginPage: React.FC = () => {
     const navigate = useNavigate();
 
-    if (isAuthenticated())
-        navigate("/");
+    useEffect(() => {
+        if (isAuthenticated())
+            navigate("/");
+    }, [navigate]);
 
     return (
         <>
