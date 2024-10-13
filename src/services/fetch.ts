@@ -8,13 +8,27 @@
     ┗━━━━━━━━━━━━━━━━━━━┛
 */
 
+/* ----- IMPORTS ----- */
+import axios from "axios";
+
+
 /* ----- DATAS ----- */
 const API_URL = "http://localhost:8080/api";
+
 
 /* ----- FUNCTIONS ----- */
 export function fetchGet(url: string) {
     const completeUrl = `${API_URL}/${url}`;
     return fetch(completeUrl, {
+        headers: {
+            Authorization: "Bearer " + localStorage.getItem("authToken") || "",
+        },
+    });
+}
+
+export function axiosGet(url: string) {
+    const completeUrl = `${API_URL}/${url}`;
+    axios.get(completeUrl, {
         headers: {
             Authorization: "Bearer " + localStorage.getItem("authToken") || "",
         },
