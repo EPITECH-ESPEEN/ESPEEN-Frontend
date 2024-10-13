@@ -13,6 +13,17 @@ import { fetchPost } from './fetch';
 
 
 /* ----- FUNCTIONS ----- */
+
+const setTokenCookie = (token: string): void => {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + 7 * 24 * 60 * 60 * 1000);
+    document.cookie = `authToken=${token};expires=${expires.toUTCString()};path=/`;
+};
+
+const deleteTokenCookie = (): void => {
+    document.cookie = "authToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+};
+
 export const login = async (username: string, password: string): Promise<boolean> => {
     let responseJson;
 
@@ -27,12 +38,12 @@ export const login = async (username: string, password: string): Promise<boolean
     }
     if (responseJson.access_token) {
         localStorage.setItem('authToken', responseJson.access_token);
+        setTokenCookie(responseJson.access_token);
         return true;
     } else {
-        return false
+        return false;
     }
 };
-
 
 export const register = async (username: string, email: string, password: string): Promise<boolean> => {
     let responseJson;
@@ -48,9 +59,10 @@ export const register = async (username: string, email: string, password: string
     }
     if (responseJson.access_token) {
         localStorage.setItem('authToken', responseJson.access_token);
+        setTokenCookie(responseJson.access_token);
         return true;
     } else {
-        return false
+        return false;
     }
 };
 
@@ -61,5 +73,6 @@ export const isAuthenticated = (): boolean => {
 
 export const logout = (): void => {
     localStorage.removeItem('authToken');
+    deleteTokenCookie();
     window.location.reload();
 };
