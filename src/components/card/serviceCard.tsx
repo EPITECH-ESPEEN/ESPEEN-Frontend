@@ -15,7 +15,7 @@ import { useTranslation } from "react-i18next";
 import { IService, IServiceButton } from "../../types/Services";
 import css from "./serviceCard.module.css";
 import ColoredButton from "../buttons/colored/coloredButton";
-import { fetchGet } from "../../services/fetch";
+import { getBaseUrl } from "../../services/fetch";
 
 
 /* ----- PROPS ----- */
@@ -28,8 +28,10 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     const { t } = useTranslation();
 
     const callPath = async (action: IServiceButton) => {
-            const response = await fetchGet(action.path);
-            console.log(response);
+            window.open(
+                `${getBaseUrl()}/${action.path}`,
+                '_blank'
+            );
     }
 
     return (
