@@ -17,40 +17,36 @@ import css from "./serviceCard.module.css";
 import ColoredButton from "../buttons/colored/coloredButton";
 import { getBaseUrl } from "../../services/fetch";
 
-
 /* ----- PROPS ----- */
 interface ServiceCardProps {
-    service: IService;
+  service: IService;
 }
 
 /* ----- COMPONENT ----- */
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
-    const callPath = async (action: IServiceButton) => {
-            window.open(
-                `${getBaseUrl()}/${action.path}`,
-                '_blank'
-            );
-    }
+  const callPath = async (action: IServiceButton) => {
+    window.location.href = `${getBaseUrl()}/${action.path}`;
+  };
 
-    return (
-        <div className={css.container}>
-            <img className={css.img} src={service.icon} alt="service icon" />
-            <div className={css.textsContainer}>
-                <div>
-                    <div className="textStyle-text color-dark">{t("dico.name")}</div>
-                    <div className="textStyle-title color-dark">{service.name}</div>
-                </div>
-                <div className={css.buttonContainer}>
-                    <div className="textStyle-text color-dark">{t("dico.actions")}</div>
-                    {service.buttons.map((action, index) => (
-                        <ColoredButton key={index} label={t(`services.${action.name}`)} onClick={() => callPath(action)} color={action.name === "linked" ? "green" : action.name === "not_linked" ? "red" : "dark"} />
-                    ))}
-                </div>
-            </div>
+  return (
+    <div className={css.container}>
+      <img className={css.img} src={service.icon} alt="service icon" />
+      <div className={css.textsContainer}>
+        <div>
+          <div className="textStyle-text color-dark">{t("dico.name")}</div>
+          <div className="textStyle-title color-dark">{service.name}</div>
         </div>
-    );
+        <div className={css.buttonContainer}>
+          <div className="textStyle-text color-dark">{t("dico.actions")}</div>
+          {service.buttons.map((action, index) => (
+            <ColoredButton key={index} label={t(`services.${action.name}`)} onClick={() => callPath(action)} color={action.name === "linked" ? "green" : action.name === "not_linked" ? "red" : "dark"} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default ServiceCard;
