@@ -10,112 +10,59 @@
 */
 
 /* ----- IMPORTS ----- */
-import React, { useEffect, useState } from "react";
-import css from "./areaPageContent.module.css";
-import { useTranslation } from "react-i18next";
-import Divider from "../../../divider/divider";
-import { ISelecterItem } from "../../../../types/Selecter";
-import Selecter from "../../../selecter/default/selecter";
-import SelecterWithTraduction from "../../../selecter/withTrad/selecter";
-import { IServiceSelecterItem } from "../../../../types/Services";
-import { getAreaServicesActions, getAreaServicesReactions } from "../../../../services/services";
-import { Loader, Save } from "lucide-react";
-import IconButton from "../../../buttons/icon/icon";
-import { fetchPost } from "../../../../services/fetch";
+import React, { useCallback } from "react";
+import {
+    ReactFlow,
+    Background,
+    useNodesState,
+    useEdgesState,
+    addEdge,
+} from '@xyflow/react';
+import '@xyflow/react/dist/style.css';
+import { IEdge, INode } from "../../../../types/Node";
+import { nodeTypes } from "../../../../store/Nodes";
 
 
 /* ----- COMPONENT ----- */
 const AreaPageContent: React.FC = () => {
-    const { t } = useTranslation();
-    const [servicesAction, setServicesAction] = useState<IServiceSelecterItem[] | null>(null);
-    const [selectedActionService, setSelectedActionService] = useState<ISelecterItem | null>(null);
-    const [selectedaction, setSelectedAction] = useState<ISelecterItem | null>(null);
-    const [actionDataOptions, setActionDataOptions] = useState<ISelecterItem[] | null>(null);
+    const initialNodes: INode[] = [
+        {
+            id: '1',
+            type: 'labelAction',
+            position: { x: 100, y: 100 },
+            data: { label: 'Node 1' },
+        },
+        {
+            id: '2',
+            type: 'labelReaction',
+            position: { x: 200, y: 200 },
+            data: { label: 'Node 2' },
+        },
+    ];
+    const initialEdges: IEdge[] = [];
 
-    const [servicesReaction, setServicesReaction] = useState<IServiceSelecterItem[] | null>(null);
-    const [selectedReactionService, setSelectedReactionService] = useState<ISelecterItem | null>(null);
-    const [selectedReaction, setSelectedReaction] = useState<ISelecterItem | null>(null);
-    const [reactionDataOptions, setReactionDataOptions] = useState<ISelecterItem[] | null>(null);
-
-    const handleSelectedActionServiceChange = (item: ISelecterItem) => {
-        setSelectedActionService(item);
-        setSelectedAction(null);
-        setActionDataOptions(servicesAction!.find((service) => service.item.value === item.value)!.actions);
-    }
-
-    const handleReselectedActionServiceChange = (item: ISelecterItem) => {
-        setSelectedReactionService(item);
-        setSelectedReaction(null);
-        setReactionDataOptions(servicesReaction!.find((service) => service.item.value === item.value)!.reactions);
-    }
-
-    // TODO: post area
-    const handleSave = () => {
-        const response = fetchPost("area", {})
-        console.log(response);
-    }
-
-    useEffect(() => {
-        if (servicesAction && servicesReaction) return;
-        const fetchData = async () => {
-            const tmp = await getAreaServicesActions();
-            setServicesAction(tmp);
-            const tmp2 = await getAreaServicesReactions();
-            setServicesReaction(tmp2);
-            console.log("data fetched");
-        }
-        fetchData();
-    });
-
-    if (!servicesAction || !servicesReaction)
-        return <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "80vh"
-        }}><Loader /></div>
+    const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+    const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+    const onConnect = useCallback(
+        (params: any) => {
+            const newEdge = { ...params, type: 'smoothstep' };
+            setEdges((eds) => addEdge(newEdge, eds));
+        },
+        [setEdges],
+    );
 
     return (
-        <div className="flex flex-col h-[100vh]">
-            <div className="h-[80px]"></div>
-            <div className={css.container}>
-                <div className={css.saveButton}>
-                    <IconButton icon={Save} onClick={handleSave} />
-                </div>
-                <div className="flex flex-col w-full">
-                    <div className="textStyle-title color-light">{t("dico.action")}</div>
-                    <Selecter
-                        options={servicesAction.map((service) => service.item)}
-                        selectedValue={selectedActionService}
-                        onItemChange={handleSelectedActionServiceChange}
-                        placeholder={t("area.select_service")}
-                    />
-                    <SelecterWithTraduction
-                        options={actionDataOptions || []}
-                        selectedValue={selectedaction}
-                        onItemChange={setSelectedAction}
-                        placeholder={t("area.select_action")}
-                        baseTraduction="area.label."
-                    />
-                </div>
-                <Divider direction="vertical" className={css.dividerVertical} />
-                <Divider className={css.dividerHorizontal} />
-                <div className="flex flex-col w-full">
-                    <div className="textStyle-title color-light">{t("dico.reaction")}</div>
-                    <Selecter
-                        options={servicesReaction.map((service) => service.item)}
-                        selectedValue={selectedReactionService}
-                        onItemChange={handleReselectedActionServiceChange}
-                        placeholder={t("area.select_service")}
-                    />
-                    <SelecterWithTraduction
-                        options={reactionDataOptions || []}
-                        selectedValue={selectedReaction}
-                        onItemChange={setSelectedReaction}
-                        placeholder={t("area.select_reaction")}
-                    />
-                </div>
-            </div>
+        <div style={{ width: '100vw', height: '100vh' }}>
+            <ReactFlow
+                nodes={nodes}
+                edges={edges}
+                onNodesChange={onNodesChange}
+                onEdgesChange={onEdgesChange}
+                onConnect={onConnect}
+                nodeTypes={nodeTypes}
+            >
+                <Background gap={12} size={1} />
+            </ReactFlow>
         </div>
     );
 };

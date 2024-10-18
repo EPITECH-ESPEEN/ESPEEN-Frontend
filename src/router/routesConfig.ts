@@ -21,7 +21,7 @@ import { PageConfig } from "../types/routeConfig";
 const PagesConfigs: PageConfig[] = [
     { name: 'Espeen', content: EspeenPage, logged: false, accessible: true, path: "/" },
     { name: 'services', content: ServicesPage, logged: true, accessible: true, path: "/services" },
-    { name: 'AREA', content: AreaPage, logged: true, accessible: true, path: "/area" },
+    { name: 'AREA', content: AreaPage, logged: false, accessible: true, path: "/area" },
     { name: 'profile', content: ProfilePage, logged: true, accessible: false, path: "/profile" },
     { name: 'login', content: LoginPage, logged: false, accessible: false, path: "/login" },
 ]
