@@ -3,19 +3,17 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import css from "./langSelecter.module.css";
-import { changeColorBlind, colorBlindSelecterItem, getColorBlind } from "../../../../services/colorBlind";
-import { ISelecterItem } from "../../../../types/Selecter";
-import SelecterWithTraduction from "../../../selecter/withTrad/selecter";
+import { changeColorBlind, colorBlindSelecterItem, getColorBlind } from "src/services/colorBlind";
+import { ISelecterItem } from "src/types/Selecter";
+import SelecterWithTraduction from "src/components/selecter/withTrad/selecter";
 
 
 /* ----- COMPONENT ----- */

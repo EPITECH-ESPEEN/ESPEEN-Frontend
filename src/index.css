@@ -3,18 +3,16 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import './styles/colors.css';
-@import './styles/texts.css';
+@import 'src/styles/colors.css';
+@import 'src/styles/texts.css';
 
 
 /* ----- STYLES ----- */

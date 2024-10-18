@@ -3,19 +3,17 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
-import EspeenPage from "../pages/espeenPage";
-import ServicesPage from "../pages/servicesPage";
-import AreaPage from "../pages/areaPage";
-import ProfilePage from "../pages/profilePage";
-import LoginPage from "../pages/loginPage";
-import { PageConfig } from "../types/routeConfig";
+import EspeenPage from "src/pages/espeenPage";
+import ServicesPage from "src/pages/servicesPage";
+import AreaPage from "src/pages/areaPage";
+import ProfilePage from "src/pages/profilePage";
+import LoginPage from "src/pages/loginPage";
+import { PageConfig } from "src/types/routeConfig";
 
 /* ----- DATAS ----- */
 const PagesConfigs: PageConfig[] = [

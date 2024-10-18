@@ -3,17 +3,15 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import 'src/index.css';
+import App from 'src/App';
 
 
 /* ----- RENDER ----- */

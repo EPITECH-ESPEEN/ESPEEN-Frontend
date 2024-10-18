@@ -3,25 +3,23 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 import React, { useEffect, useState } from "react";
 import css from "./areaPageContent.module.css";
 import { useTranslation } from "react-i18next";
-import Divider from "../../../divider/divider";
-import { ISelecterItem } from "../../../../types/Selecter";
-import Selecter from "../../../selecter/default/selecter";
-import SelecterWithTraduction from "../../../selecter/withTrad/selecter";
-import { IServiceSelecterItem } from "../../../../types/Services";
-import { getAreaServicesActions, getAreaServicesReactions } from "../../../../services/services";
+import Divider from "src/components/divider/divider";
+import { ISelecterItem } from "src/types/Selecter";
+import Selecter from "src/components/selecter/default/selecter";
+import SelecterWithTraduction from "src/components/selecter/withTrad/selecter";
+import { IServiceSelecterItem } from "src/types/Services";
+import { getAreaServicesActions, getAreaServicesReactions } from "src/services/services";
 import { Loader, Save } from "lucide-react";
-import IconButton from "../../../buttons/icon/icon";
-import { fetchPost } from "../../../../services/fetch";
+import IconButton from "src/components/buttons/icon/icon";
+import { fetchPost } from "src/services/fetch";
 
 
 /* ----- COMPONENT ----- */

@@ -3,18 +3,16 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 import React, { useEffect } from "react";
-import MetaData from "../components/layout/metaData";
-import LoginPageContent from "../components/layout/pages/loginPage/loginPageContent";
+import MetaData from "src/components/layout/metaData";
+import LoginPageContent from "src/components/layout/pages/loginPage/loginPageContent";
 import { useNavigate } from "react-router-dom";
-import { isAuthenticated } from "../services/authServices";
+import { isAuthenticated } from "src/services/authServices";
 
 
 /* ----- COMPONENT ----- */

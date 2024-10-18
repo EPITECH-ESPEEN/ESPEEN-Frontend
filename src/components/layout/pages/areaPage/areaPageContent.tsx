@@ -3,10 +3,8 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
@@ -19,8 +17,8 @@ import {
     addEdge,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import { IEdge, INode } from "../../../../types/Node";
-import { nodeTypes } from "../../../../store/Nodes";
+import { IEdge, INode } from "src/types/Node";
+import { nodeTypes } from "src/store/Nodes";
 
 
 /* ----- COMPONENT ----- */

@@ -3,20 +3,18 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 import React, { useState } from "react";
 import css from "./loginPageContent.module.css"
-import EspeenIcon from "../../../icons/espeenIcon";
+import EspeenIcon from "src/components/icons/espeenIcon";
 import { NavLink } from "react-router-dom";
-import LoginForm from "../../../auth/loginForm";
-import TabButton from "../../../buttons/tabButton/tabButton";
-import RegisterForm from "../../../auth/registerForm";
+import LoginForm from "src/components/auth/loginForm";
+import TabButton from "src/components/buttons/tabButton/tabButton";
+import RegisterForm from "src/components/auth/registerForm";
 import { useTranslation } from "react-i18next";
 
 /* ----- COMPONENT ----- */

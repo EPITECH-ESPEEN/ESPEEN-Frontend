@@ -3,16 +3,14 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 import React from "react";
-import MetaData from "../components/layout/metaData";
-import ServicesPageContent from "../components/layout/pages/servicesPage/servicesPageContent";
+import MetaData from "src/components/layout/metaData";
+import ServicesPageContent from "src/components/layout/pages/servicesPage/servicesPageContent";
 
 
 /* ----- COMPONENT ----- */

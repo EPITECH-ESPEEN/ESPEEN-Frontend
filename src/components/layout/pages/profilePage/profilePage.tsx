@@ -3,20 +3,18 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 import React from "react";
-import Button from "../../../buttons/default/button";
+import Button from "src/components/buttons/default/button";
 import css from "./profilePage.module.css";
 import LangSelecter from "./langSelecter";
 import { useTranslation } from "react-i18next";
 import ColorBlindSelecter from "./colorBlindSelecter";
-import { logout } from "../../../../services/authServices";
+import { logout } from "src/services/authServices";
 
 
 /* ----- COMPONENT ----- */

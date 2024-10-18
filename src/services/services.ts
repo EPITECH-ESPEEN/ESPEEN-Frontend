@@ -2,15 +2,13 @@
     Author:
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
-import { getServices } from '../store/Services';
-import { IServiceSelecterItem } from '../types/Services';
+import { getServices } from 'src/store/Services';
+import { IServiceSelecterItem } from 'src/types/Services';
 
 
 /* ----- FUNCTIONS ----- */

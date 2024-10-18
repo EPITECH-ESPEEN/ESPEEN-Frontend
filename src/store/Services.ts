@@ -2,15 +2,13 @@
     Author:
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
-import { fetchGet } from "../services/fetch";
-import { IService } from "../types/Services";
+import { fetchGet } from "src/services/fetch";
+import { IService } from "src/types/Services";
 
 /* ----- DATAS ----- */
 let lastFetch: number = 0;
