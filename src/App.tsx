@@ -17,6 +17,7 @@ import PrivateRoute from "src/components/auth/privateRoute";
 import { getPagesConfigs } from "src/router/routesConfig";
 import { setDefaultColorBlind } from "src/services/colorBlind";
 import { setDefaultLanguage } from "src/i18n/i18n";
+import { ReactFlowProvider } from "@xyflow/react";
 
 
 /* ----- COMPONENT ----- */
@@ -42,22 +43,24 @@ function App() {
     }
 
     return (
-        <Router>
-            <header><NavBar /></header>
-            <body>
-                <Routes>
-                    {pagesConfigs.map((pageConfig) => {
-                        const content: React.ReactElement = pageConfig.logged ?
-                            <PrivateRoute><pageConfig.content /></PrivateRoute>:
-                            <pageConfig.content />;
-                        return (
-                            <Route key={pageConfig.name} path={pageConfig.path} element={content} />
-                        );
-                    })}
-                </Routes>
-            </body>
-            <footer><Footer /></footer>
-        </Router>
+        <ReactFlowProvider>
+            <Router>
+                <header><NavBar /></header>
+                <body>
+                    <Routes>
+                        {pagesConfigs.map((pageConfig) => {
+                            const content: React.ReactElement = pageConfig.logged ?
+                                <PrivateRoute><pageConfig.content /></PrivateRoute>:
+                                <pageConfig.content />;
+                            return (
+                                <Route key={pageConfig.name} path={pageConfig.path} element={content} />
+                            );
+                        })}
+                    </Routes>
+                </body>
+                <footer><Footer /></footer>
+            </Router>
+        </ReactFlowProvider>
     );
 }
 

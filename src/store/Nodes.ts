@@ -7,12 +7,14 @@
 */
 
 /* ----- IMPORTS ----- */
-import LabelReactionNode from "src/components/nodes/reactions/label/label";
-import LabelActionNode from "src/components/nodes/actions/label/label";
+import LabelReactionNode from "src/components/nodes/reaction";
+import LabelActionNode from "src/components/nodes/action";
+import LabelMiddleNode from "src/components/nodes/middle";
 import { INodeTypes } from "src/types/Node";
 
 /* ----- DATAS ----- */
 export const nodeTypes: INodeTypes = {
     labelAction: LabelActionNode,
+    labelMiddle: LabelMiddleNode,
     labelReaction: LabelReactionNode,
 };

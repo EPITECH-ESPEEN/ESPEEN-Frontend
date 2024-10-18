@@ -14,21 +14,22 @@ import { ILabelNodeData } from "src/types/Node";
 import css from "./label.module.css";
 
 /* ----- PROPS ----- */
-interface LabelActionNodeProps {
+interface LabelMiddleNodeProps {
     data: ILabelNodeData
 };
 
 
 /* ----- COMPONENT ----- */
-const LabelActionNode: React.FC<LabelActionNodeProps> = ({ data }) => {
+const LabelMiddleNode: React.FC<LabelMiddleNodeProps> = ({ data }) => {
     return (
         <div className={css.card}>
-            <p>Card title</p>
-            <p>Here are the details of the card</p>
+            <p>Middle</p>
+            {data.label ? <p>{data.label}</p> : null}
             <Handle type="source" position={Position.Right} id="a" />
+            <Handle type="target" position={Position.Left} id="b" />
         </div>
     );
 };
 
-export default LabelActionNode;
+export default LabelMiddleNode;
 

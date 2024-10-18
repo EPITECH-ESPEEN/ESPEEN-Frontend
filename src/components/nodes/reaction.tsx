@@ -23,8 +23,8 @@ interface LabelReactionNodeProps {
 const LabelReactionNode: React.FC<LabelReactionNodeProps> = ({ data }) => {
     return (
         <div className={css.card}>
-            <p>Card title</p>
-            <p>Here are the details of the card</p>
+            <p>Output</p>
+            {data.label ? <p>{data.label}</p> : null}
             <Handle type="target" position={Position.Left} id="a" />
         </div>
     );
