@@ -19,7 +19,8 @@
     },
     "error": {
         "invalid_login": "Ungültiger Login oder ungültiges Passwort",
-        "invalid_register": "Ungültige Registrierung"
+        "invalid_register": "Ungültige Registrierung",
+        "link_all_actions_reactions": "Sie müssen alle Aktionen und Reaktionen verknüpfen"
     },
     "services": {
         "search": "Suche einen Dienst...",
@@ -31,35 +32,19 @@
         "select_service": "Wählen Sie einen Dienst aus",
         "select_action": "Auswählen einer Aktion",
         "select_reaction": "Wählen Sie eine Reaktion aus",
-        "label": {
-            "add_bot": "Einen Bot hinzufügen",
-            "comment_video": "Kommentieren Sie ein Video",
-            "like_post": "Einen Beitrag liken",
-            "like_video": "Ein Video liken",
-            "live_ended": "Live beendet",
-            "live_started": "Live gestartet",
-            "post_like": "Beitrag gefällt mir",
-            "receive_calendar_event": "Empfangen eines Kalenderereignisses",
-            "receive_contact_request": "Eine Kontaktanfrage erhalten",
-            "receive_document": "Erhalten Sie ein Dokument",
-            "receive_email": "Erhalten Sie eine E-Mail",
-            "receive_friend_request": "Eine Freundschaftsanfrage erhalten",
-            "receive_private_message": "Erhalten Sie eine private Nachricht",
-            "send_calendar_event": "Senden eines Kalenderereignisses",
-            "send_chat_message": "Senden einer Chat-Nachricht",
-            "send_contact_request": "Senden Sie eine Kontaktanfrage",
-            "send_document": "Senden eines Dokuments",
-            "send_donation": "Senden Sie eine Spende",
-            "send_email": "Senden Sie eine E-Mail",
-            "send_friend_request": "Senden Sie eine Freundschaftsanfrage",
-            "send_notification": "Senden einer Benachrichtigung",
-            "send_private_message": "Senden Sie eine private Nachricht",
-            "share_story": "Teilen Sie eine Geschichte",
-            "share_video": "Ein Video teilen",
-            "song_started": "Lied hat begonnen",
-            "story_seen": "Geschichte gesehen",
-            "video_liked": "Video gefällt mir",
-            "video_uploaded": "Video hochgeladen"
+        "discord": {
+            "bot": {
+                "receive_message": "Erhalten Sie eine Nachricht"
+            },
+            "webhook": {
+                "send_message": "Senden Sie eine Nachricht"
+            }
+        },
+        "google": {
+            "gmail": {
+                "receive_email": "Erhalten Sie eine E-Mail",
+                "send_email": "Senden Sie eine E-Mail"
+            }
         }
     },
     "dico": {

@@ -64,7 +64,7 @@ const ServicesPageContent: React.FC = () => {
             </div>
             <div className={css.servicesContainer}>
                 {filteredServices.map((service: IService) => (
-                    <ServiceCard key={service.service_id} service={service} />
+                    <ServiceCard key={service.uid} service={service} />
                 ))}
             </div>
         </div>

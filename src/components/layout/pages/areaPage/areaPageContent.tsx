@@ -8,7 +8,7 @@
 */
 
 /* ----- IMPORTS ----- */
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect } from "react";
 import {
     ReactFlow,
     Background,
@@ -18,72 +18,31 @@ import {
     useReactFlow,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
-import { IEdge, INode } from "src/types/Node";
-import { nodeTypes } from "src/store/Nodes";
+import { initialEdges, initialNodes, nodesIds, nodeTypes, setInitialEdges, setInitialNodes } from "src/store/Nodes";
 import Sidebar from "./sidebar";
+import { INode } from "src/types/Node";
+import { getNodeGraph } from "src/services/nodes";
+import Modal from "src/components/modal/default/modal";
+import { useTranslation } from "react-i18next";
+
 
 /* ----- MAIN COMPONENT ----- */
 const AreaPageContent: React.FC = () => {
-    const [nodeId, setNodeId] = useState(5)
-
-    const initialNodes: INode[] = [
-        {
-            id: '1',
-            type: 'labelAction',
-            position: { x: -100, y: 0 },
-            data: { label: 'Node 1' },
-        },
-        {
-            id: '2',
-            type: 'labelReaction',
-            position: { x: 400, y: -100 },
-            data: { label: 'Node 2' },
-        },
-        {
-            id: '3',
-            type: 'labelReaction',
-            position: { x: 400, y: 100 },
-            data: { label: 'Node 3' },
-        },
-        {
-            id: '4',
-            type: 'labelMiddle',
-            position: { x: 200, y: 50 },
-            data: { label: 'Node 4' },
-        },
-    ];
-
-    const initialEdges: IEdge[] = [
-        {
-            id: 'e1-2',
-            source: '1',
-            target: '2',
-            type: 'smoothstep',
-        },
-        {
-            id: 'e1-4',
-            source: '1',
-            target: '4',
-            type: 'smoothstep',
-        },
-        {
-            id: 'e4-3',
-            source: '4',
-            target: '3',
-            type: 'smoothstep',
-        },
-    ];
-
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+    const [error, setError] = React.useState<string>("");
     const { screenToFlowPosition } = useReactFlow();
+    const { t } = useTranslation();
 
     const onConnect = useCallback(
         (params: any) => {
+            for (const edge of edges)
+                if (edge.target === params.target)
+                    return;
             const newEdge = { ...params, type: 'smoothstep' };
             setEdges((eds) => addEdge(newEdge, eds));
         },
-        [setEdges],
+        [edges, setEdges],
     );
 
     const onDragOver = (event: React.DragEvent) => {
@@ -92,26 +51,39 @@ const AreaPageContent: React.FC = () => {
     };
 
     const onDrop = (event: React.DragEvent) => {
-        console.log(`id: ${nodeId}`)
         event.preventDefault();
         const type = event.dataTransfer.getData('application/reactflow');
         const position = screenToFlowPosition({
             x: event.clientX,
             y: event.clientY,
         });
-        const newNode = {
-            id: nodeId.toString(),
+        const nodeId = `${type}-${nodesIds[type]}`;
+        const newNode: INode = {
+            id: nodeId,
             type,
             position,
-            data: { label: `Node ${nodeId.toString()}` },
+            data: {},
         };
-        setNodeId(nodeId + 1);
+        nodesIds[type] += 1;
         setNodes((nds) => nds.concat(newNode));
     };
 
+    const handleSave = () => {
+        const result = getNodeGraph(nodes, edges);
+        if (result === false) {
+            setError(t("error.link_all_actions_reactions"));
+            return;
+        }
+    }
+
+    useEffect(() => {
+        setInitialNodes(nodes);
+        setInitialEdges(edges);
+    }, [nodes, edges]);
+
     return (
         <>
-            <Sidebar />
+            <Sidebar handleSave={handleSave} />
             <div style={{ width: '100vw', height: '100vh' }} onDragOver={onDragOver} onDrop={onDrop}>
                 <ReactFlow
                     nodes={nodes}
@@ -120,11 +92,17 @@ const AreaPageContent: React.FC = () => {
                     onEdgesChange={onEdgesChange}
                     onConnect={onConnect}
                     nodeTypes={nodeTypes}
-                    fitView={true}
                 >
                     <Background gap={12} size={1} />
                 </ReactFlow>
             </div>
+            {error &&
+                <Modal onClose={() => setError("")}>
+                    <div className="color-red textStyle-cardTitle">
+                        {error}
+                    </div>
+                </Modal>
+            }
         </>
     );
 };

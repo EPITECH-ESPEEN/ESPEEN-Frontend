@@ -16,7 +16,7 @@ import { Plus, Save } from "lucide-react";
 
 
 /* ----- COMPONENT ----- */
-const Sidebar: React.FC = () => {
+const Sidebar: React.FC<{handleSave: any}> = ({handleSave}) => {
     const [show, setShow] = useState(true);
 
     const onDragStart = (event: React.DragEvent, nodeType: string) => {
@@ -31,30 +31,23 @@ const Sidebar: React.FC = () => {
                     <IconButton icon={Plus} onClick={() => setShow(!show)} />
                 </div>
                 <div className={css.button}>
-                    <IconButton icon={Save} onClick={() => console.log("save")} />
+                    <IconButton icon={Save} onClick={handleSave} />
                 </div>
             </div>
             <div className={css.container}>
                 <div
-                    onDragStart={(event) => onDragStart(event, 'labelAction')}
+                    onDragStart={(event) => onDragStart(event, 'action')}
                     draggable
                     className={css.item}
                 >
-                    Action Node
+                    Action
                 </div>
                 <div
-                    onDragStart={(event) => onDragStart(event, 'labelReaction')}
+                    onDragStart={(event) => onDragStart(event, 'reaction')}
                     draggable
                     className={css.item}
                 >
-                    Reaction Node
-                </div>
-                <div
-                    onDragStart={(event) => onDragStart(event, 'labelMiddle')}
-                    draggable
-                    className={css.item}
-                >
-                    Middle Node
+                    Reaction
                 </div>
             </div>
         </div>

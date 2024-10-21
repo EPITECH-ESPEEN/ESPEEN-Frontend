@@ -7,14 +7,37 @@
 */
 
 /* ----- IMPORTS ----- */
-import LabelReactionNode from "src/components/nodes/reaction";
-import LabelActionNode from "src/components/nodes/action";
-import LabelMiddleNode from "src/components/nodes/middle";
-import { INodeTypes } from "src/types/Node";
+import actionNode from "src/components/nodes/action";
+import reactionNode from "src/components/nodes/reaction";
+import { IEdge, INode, INodesIds, INodeTypes } from "src/types/Node";
+
 
 /* ----- DATAS ----- */
 export const nodeTypes: INodeTypes = {
-    labelAction: LabelActionNode,
-    labelMiddle: LabelMiddleNode,
-    labelReaction: LabelReactionNode,
+    action: actionNode,
+    reaction: reactionNode,
 };
+
+export let initialNodes: INode[] = [];
+
+export let initialEdges: IEdge[] = [];
+
+export const nodesIds: INodesIds = {
+    action: 1,
+    reaction: 1,
+}
+
+
+/* ----- DATAS ----- */
+export function setInitialNodes(nodes: INode[]): void {
+    initialNodes = nodes;
+}
+
+export function setInitialEdges(edges: IEdge[]): void {
+    initialEdges = edges;
+}
+
+export function setNodesIds(ids: INodesIds): void {
+    nodesIds.action = ids.action;
+    nodesIds.reaction = ids.reaction;
+}

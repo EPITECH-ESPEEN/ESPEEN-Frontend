@@ -8,27 +8,86 @@
 */
 
 /* ----- IMPORTS ----- */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Handle, Position } from "@xyflow/react";
-import { ILabelNodeData } from "src/types/Node";
+import { INodeDatas } from "src/types/Node";
 import css from "./label.module.css";
+import { ISelecterItem } from "src/types/Selecter";
+import { IServiceSelecterItem } from "src/types/Services";
+import { Loader } from "lucide-react";
+import { getAreaServicesReactions } from "src/services/services";
+import { useTranslation } from "react-i18next";
 
 /* ----- PROPS ----- */
-interface LabelReactionNodeProps {
-    data: ILabelNodeData
+interface ReactionNodeProps {
+    data: INodeDatas
 };
 
 
 /* ----- COMPONENT ----- */
-const LabelReactionNode: React.FC<LabelReactionNodeProps> = ({ data }) => {
+const ReactionNode: React.FC<ReactionNodeProps> = ({ data }) => {
+    const [servicesReaction, setServicesReaction] = useState<IServiceSelecterItem[] | null>(null);
+    const [selectedService, setSelectedService] = useState<ISelecterItem | null>(null);
+    const [reactionOptions, setReactionOptions] = useState<ISelecterItem[] | null>(null);
+    const [selectedOption, setSelectedOption] = useState<ISelecterItem | null>(null);
+    const { t } = useTranslation();
+
+    useEffect(() => {
+        if (servicesReaction) return;
+        const fetchData = async () => {
+            const tmp = await getAreaServicesReactions();
+            setServicesReaction(tmp);
+        }
+        fetchData();
+    });
+
+    if (!servicesReaction)
+        return <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "80vh"
+        }}><Loader /></div>
+
+    const handleSelectedServiceChange = (item: ISelecterItem | null) => {
+        if (!item) {
+            setSelectedService(null);
+            data.service = null;
+            setReactionOptions(null);
+            setSelectedOption(null);
+            return;
+        }
+        setSelectedService(item);
+        data.service = item.label;
+        setReactionOptions(servicesReaction.find((service) => service.item.value === item.value)?.reactions || null);
+        setSelectedOption(null);
+    }
+
     return (
         <div className={css.card}>
-            <p>Output</p>
-            {data.label ? <p>{data.label}</p> : null}
+            <div className="color-dark textStyle-cardTitle">Reaction</div>
+            <select value={selectedService?.value} onChange={(e) => {
+                const selected = servicesReaction.find((service) => service.item.value === e.target.value)?.item || null;
+                handleSelectedServiceChange(selected);
+            }} className={css.select}>
+                <option value="">{t("area.select_service")}</option>
+                {servicesReaction.map((service) => <option key={service.item.value} value={service.item.value}>{service.item.label}</option>)}
+            </select>
+            {selectedService ?
+                <select value={selectedOption?.value} onChange={(e) => {
+                    const selected = reactionOptions?.find((option) => option.value === e.target.value) || null;
+                    setSelectedOption(selected);
+                    data.option = selected?.label || "";
+                }} className={css.select}>
+                    <option value="">{t("area.select_reaction")}</option>
+                    {reactionOptions?.map((option) => <option key={option.value} value={option.value}>{t(`area.${option.label}`)}</option>)}
+                </select>
+                : null
+            }
             <Handle type="target" position={Position.Left} id="a" />
         </div>
     );
 };
 
-export default LabelReactionNode;
+export default ReactionNode;
 

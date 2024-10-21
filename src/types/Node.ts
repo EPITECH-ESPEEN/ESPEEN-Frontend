@@ -6,8 +6,9 @@
     --U-----U------------------------
 */
 
-export interface ILabelNodeData {
-    label: string;
+export interface INodeDatas {
+    service: string | null;
+    option: string | null;
 }
 
 export interface INode {
@@ -27,3 +28,12 @@ export interface IEdge {
 export interface INodeTypes {
     [key: string]: React.FC<any>;
 };
+
+export interface INodesIds {
+    [key: string]: number;
+}
+
+export interface IGraphNode {
+    source: string;
+    targets: string[];
+}
