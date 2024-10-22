@@ -37,13 +37,6 @@ const AreaPageContent: React.FC = () => {
     const { screenToFlowPosition } = useReactFlow();
     const { t } = useTranslation();
 
-
-
-
-
-
-
-
     const MIN_DISTANCE = 600;
 
     const getClosestEdge = (node: INode, nodes: INode[]): IEdge | null => {
@@ -105,15 +98,6 @@ const AreaPageContent: React.FC = () => {
         },
         [nodes, setEdges],
     );
-
-
-
-
-
-
-
-
-
 
     const onConnect = useCallback(
         (params: any) => {
