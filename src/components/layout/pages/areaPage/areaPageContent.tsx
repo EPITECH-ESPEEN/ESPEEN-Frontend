@@ -21,7 +21,7 @@ import '@xyflow/react/dist/style.css';
 import { initialEdges, initialNodes, nodesIds, nodeTypes, setInitialEdges, setInitialNodes } from "src/store/Nodes";
 import Sidebar from "./sidebar";
 import { IEdge, INode } from "src/types/Node";
-import { getNodeGraph, stringifyGraph } from "src/services/nodes";
+import { getNodeGraph, graphToTable } from "src/services/nodes";
 import Modal from "src/components/modal/default/modal";
 import { useTranslation } from "react-i18next";
 import { fetchPost } from "src/services/fetch";
@@ -70,6 +70,8 @@ const AreaPageContent: React.FC = () => {
     const onNodeDrag = useCallback(
         (_: any, node: INode) => {
             const closeEdge = getClosestEdge(node, nodes);
+            if (closeEdge === null || closeEdge.source === null || closeEdge.target === null)
+                return;
             setEdges((existingEdges) => {
                 const updatedEdges = existingEdges.filter((e) => e.type !== 'default');
                 if (closeEdge && !updatedEdges.some((e) => e.source === closeEdge.source && e.target === closeEdge.target)) {
@@ -85,6 +87,8 @@ const AreaPageContent: React.FC = () => {
     const onNodeDragStop = useCallback(
         (_: any, node: INode) => {
             const closeEdge = getClosestEdge(node, nodes);
+            if (closeEdge === null || closeEdge.source === null || closeEdge.target === null)
+                return;
             setEdges((existingEdges) => {
                 const updatedEdges = existingEdges.filter((e) => e.type !== 'default');
                 if (closeEdge && !updatedEdges.some((e) => e.source === closeEdge.source && e.target === closeEdge.target)) {
@@ -139,13 +143,13 @@ const AreaPageContent: React.FC = () => {
             setError(t("error.link_all_actions_reactions"));
             return;
         }
-        const stringifyedGraph = stringifyGraph(graph);
-        if (typeof stringifyedGraph === "boolean") {
+        const table = graphToTable(graph);
+        if (typeof table === "boolean") {
             setError(t("error.fill_all_actions_reactions"));
             return;
         }
         setLoading(true);
-        await fetchPost("/user/area", { area: stringifyedGraph });
+        await fetchPost("/user/update", { area: table });
         setLoading(false);
     }
 

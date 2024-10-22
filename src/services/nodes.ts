@@ -47,26 +47,27 @@ export function getNodeGraph(nodes: INode[], edges: IEdge[]): IGraphNode[] | boo
     return graph;
 }
 
-export function stringifyGraph(graph: IGraphNode[]): string[] | boolean
+export function graphToTable(graph: IGraphNode[]): string[][] | boolean
 {
-    const str: string[] = [];
+    const table: string[][] = [];
 
     for (let i = 0; i < graph.length; i++) {
+        const line = [];
         const node = graph[i];
         const sourceData: INodeDatas = node.source.data as INodeDatas;
         if (typeof sourceData.service !== "string" || typeof sourceData.option !== "string")
             return false;
-        let tmp = "";
+        line.push(sourceData.option);
         node.targets.forEach(target => {
             const targetData: INodeDatas = target.data as INodeDatas;
             if (typeof targetData.service !== "string" || typeof targetData.option !== "string")
                 return false;
-            tmp += `;${targetData.option}`;
+            line.push(targetData.option);
         });
-        if (tmp === "")
+        if (line.length === 0)
             return false;
-        str.push(`${sourceData.option}${tmp}`);
+        table.push(line);
     }
 
-    return str;
+    return table;
 }
