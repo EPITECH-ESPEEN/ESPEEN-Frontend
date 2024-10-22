@@ -18,6 +18,7 @@
         "achromatopsia": "Achromatopsia"
     },
     "error": {
+        "fill_all_actions_reactions": "You must fill all actions and reactions",
         "invalid_login": "Invalid login or password",
         "invalid_register": "Invalid registration",
         "link_all_actions_reactions": "You must link all actions and reactions"

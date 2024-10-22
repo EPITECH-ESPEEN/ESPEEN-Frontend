@@ -37,9 +37,23 @@ const ReactionNode: React.FC<ReactionNodeProps> = ({ data }) => {
         const fetchData = async () => {
             const tmp = await getAreaServicesReactions();
             setServicesReaction(tmp);
-        }
+        };
         fetchData();
-    });
+    }, [servicesReaction]);
+
+    useEffect(() => {
+        if (data.service && servicesReaction) {
+            const service = servicesReaction.find((service) => service.item.label === data.service);
+            if (service) {
+                setSelectedService(service.item);
+                setReactionOptions(service.reactions);
+                if (data.option) {
+                    const option = service.reactions.find((option) => option.label === data.option);
+                    setSelectedOption(option || null);
+                }
+            }
+        }
+    }, [data.service, data.option, servicesReaction]);
 
     if (!servicesReaction)
         return <div style={{

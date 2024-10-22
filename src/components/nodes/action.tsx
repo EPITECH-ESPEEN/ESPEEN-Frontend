@@ -37,9 +37,23 @@ const ActionNode: React.FC<ActionNodeProps> = ({ data }) => {
         const fetchData = async () => {
             const tmp = await getAreaServicesActions();
             setServicesAction(tmp);
-        }
+        };
         fetchData();
-    });
+    }, [servicesAction]);
+
+    useEffect(() => {
+        if (data.service && servicesAction) {
+            const service = servicesAction.find((service) => service.item.label === data.service);
+            if (service) {
+                setSelectedService(service.item);
+                setActionOptions(service.actions);
+                if (data.option) {
+                    const option = service.actions.find((option) => option.label === data.option);
+                    setSelectedOption(option || null);
+                }
+            }
+        }
+    }, [data.service, data.option, servicesAction]);
 
     if (!servicesAction)
         return <div style={{
@@ -90,4 +104,3 @@ const ActionNode: React.FC<ActionNodeProps> = ({ data }) => {
 };
 
 export default ActionNode;
-

@@ -34,6 +34,6 @@ export interface INodesIds {
 }
 
 export interface IGraphNode {
-    source: string;
-    targets: string[];
+    source: INode;
+    targets: INode[];
 }

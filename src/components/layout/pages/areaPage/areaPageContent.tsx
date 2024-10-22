@@ -21,9 +21,11 @@ import '@xyflow/react/dist/style.css';
 import { initialEdges, initialNodes, nodesIds, nodeTypes, setInitialEdges, setInitialNodes } from "src/store/Nodes";
 import Sidebar from "./sidebar";
 import { INode } from "src/types/Node";
-import { getNodeGraph } from "src/services/nodes";
+import { getNodeGraph, stringifyGraph } from "src/services/nodes";
 import Modal from "src/components/modal/default/modal";
 import { useTranslation } from "react-i18next";
+import { fetchPost } from "src/services/fetch";
+import LoaderPage from "src/components/loading/loaderPage";
 
 
 /* ----- MAIN COMPONENT ----- */
@@ -31,6 +33,7 @@ const AreaPageContent: React.FC = () => {
     const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
     const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
     const [error, setError] = React.useState<string>("");
+    const [loading, setLoading] = React.useState<boolean>(false);
     const { screenToFlowPosition } = useReactFlow();
     const { t } = useTranslation();
 
@@ -68,12 +71,20 @@ const AreaPageContent: React.FC = () => {
         setNodes((nds) => nds.concat(newNode));
     };
 
-    const handleSave = () => {
-        const result = getNodeGraph(nodes, edges);
-        if (result === false) {
+    const handleSave = async () => {
+        const graph = getNodeGraph(nodes, edges);
+        if (typeof graph === "boolean") {
             setError(t("error.link_all_actions_reactions"));
             return;
         }
+        const stringifyedGraph = stringifyGraph(graph);
+        if (typeof stringifyedGraph === "boolean") {
+            setError(t("error.fill_all_actions_reactions"));
+            return;
+        }
+        setLoading(true);
+        await fetchPost("/user/area", { area: stringifyedGraph });
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -83,6 +94,7 @@ const AreaPageContent: React.FC = () => {
 
     return (
         <>
+            {loading && <LoaderPage /> }
             <Sidebar handleSave={handleSave} />
             <div style={{ width: '100vw', height: '100vh' }} onDragOver={onDragOver} onDrop={onDrop}>
                 <ReactFlow
