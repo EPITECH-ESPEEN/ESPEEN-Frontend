@@ -21,7 +21,9 @@
         "fill_all_actions_reactions": "Vous devez remplir toutes les actions et réactions",
         "invalid_login": "Login ou mot de passe invalide",
         "invalid_register": "Inscription invalide",
-        "link_all_actions_reactions": "Vous devez lier toutes les actions et réactions"
+        "link_all_actions_reactions": "Vous devez lier toutes les actions et réactions",
+        "save_failed": "L'enregistrement a échoué. Réessayez plus tard...",
+        "user_not_found": "Utilisateur non trouvé. Réessayez plus tard..."
     },
     "services": {
         "search": "Rechercher un service...",

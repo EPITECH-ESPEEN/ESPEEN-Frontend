@@ -26,6 +26,7 @@ import Modal from "src/components/modal/default/modal";
 import { useTranslation } from "react-i18next";
 import { fetchPost } from "src/services/fetch";
 import LoaderPage from "src/components/loading/loaderPage";
+import { getUser, setUser } from "src/store/User";
 
 
 /* ----- MAIN COMPONENT ----- */
@@ -72,10 +73,14 @@ const AreaPageContent: React.FC = () => {
             const closeEdge = getClosestEdge(node, nodes);
             if (closeEdge === null || closeEdge.source === null || closeEdge.target === null)
                 return;
+            if (closeEdge.source.includes("reaction") && closeEdge.target.includes("reaction"))
+                return;
             setEdges((existingEdges) => {
                 const updatedEdges = existingEdges.filter((e) => e.type !== 'default');
                 if (closeEdge && !updatedEdges.some((e) => e.source === closeEdge.source && e.target === closeEdge.target)) {
                     closeEdge.type = 'default';
+                    if (closeEdge === null || closeEdge.source === null || closeEdge.target === null)
+                        return updatedEdges;
                     updatedEdges.push(closeEdge);
                 }
                 return updatedEdges;
@@ -88,6 +93,8 @@ const AreaPageContent: React.FC = () => {
         (_: any, node: INode) => {
             const closeEdge = getClosestEdge(node, nodes);
             if (closeEdge === null || closeEdge.source === null || closeEdge.target === null)
+                return;
+            if (closeEdge.source.includes("reaction") && closeEdge.target.includes("reaction"))
                 return;
             setEdges((existingEdges) => {
                 const updatedEdges = existingEdges.filter((e) => e.type !== 'default');
@@ -105,9 +112,12 @@ const AreaPageContent: React.FC = () => {
 
     const onConnect = useCallback(
         (params: any) => {
+            if (!params.source || !params.target)
             for (const edge of edges)
                 if (edge.target === params.target)
                     return;
+            if (params.source.includes("reaction") && params.target.includes("reaction"))
+                return;
             const newEdge = { ...params, type: 'simplebezier' };
             setEdges((eds) => addEdge(newEdge, eds));
         },
@@ -149,7 +159,20 @@ const AreaPageContent: React.FC = () => {
             return;
         }
         setLoading(true);
-        await fetchPost("/user/update", { area: table });
+        const user = await getUser();
+        if (!user) {
+            setLoading(false);
+            setError(t("error.user_not_found"));
+            return;
+        }
+        user.actionReaction = table;
+        const response = await fetchPost("user", user);
+        if (!response.ok) {
+            setLoading(false);
+            setError(t("error.save_failed"));
+            return;
+        }
+        setUser({ ...user });
         setLoading(false);
     }
 

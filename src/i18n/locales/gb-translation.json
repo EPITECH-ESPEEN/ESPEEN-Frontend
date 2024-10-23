@@ -21,7 +21,9 @@
         "fill_all_actions_reactions": "You must fill all actions and reactions",
         "invalid_login": "Invalid login or password",
         "invalid_register": "Invalid registration",
-        "link_all_actions_reactions": "You must link all actions and reactions"
+        "link_all_actions_reactions": "You must link all actions and reactions",
+        "save_failed": "Save failed. Retry later...",
+        "user_not_found": "User not found. Retry later..."
     },
     "services": {
         "search": "Search a service...",

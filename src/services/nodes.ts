@@ -6,7 +6,8 @@
     --U-----U------------------------
 */
 
-import { IEdge, IGraphNode, INode, INodeDatas } from "src/types/Node";
+import { setInitialEdges, setInitialNodes, setNodesIds } from "src/store/Nodes";
+import { IEdge, IGraphNode, INode, INodeDatas, INodesIds } from "src/types/Node";
 
 export function getNodeGraph(nodes: INode[], edges: IEdge[]): IGraphNode[] | boolean
 {
@@ -70,4 +71,79 @@ export function graphToTable(graph: IGraphNode[]): string[][] | boolean
     }
 
     return table;
+}
+
+function capitalize(string: string): string {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export function tableToGraph(table: string[][]): {graph: IGraphNode[], actionCounter: number, reactionCounter: number} | boolean
+{
+    const graph: IGraphNode[] = [];
+    let actionCounter = 1;
+    let reactionCounter = 1;
+
+    for (let i = 0; i < table.length; i++) {
+        const line = table[i];
+        if (line.length === 0)
+            return false;
+        const source: INode = {
+            id: `action-${actionCounter}`,
+            position: { x: 1000 * i, y: 0 },
+            data: {
+                service: capitalize(line[0].split(".")[0]),
+                option: line[0]
+            },
+            type: "action"
+        };
+        actionCounter++;
+        const targets: INode[] = [];
+        for (let j = 1; j < line.length; j++) {
+            const target: INode = {
+                id: `reaction-${reactionCounter}`,
+                position: { x: 1000 * i + 500, y: 250 * (j - 1) },
+                data: {
+                    service: capitalize(line[j].split(".")[0]),
+                    option: line[j]
+                },
+                type: "reaction"
+            };
+            reactionCounter++;
+            targets.push(target);
+        }
+        graph.push({
+            source: source,
+            targets: targets
+        });
+    }
+
+    return {graph, actionCounter, reactionCounter};
+}
+
+export function setDefaultNodes(datas: {graph: IGraphNode[], actionCounter: number, reactionCounter: number}) {
+    const ids: INodesIds = {
+        action: datas.actionCounter,
+        reaction: datas.reactionCounter
+    };
+    setNodesIds(ids);
+
+    const nodes: INode[] = [];
+    const edges: IEdge[] = [];
+
+    datas.graph.forEach(node => {
+        nodes.push(node.source);
+        node.targets.forEach(target => {
+            nodes.push(target);
+            const edge: IEdge = {
+                id: `${node.source.id}-${target.id}`,
+                type: "simplebezier",
+                source: node.source.id,
+                target: target.id
+            };
+            edges.push(edge);
+        });
+    });
+
+    setInitialNodes(nodes);
+    setInitialEdges(edges);
 }

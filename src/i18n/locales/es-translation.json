@@ -21,7 +21,9 @@
         "fill_all_actions_reactions": "Debes completar todas las acciones y reacciones.",
         "invalid_login": "Usuario o contraseña no válidos",
         "invalid_register": "Registro inválido",
-        "link_all_actions_reactions": "Debes vincular todas las acciones y reacciones."
+        "link_all_actions_reactions": "Debes vincular todas las acciones y reacciones.",
+        "save_failed": "Error al guardar. Inténtalo de nuevo más tarde...",
+        "user_not_found": "Usuario no encontrado. Inténtalo más tarde..."
     },
     "services": {
         "search": "Buscar un servicio...",

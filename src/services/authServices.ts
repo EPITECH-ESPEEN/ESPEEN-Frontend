@@ -7,6 +7,7 @@
 */
 
 /* ----- IMPORTS ----- */
+import { getUser, setUser } from 'src/store/User';
 import { fetchPost } from './fetch';
 
 
@@ -37,6 +38,7 @@ export const login = async (username: string, password: string): Promise<boolean
     if (responseJson.access_token) {
         localStorage.setItem('authToken', responseJson.access_token);
         setTokenCookie(responseJson.access_token);
+        await getUser();
         return true;
     } else {
         return false;
@@ -72,5 +74,11 @@ export const isAuthenticated = (): boolean => {
 export const logout = (): void => {
     localStorage.removeItem('authToken');
     deleteTokenCookie();
+    setUser(null);
     window.location.reload();
 };
+
+export async function defaultLogin() {
+    if (isAuthenticated())
+        await getUser();
+}
