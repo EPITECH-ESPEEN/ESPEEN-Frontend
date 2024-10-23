@@ -3,21 +3,19 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 import { UserRound, Lock } from "lucide-react";
 import React, { useState } from "react";
-import css from "./authForm.module.css";
-import Button from "../buttons/default/button";
-import InputWithIcon from "../inputs/withIcon/withIcon";
-import ModalError from "../modal/error/modalError";
+import css from "src/components/auth/authForm.module.css";
+import Button from "src/components/buttons/default/button";
+import InputWithIcon from "src/components/inputs/withIcon/withIcon";
+import ModalError from "src/components/modal/error/modalError";
 import { useTranslation } from "react-i18next";
-import { login } from "../../services/authServices";
+import { login } from "src/services/authServices";
 
 
 /* ----- COMPONENT ----- */

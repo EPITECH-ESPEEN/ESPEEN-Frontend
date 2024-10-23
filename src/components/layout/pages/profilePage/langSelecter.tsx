@@ -3,18 +3,16 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 import React from "react";
 import { useTranslation } from "react-i18next";
 import i18n from 'i18next';
-import lang from "../../../../i18n/lang";
-import { changeLanguage } from "../../../../i18n/i18n";
+import lang from "src/i18n/lang";
+import { changeLanguage } from "src/i18n/i18n";
 import css from "./langSelecter.module.css";
 
 

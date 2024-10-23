@@ -2,10 +2,8 @@
     Author:
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 import { ISelecterItem } from "./Selecter";
@@ -26,7 +24,7 @@ export interface IServiceReaction {
 }
 
 export interface IService {
-    service_id: number;
+    uid: number;
     name: string;
     icon: string;
     buttons: IServiceButton[];

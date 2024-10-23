@@ -2,17 +2,15 @@
     Author:
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 import React, { useState } from 'react';
 import css from './selecter.module.css';
-import { ISelecterItem } from '../../../types/Selecter';
-import Modal from '../../modal/default/modal';
+import { ISelecterItem } from 'src/types/Selecter';
+import Modal from 'src/components/modal/default/modal';
 import { ChevronDown } from 'lucide-react';
 
 

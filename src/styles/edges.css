@@ -1,0 +1,19 @@
+/*
+    Authors:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
+*/
+
+.react-flow__edge-default .react-flow__edge-path {
+    stroke: var(--color-green);
+    stroke-width: 3;
+    stroke-dasharray: 5 5;
+}
+
+.react-flow__edge-simplebezier .react-flow__edge-path {
+    stroke: var(--color-green);
+    stroke-width: 3;
+}

@@ -3,22 +3,22 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavBar from "./components/layout/navbar/navbar";
-import Footer from "./components/layout/footer";
-import Loader from "./components/loading/loader";
-import PrivateRoute from "./components/auth/privateRoute";
-import { getPagesConfigs } from "./router/routesConfig";
-import { setDefaultColorBlind } from "./services/colorBlind";
-import { setDefaultLanguage } from "./i18n/i18n";
+import NavBar from "src/components/layout/navbar/navbar";
+import Footer from "src/components/layout/footer";
+import Loader from "src/components/loading/loader";
+import PrivateRoute from "src/components/auth/privateRoute";
+import { getPagesConfigs } from "src/router/routesConfig";
+import { setDefaultColorBlind } from "src/services/colorBlind";
+import { setDefaultLanguage } from "src/i18n/i18n";
+import { ReactFlowProvider } from "@xyflow/react";
+import { defaultLogin } from "./services/authServices";
 
 
 /* ----- COMPONENT ----- */
@@ -28,6 +28,7 @@ function App() {
 
     useEffect(() => {
         const loadRessources = async () => {
+            defaultLogin();
             setDefaultColorBlind();
             setDefaultLanguage();
             setLoadingRessources(false);
@@ -44,22 +45,24 @@ function App() {
     }
 
     return (
-        <Router>
-            <header><NavBar /></header>
-            <body>
-                <Routes>
-                    {pagesConfigs.map((pageConfig) => {
-                        const content: React.ReactElement = pageConfig.logged ?
-                            <PrivateRoute><pageConfig.content /></PrivateRoute>:
-                            <pageConfig.content />;
-                        return (
-                            <Route key={pageConfig.name} path={pageConfig.path} element={content} />
-                        );
-                    })}
-                </Routes>
-            </body>
-            <footer><Footer /></footer>
-        </Router>
+        <ReactFlowProvider>
+            <Router>
+                <header><NavBar /></header>
+                <body>
+                    <Routes>
+                        {pagesConfigs.map((pageConfig) => {
+                            const content: React.ReactElement = pageConfig.logged ?
+                                <PrivateRoute><pageConfig.content /></PrivateRoute>:
+                                <pageConfig.content />;
+                            return (
+                                <Route key={pageConfig.name} path={pageConfig.path} element={content} />
+                            );
+                        })}
+                    </Routes>
+                </body>
+                <footer><Footer /></footer>
+            </Router>
+        </ReactFlowProvider>
     );
 }
 

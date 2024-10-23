@@ -3,16 +3,14 @@
     >> Caroline BOILLY - { caroline.boilly@epitech.eu }
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { isAuthenticated } from "../../services/authServices";
+import { isAuthenticated } from "src/services/authServices";
 
 
 /* ----- PROPS ----- */

@@ -2,18 +2,16 @@
     Author:
     >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
 
-    („• ֊ •„)❤
-    ┏━U━━━U━━━━━━━━━━━━━┓
-    ┃ Have a good day !             ┃
-    ┗━━━━━━━━━━━━━━━━━━━┛
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
 */
 
 /* ----- IMPORTS ----- */
 import React, { useState } from "react";
 import css from "./mobile.module.css";
-import EspeenIcon from "../../../icons/espeenIcon";
+import EspeenIcon from "src/components/icons/espeenIcon";
 import { CircleUserRound, Ellipsis } from "lucide-react";
-import { getPagesConfigs } from "../../../../router/routesConfig";
+import { getPagesConfigs } from "src/router/routesConfig";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
