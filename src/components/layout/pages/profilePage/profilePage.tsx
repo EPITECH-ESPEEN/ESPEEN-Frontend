@@ -30,8 +30,16 @@ const ProfilePageContent: React.FC = () => {
             const user = await getUser();
             setUser(user);
         }
-        getDatas();
-    }, []);
+        if (user === null) {
+            getDatas();
+        }
+        const interval = setInterval(() => {
+            if (user === null) {
+                getDatas();
+            }
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [user]);
 
     return (
         <>

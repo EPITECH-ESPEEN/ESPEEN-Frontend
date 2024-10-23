@@ -10,6 +10,7 @@
 /* ----- IMPORTS ----- */
 import React from "react";
 import MetaData from "src/components/layout/metaData";
+import EspeenPageContent from "src/components/layout/pages/espeenPage/espeenPageContent";
 
 
 /* ----- COMPONENT ----- */
@@ -18,7 +19,7 @@ const EspeenPage: React.FC = () => {
         <div>
             <MetaData title="" />
             <div className="h-[80px]"></div>
-            <div>Espeen Page</div>
+            <EspeenPageContent />
         </div>
     );
 };
