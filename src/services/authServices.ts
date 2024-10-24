@@ -75,7 +75,7 @@ export const logout = (): void => {
     localStorage.removeItem('authToken');
     deleteTokenCookie();
     setUser(null);
-    window.location.reload();
+    window.location.href = "/";
 };
 
 export async function defaultLogin() {

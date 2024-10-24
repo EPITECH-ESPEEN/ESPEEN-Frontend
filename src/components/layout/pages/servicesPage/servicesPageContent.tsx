@@ -13,7 +13,7 @@ import css from "./servicesPageContent.module.css";
 import { getServices } from "src/store/Services";
 import { IService } from "src/types/Services";
 import Loader from "src/components/loading/loader";
-import ServiceCard from "src/components/card/serviceCard";
+import ServiceCard from "src/components/card/serviceCard/serviceCard";
 import InputWithIcon from "src/components/inputs/withIcon/withIcon";
 import { Search } from "lucide-react";
 import { useTranslation } from "react-i18next";
