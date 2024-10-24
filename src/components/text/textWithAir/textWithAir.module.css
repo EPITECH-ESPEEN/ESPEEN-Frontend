@@ -1,0 +1,70 @@
+/*
+    Authors:
+    >> Caroline BOILLY - { caroline.boilly@epitech.eu }
+    >> Nathan TIROLF - { nathan.tirolf@epitech.eu }
+
+    („• ֊ •„)❤  <  Have a good day !
+    --U-----U------------------------
+*/
+
+.container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.left {
+    flex-direction: row;
+    text-align: left;
+}
+
+.right {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.air {
+    width: 20%;
+}
+
+.text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.text_right {
+    align-items: end;
+}
+
+.text_left {
+    align-items: start;
+}
+
+@media screen and (max-width: 900px) {
+    .air {
+        width: 10%;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+    .air {
+        display: none;
+    }
+
+    .left, .right {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+    .text {
+        width: 100%;
+    }
+
+    .text_right, .text_left {
+        align-items: center;
+    }
+}
