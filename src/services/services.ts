@@ -7,7 +7,7 @@
 */
 
 /* ----- IMPORTS ----- */
-import { getServices } from 'src/store/Services';
+import { getLinkedServices, getServices } from 'src/store/Services';
 import { IServiceSelecterItem } from 'src/types/Services';
 
 
@@ -48,4 +48,12 @@ export async function getAreaServicesReactions(): Promise<IServiceSelecterItem[]
     return getAreaServices().then((services) => {
         return services.filter((service) => service.reactions.length > 0);
     });
+}
+
+export async function isServiceLinked(serviceName: string): Promise<boolean> {
+    const tmp = await getLinkedServices();
+    for (let i = 0; i < tmp.length; i++)
+        if (tmp[i].toLowerCase() === serviceName.toLowerCase())
+            return true;
+    return false;
 }

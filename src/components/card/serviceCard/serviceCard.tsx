@@ -8,12 +8,14 @@
 */
 
 /* ----- IMPORTS ----- */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { IService, IServiceButton } from "src/types/Services";
 import css from "./serviceCard.module.css";
 import ColoredButton from "src/components/buttons/colored/coloredButton";
 import { getBaseUrl } from "src/services/fetch";
+import { isServiceLinked } from "src/services/services";
+import LoaderPage from "src/components/loading/loaderPage";
 
 /* ----- PROPS ----- */
 interface ServiceCardProps {
@@ -22,11 +24,26 @@ interface ServiceCardProps {
 
 /* ----- COMPONENT ----- */
 const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
+    const [isLinked, setIsLinked] = useState<boolean | null>(null);
     const { t } = useTranslation();
 
     const callPath = async (action: IServiceButton) => {
         window.location.href = `${getBaseUrl()}/${action.path}`;
     };
+
+    useEffect(() => {
+        const getDatas = async () => {
+            const linked = await isServiceLinked(service.name);
+            setIsLinked(linked);
+        };
+        if (isLinked === null) {
+            getDatas();
+        }
+    }, [isLinked, service.name]);
+
+    if (isLinked === null) {
+        return <LoaderPage />;
+    }
 
     return (
         <div className={css.container}>
@@ -38,9 +55,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                 </div>
                 <div className={css.buttonContainer}>
                     <div className="textStyle-text color-dark">{t("dico.actions")}</div>
-                    {service.buttons.map((action, index) => (
-                        <ColoredButton key={index} label={t(`services.${action.name}`)} onClick={() => callPath(action)} color={action.name === "linked" ? "green" : action.name === "not_linked" ? "red" : "dark"} />
-                    ))}
+                    {service.buttons.map((action, index) => {
+                        if (action.name === "logout" && !isLinked) return null;
+                        if (action.name === "not_linked" && isLinked) return null;
+                        return <ColoredButton key={index} label={t(`services.${action.name}`)} onClick={() => callPath(action)} color={action.name === "linked" ? "green" : action.name === "not_linked" ? "red" : "dark"} />
+                    })}
                 </div>
             </div>
         </div>
