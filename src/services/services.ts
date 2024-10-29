@@ -39,15 +39,16 @@ async function getAreaServices(): Promise<IServiceSelecterItem[]> {
 }
 
 export async function getAreaServicesActions(): Promise<IServiceSelecterItem[]> {
-    return getAreaServices().then((services) => {
-        return services.filter((service) => service.actions.length > 0);
-    });
+    const services = await getAreaServices();
+    const filteredServices = services.filter((service) => service.actions.length > 0);
+    return filteredServices;
 }
 
 export async function getAreaServicesReactions(): Promise<IServiceSelecterItem[]> {
-    return getAreaServices().then((services) => {
-        return services.filter((service) => service.reactions.length > 0);
-    });
+
+    const services = await getAreaServices();
+    const filteredServices = services.filter((service) => service.reactions.length > 0);
+    return filteredServices;
 }
 
 export async function isServiceLinked(serviceName: string): Promise<boolean> {

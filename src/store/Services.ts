@@ -60,7 +60,10 @@ export async function getServices() {
     if (services.size === 0 || Date.now() - lastFetchServices > 1000 * 60 * 60 * 24) await fetchServices();
     const tmp = new Map<number, IService>();
     services.forEach((value, key) => {
-        tmp.set(key, value.service);
+        const service = {...value.service}
+        if (service.actions === undefined) service.actions = []
+        if (service.reactions === undefined) service.reactions = []
+        tmp.set(key, service);
     });
     return tmp;
 }
