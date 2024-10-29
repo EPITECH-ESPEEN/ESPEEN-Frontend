@@ -16,16 +16,18 @@ interface ButtonProps {
     label: string;
     onClick: () => void;
     color: "green" | "red" | "dark" | "light";
+    disabled?: boolean;
 };
 
 
 /* ----- COMPONENT ----- */
-const ColoredButton: React.FC<ButtonProps> = ({ label, onClick, color }) => {
+const ColoredButton: React.FC<ButtonProps> = ({ label, onClick, color, disabled = false }) => {
     return (
         <button
             onClick={onClick}
             className={`${css.button} textStyle-cardText color-light`}
             style={{ backgroundColor: `var(--color-${color})` }}
+            disabled={disabled}
         >
             {label}
         </button>

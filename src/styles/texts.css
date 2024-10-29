@@ -27,6 +27,11 @@
     font-weight: 700;
 }
 
+.textStyle-hint {
+    font-size: 15px;
+    font-weight: 500;
+}
+
 .textStyle-cardTitle {
     font-size: 25px;
     font-weight: 700;
@@ -58,6 +63,10 @@
 
     .textStyle-text {
         font-size: 15px;
+    }
+
+    .textStyle-hint {
+        font-size: 10px;
     }
 
     .textStyle-cardTitle {

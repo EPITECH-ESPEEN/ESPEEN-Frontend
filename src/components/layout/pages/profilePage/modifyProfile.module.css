@@ -12,13 +12,20 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 100vw;
     gap: 40px;
+    width: 50vw;
+    padding: 20px;
 }
 
 .buttonContainer {
     display: flex;
     flex-direction: row;
     gap: 20px;
+}
+
+.passwordContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
 }

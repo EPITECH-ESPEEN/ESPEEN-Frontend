@@ -16,3 +16,8 @@
     border-radius: 15px;
     color: var(--color-light);
 }
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
