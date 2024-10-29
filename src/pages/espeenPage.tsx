@@ -20,6 +20,7 @@ const EspeenPage: React.FC = () => {
             <MetaData title="" />
             <div className="h-[80px]"></div>
             <EspeenPageContent />
+            <div className="h-[80px]"></div>
         </div>
     );
 };

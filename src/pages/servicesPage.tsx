@@ -20,6 +20,7 @@ const ServicesPage: React.FC = () => {
             <MetaData title="Services" />
             <div className="h-[80px]"></div>
             <ServicesPageContent />
+            <div className="h-[80px]"></div>
         </div>
     );
 };
