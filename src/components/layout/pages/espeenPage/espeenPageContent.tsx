@@ -21,19 +21,19 @@ const EspeenPageContent: React.FC = () => {
 
     return (
         <div className={css.container}>
-            <TextWithAir>
+            <TextWithAir left={false}>
                 <div className="textStyle-huge">Espeen</div>
                 <div className="textStyle-title">{t('espeen.moto')}</div>
                 <div className="textStyle-text">{t('espeen.presentation')}</div>
             </TextWithAir>
-            <TextWithAir left={false}>
+            <TextWithAir>
                 <div className="textStyle-huge">{t('espeen.team_presentation')}</div>
                 <div className="textStyle-text">{t('espeen.team_description')}</div>
             </TextWithAir>
             {
                 teamMembers.map((member, index) => (
-                    <TextWithAir key={index} left={index % 2 === 0}>
-                        <TeamMemberCard member={member} left={index % 2 === 0} />
+                    <TextWithAir key={index} left={index % 2 !== 0}>
+                        <TeamMemberCard member={member} left={index % 2 !== 0} />
                     </TextWithAir>
                 ))
             }

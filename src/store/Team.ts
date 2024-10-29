@@ -13,8 +13,8 @@ import { ITeamMember } from "src/types/Team";
 /* ----- DATAS ----- */
 export const teamMembers: ITeamMember[] = [
     { name: "Caroline Boilly", role: "caroline_boilly", picture: "/img/caroline_boilly.jpg" },
-    { name: "Clement Piasco", role: "clement_piasco", picture: "/img/clement_piasco.jpg" },
-    { name: "Daniil Stepanov", role: "daniil_stepanov", picture: "/img/daniil_stepanov.jpeg" },
+    { name: "Clement Piasco", role: "clement_piasco", picture: "/img/clement_piasco.png" },
+    { name: "Daniil Stepanov", role: "daniil_stepanov", picture: "/img/daniil_stepanov.jpg" },
     { name: "Léonard OURSEL", role: "leonard_oursel", picture: "/img/leonard_oursel.jpg" },
     { name: "Nathan TIROLF", role: "nathan_tirolf", picture: "/img/nathan_tirolf.png" },
 ];
