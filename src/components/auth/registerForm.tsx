@@ -16,6 +16,7 @@ import InputWithIcon from "src/components/inputs/withIcon/withIcon";
 import ModalError from "src/components/modal/error/modalError";
 import { useTranslation } from "react-i18next";
 import { register } from "src/services/authServices";
+import InputPassword from "../inputs/password/inputPassword";
 
 
 /* ----- COMPONENT ----- */
@@ -41,7 +42,7 @@ const RegisterForm: React.FC = () => {
                     <div className={css.inputs}>
                         <InputWithIcon icon={<Mail size={28} color="var(--color-light)" />} type="text" value={email} setValue={setEmail} placeholder={t('dico.email')} />
                         <InputWithIcon icon={<UserRound size={28} color="var(--color-light)" />} type="text" value={username} setValue={setUsername} placeholder={t('dico.username')} />
-                        <InputWithIcon icon={<Lock size={28} color="var(--color-light)" />} type="password" value={password} setValue={setPassword} placeholder={t('dico.password')} />
+                        <InputPassword value={password} setValue={setPassword} placeholder={t('dico.password')} />
                     </div>
                     <div className={css.buttons}>
                         <Button type="reset" label={t('dico.clear')} disabled={false} onClick={() => {
