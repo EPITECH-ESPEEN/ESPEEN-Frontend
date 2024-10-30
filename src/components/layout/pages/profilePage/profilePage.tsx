@@ -60,7 +60,7 @@ const ProfilePageContent: React.FC = () => {
         <>
             {loading && <LoaderPage /> }
             <div className={css.container}>
-                <div className="textStyle-title">Hello {user.username}</div>
+                <div className="textStyle-title">{t("dico.hello")} {user.username}</div>
                 <LangSelecter />
                 <ColorBlindSelecter />
                 <div className={css.buttonContainer}>
