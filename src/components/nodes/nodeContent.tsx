@@ -41,13 +41,17 @@ const NodeContent: React.FC<NodeProps> = ({ data, services }) => {
     const handleSelectedServiceChange = (item: ISelecterItem | null) => {
         if (!item) {
             setSelectedService(null);
-            data.service = null;
             setOptions(null);
+            data.service = null;
+            data.option = null;
+            data.fields = [];
             return;
         }
         setSelectedService(item);
         data.service = item.label;
         setOptions(services.find((service) => service.service.value === item.value)?.options || null);
+        data.option = null;
+        data.fields = [];
     }
 
     return (

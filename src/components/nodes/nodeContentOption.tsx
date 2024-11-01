@@ -35,19 +35,18 @@ const NodeContentOption: React.FC<NodeContentOptionProps> = ({ data, options }) 
                 setSelectedOption(option.option);
                 setFields(option.fields);
             }
+        } else {
+            setSelectedOption(null);
+            setFields(null);
         }
     }, [data.option, options]);
-
-    useEffect(() => {
-        setSelectedOption(null);
-        setFields(null);
-    }, [options]);
 
     const handleSelectedOptionChange = (item: ISelecterItem | null) => {
         if (!item) {
             setSelectedOption(null);
-            data.option = null;
             setFields(null);
+            data.option = null;
+            data.fields = [];
             return;
         }
         setSelectedOption(item);

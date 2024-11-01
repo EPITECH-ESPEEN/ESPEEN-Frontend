@@ -143,10 +143,14 @@ export function tableToGraph(table: string[][]): {graph: IGraphNode[], actionCou
         for (let j = 1; j < line.length; j++) {
             const id = `reaction-${reactionCounter}`;
             const position = { x: 1000 * i + 500, y: 250 * (j - 1) };
+            const dataService = capitalize(line[j].split(".")[0]);
+            const dataOption = line[j].split("|")[0];
+            const dataFields = line[j].split("|").slice(1);
             const data = {
-                service: capitalize(line[j].split(".")[0]),
-                option: line[j]
-            };
+                service: dataService,
+                option: dataOption,
+                fields: dataFields
+            }
             const type = "reaction";
 
             const target: INode = { id, position, data, type};
