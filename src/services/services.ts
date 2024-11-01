@@ -51,6 +51,15 @@ export async function getAreaServicesReactions(): Promise<IServiceSelecterItem[]
     return filteredServices;
 }
 
+export async function atLeastOneActionReaction(): Promise<boolean> {
+    const services = await getAreaServices();
+    for (let i = 0; i < services.length; i++) {
+        if (services[i].actions.length > 0 || services[i].reactions.length > 0)
+            return true;
+    }
+    return false;
+}
+
 export async function isServiceLinked(serviceName: string): Promise<boolean> {
     const tmp = await getLinkedServices();
     for (let i = 0; i < tmp.length; i++)

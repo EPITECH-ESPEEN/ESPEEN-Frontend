@@ -33,6 +33,8 @@
         "logout": "Logout"
     },
     "area": {
+        "no_action_reaction": "Not enough actions and reactions",
+        "subscribe_action_reaction": "Subscribe at least one action and one reaction to start using Espeen",
         "select_service": "Select a service",
         "select_action": "Select an action",
         "select_reaction": "Select an reaction",
