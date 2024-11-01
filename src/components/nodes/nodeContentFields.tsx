@@ -50,15 +50,17 @@ const NodeContentFields: React.FC<NodeContentFieldsProps> = ({ data, fields }) =
         <>
             <div className="h-[20px]"></div>
             <div className="textStyle-cardTitle">Fields</div>
-            {fields.map((field, index) =>
-                <InputDark
-                    key={index}
-                    type={field.type as any}
-                    value={values[index]}
-                    setValue={(value) => handleFieldValueChange(index, value)}
-                    placeholder={t(`area.fields.${field.label}`)}
-                />
-            )}
+            {fields.map((field, index) => {
+                if (field.type === "text")
+                    return <InputDark
+                        key={index}
+                        type={field.type as any}
+                        value={values[index]}
+                        setValue={(value) => handleFieldValueChange(index, value)}
+                        placeholder={t(`area.fields.${field.label}`)}
+                    />
+                return <></>
+            })}
         </>
     );
 };
