@@ -57,6 +57,10 @@
         },
         "youtube": {
             "new_video": "New video"
+        },
+        "fields": {
+            "channel": "Enter a channel",
+            "webhook": "Enter a webhook"
         }
     },
     "espeen": {

@@ -13,6 +13,7 @@ import { INodeDatas } from "src/types/Node";
 import css from "./label.module.css";
 import { IInput, ISelecterItem, IServiceOptionItem } from "src/types/Selecter";
 import { useTranslation } from "react-i18next";
+import NodeContentFields from "./nodeContentFields";
 
 /* ----- PROPS ----- */
 interface NodeContentOptionProps {
@@ -42,7 +43,6 @@ const NodeContentOption: React.FC<NodeContentOptionProps> = ({ data, options }) 
         setFields(null);
     }, [options]);
 
-
     const handleSelectedOptionChange = (item: ISelecterItem | null) => {
         if (!item) {
             setSelectedOption(null);
@@ -64,14 +64,7 @@ const NodeContentOption: React.FC<NodeContentOptionProps> = ({ data, options }) 
                 <option value="">{t("area.select_action")}</option>
                 {options.map((option) => <option key={option.option.value} value={option.option.value}>{t(`area.${option.option.label}`)}</option>)}
             </select>
-            {selectedOption && fields && fields.map((field, index) => (
-                <div key={index}>
-                    <div>Label: {field.label}</div>
-                    <div>Type: {field.type}</div>
-                    <div>Value: {field.value}</div>
-                    <div>-------------------</div>
-                </div>
-            ))}
+            {selectedOption && fields && fields.length > 0 && <NodeContentFields data={data} fields={fields} />}
         </>
     );
 };

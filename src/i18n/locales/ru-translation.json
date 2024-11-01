@@ -57,6 +57,10 @@
         },
         "youtube": {
             "new_video": "Новое видео"
+        },
+        "fields": {
+            "channel": "Введите канал",
+            "webhook": "Введите вебхук"
         }
     },
     "espeen": {

@@ -57,6 +57,10 @@
         },
         "youtube": {
             "new_video": "Neues Video"
+        },
+        "fields": {
+            "channel": "Betreten Sie einen Kanal",
+            "webhook": "Geben Sie einen Webhook ein"
         }
     },
     "espeen": {
