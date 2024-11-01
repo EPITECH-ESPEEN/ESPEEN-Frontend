@@ -33,15 +33,26 @@ const NodeContentOption: React.FC<NodeContentOptionProps> = ({ data, options }) 
         }
     }, [data.option, options]);
 
+    const handleSelectedOptionChange = (item: ISelecterItem | null) => {
+        if (!item) {
+            setSelectedOption(null);
+            data.option = null;
+            return;
+        }
+        setSelectedOption(item);
+        data.option = item.label;
+    }
+
     return (
-        <select value={selectedOption?.value} onChange={(e) => {
-            const selected = options?.find((option) => option.value === e.target.value) || null;
-            setSelectedOption(selected);
-            data.option = selected?.label || "";
-        }} className={css.select}>
-            <option value="">{t("area.select_action")}</option>
-            {options?.map((option) => <option key={option.value} value={option.value}>{t(`area.${option.label}`)}</option>)}
-        </select>
+        <>
+            <select value={selectedOption?.value} onChange={(e) => {
+                const selected = options?.find((option) => option.value === e.target.value) || null;
+                handleSelectedOptionChange(selected);
+            }} className={css.select}>
+                <option value="">{t("area.select_action")}</option>
+                {options?.map((option) => <option key={option.value} value={option.value}>{t(`area.${option.label}`)}</option>)}
+            </select>
+        </>
     );
 };
 

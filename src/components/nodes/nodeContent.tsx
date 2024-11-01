@@ -40,14 +40,6 @@ const NodeContent: React.FC<NodeProps> = ({ data, services }) => {
         }
     }, [data.service, data.option, services]);
 
-    if (!services)
-        return <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "80vh"
-        }}><Loader /></div>
-
     const handleSelectedServiceChange = (item: ISelecterItem | null) => {
         if (!item) {
             setSelectedService(null);
