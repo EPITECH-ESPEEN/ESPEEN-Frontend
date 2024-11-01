@@ -11,9 +11,7 @@
 import React, { useEffect, useState } from "react";
 import { INodeDatas } from "src/types/Node";
 import css from "./label.module.css";
-import { ISelecterItem } from "src/types/Selecter";
-import { IServiceSelecterItem } from "src/types/Services";
-import { Loader } from "lucide-react";
+import { ISelecterItem, IServiceOptionItem, IServiceSelecterItem } from "src/types/Selecter";
 import { useTranslation } from "react-i18next";
 import NodeContentOption from "./nodeContentOption";
 
@@ -27,7 +25,7 @@ interface NodeProps {
 /* ----- COMPONENT ----- */
 const NodeContent: React.FC<NodeProps> = ({ data, services }) => {
     const [selectedService, setSelectedService] = useState<ISelecterItem | null>(null);
-    const [options, setOptions] = useState<ISelecterItem[] | null>(null);
+    const [options, setOptions] = useState<IServiceOptionItem[] | null>(null);
     const { t } = useTranslation();
 
     useEffect(() => {
@@ -40,24 +38,20 @@ const NodeContent: React.FC<NodeProps> = ({ data, services }) => {
         }
     }, [data.service, data.option, services]);
 
-    if (!services)
-        return <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "80vh"
-        }}><Loader /></div>
-
     const handleSelectedServiceChange = (item: ISelecterItem | null) => {
         if (!item) {
             setSelectedService(null);
-            data.service = null;
             setOptions(null);
+            data.service = null;
+            data.option = null;
+            data.fields = [];
             return;
         }
         setSelectedService(item);
         data.service = item.label;
         setOptions(services.find((service) => service.service.value === item.value)?.options || null);
+        data.option = null;
+        data.fields = [];
     }
 
     return (

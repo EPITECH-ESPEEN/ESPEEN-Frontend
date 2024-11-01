@@ -21,7 +21,7 @@ import '@xyflow/react/dist/style.css';
 import { initialEdges, initialNodes, nodesIds, nodeTypes, setInitialEdges, setInitialNodes } from "src/store/Nodes";
 import Sidebar from "./sidebar";
 import { IEdge, INode } from "src/types/Node";
-import { getNodeGraph, graphToTable } from "src/services/nodes";
+import { checkGraph, getNodeGraph, graphToTable } from "src/services/nodes";
 import Modal from "src/components/modal/default/modal";
 import { useTranslation } from "react-i18next";
 import { fetchPost } from "src/services/fetch";
@@ -153,6 +153,11 @@ const AreaPageContent: React.FC = () => {
             setError(t("error.link_all_actions_reactions"));
             return;
         }
+        const check = checkGraph(graph);
+        if (typeof check === "string") {
+            setError(t(`error.${check}`));
+            return;
+        }
         const table = graphToTable(graph);
         if (typeof table === "boolean") {
             setError(t("error.fill_all_actions_reactions"));
@@ -166,6 +171,7 @@ const AreaPageContent: React.FC = () => {
             return;
         }
         user.actionReaction = table;
+        console.log("user", user);
         const response = await fetchPost("user", user);
         if (!response.ok) {
             setLoading(false);
@@ -176,6 +182,11 @@ const AreaPageContent: React.FC = () => {
         setLoading(false);
     }
 
+    const handleClear = () => {
+        setNodes([]);
+        setEdges([]);
+    }
+
     useEffect(() => {
         setInitialNodes(nodes);
         setInitialEdges(edges);
@@ -184,7 +195,7 @@ const AreaPageContent: React.FC = () => {
     return (
         <>
             {loading && <LoaderPage /> }
-            <Sidebar handleSave={handleSave} />
+            <Sidebar handleSave={handleSave} handleClear={handleClear} />
             <div style={{ width: '100vw', height: '100vh' }} onDragOver={onDragOver} onDrop={onDrop}>
                 <ReactFlow
                     nodes={nodes}

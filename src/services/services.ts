@@ -8,7 +8,7 @@
 
 /* ----- IMPORTS ----- */
 import { getLinkedServices, getServices } from 'src/store/Services';
-import { IServiceSelecter } from 'src/types/Services';
+import { IServiceSelecter } from 'src/types/Selecter';
 
 
 /* ----- FUNCTIONS ----- */
@@ -26,8 +26,17 @@ async function getFormattedAreaServices(): Promise<IServiceSelecter> {
             },
             options: service.actions.map((action) => {
                 return {
-                    label: action.name,
-                    value: action.action_id.toString(),
+                    option: {
+                        label: action.name,
+                        value: action.action_id.toString(),
+                    },
+                    fields: action.fields.map((field) => {
+                        return {
+                            label: field.name,
+                            value: "",
+                            type: field.type,
+                        };
+                    }),
                 };
             }),
         });
@@ -38,8 +47,17 @@ async function getFormattedAreaServices(): Promise<IServiceSelecter> {
             },
             options: service.reactions.map((reaction) => {
                 return {
-                    label: reaction.name,
-                    value: reaction.reaction_id.toString(),
+                    option: {
+                        label: reaction.name,
+                        value: reaction.reaction_id.toString(),
+                    },
+                    fields: reaction.fields.map((field) => {
+                        return {
+                            label: field.name,
+                            value: "",
+                            type: field.type,
+                        };
+                    }),
                 };
             }),
         });

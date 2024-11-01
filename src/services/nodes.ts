@@ -48,6 +48,32 @@ export function getNodeGraph(nodes: INode[], edges: IEdge[]): IGraphNode[] | boo
     return graph;
 }
 
+export function checkGraph(graph: IGraphNode[]): string | boolean
+{
+    for (let i = 0; i < graph.length; i++) {
+        const node = graph[i];
+        const sourceData: INodeDatas = node.source.data as INodeDatas;
+        if (sourceData.fields) {
+            for (let i = 0; i < sourceData.fields.length; i++) {
+                const field = sourceData.fields[i];
+                if (field.length === 0)
+                    return "fill_all_fields";
+            }
+        }
+        for (let i = 0; i < node.targets.length; i++) {
+            const targetData: INodeDatas = node.targets[i].data as INodeDatas;
+            if (targetData.fields) {
+                for (let i = 0; i < targetData.fields.length; i++) {
+                    const field = targetData.fields[i];
+                    if (field.length === 0)
+                        return "fill_all_fields";
+                }
+            }
+        }
+    }
+    return true;
+}
+
 export function graphToTable(graph: IGraphNode[]): string[][] | boolean
 {
     const table: string[][] = [];
@@ -58,18 +84,29 @@ export function graphToTable(graph: IGraphNode[]): string[][] | boolean
         const sourceData: INodeDatas = node.source.data as INodeDatas;
         if (typeof sourceData.service !== "string" || typeof sourceData.option !== "string")
             return false;
-        line.push(sourceData.option);
-        node.targets.forEach(target => {
-            const targetData: INodeDatas = target.data as INodeDatas;
+        let source = sourceData.option;
+        if (sourceData.fields && sourceData.fields.length > 0) {
+            sourceData.fields.forEach(field => {
+                source += `|${field}`;
+            });
+        }
+        line.push(source);
+        node.targets.forEach(tmp => {
+            const targetData: INodeDatas = tmp.data as INodeDatas;
             if (typeof targetData.service !== "string" || typeof targetData.option !== "string")
                 return false;
-            line.push(targetData.option);
+            let target = targetData.option;
+            if (targetData.fields && targetData.fields.length > 0) {
+                targetData.fields.forEach(field => {
+                    target += `|${field}`;
+                });
+            }
+            line.push(target);
         });
         if (line.length === 0)
             return false;
         table.push(line);
     }
-
     return table;
 }
 
@@ -87,27 +124,36 @@ export function tableToGraph(table: string[][]): {graph: IGraphNode[], actionCou
         const line = table[i];
         if (line.length === 0)
             return false;
-        const source: INode = {
-            id: `action-${actionCounter}`,
-            position: { x: 1000 * i, y: 0 },
-            data: {
-                service: capitalize(line[0].split(".")[0]),
-                option: line[0]
-            },
-            type: "action"
-        };
+        const id = `action-${actionCounter}`;
+        const position = { x: 1000 * i, y: 0 };
+
+        const dataService = capitalize(line[0].split(".")[0]);
+        const dataOption = line[0].split("|")[0];
+        const dataFields = line[0].split("|").slice(1);
+        const data = {
+            service: dataService,
+            option: dataOption,
+            fields: dataFields
+        }
+        const type = "action";
+
+        const source: INode = { id, position, data, type};
         actionCounter++;
         const targets: INode[] = [];
         for (let j = 1; j < line.length; j++) {
-            const target: INode = {
-                id: `reaction-${reactionCounter}`,
-                position: { x: 1000 * i + 500, y: 250 * (j - 1) },
-                data: {
-                    service: capitalize(line[j].split(".")[0]),
-                    option: line[j]
-                },
-                type: "reaction"
-            };
+            const id = `reaction-${reactionCounter}`;
+            const position = { x: 1000 * i + 500, y: 250 * (j - 1) };
+            const dataService = capitalize(line[j].split(".")[0]);
+            const dataOption = line[j].split("|")[0];
+            const dataFields = line[j].split("|").slice(1);
+            const data = {
+                service: dataService,
+                option: dataOption,
+                fields: dataFields
+            }
+            const type = "reaction";
+
+            const target: INode = { id, position, data, type};
             reactionCounter++;
             targets.push(target);
         }

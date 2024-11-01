@@ -19,6 +19,7 @@
     },
     "error": {
         "fill_all_actions_reactions": "Vous devez remplir toutes les actions et réactions",
+        "fill_all_fields": "Vous devez remplir tous les champs",
         "invalid_login": "Login ou mot de passe invalide",
         "invalid_register": "Inscription invalide",
         "link_all_actions_reactions": "Vous devez lier toutes les actions et réactions",
@@ -57,6 +58,10 @@
         },
         "youtube": {
             "new_video": "Nouvelle vidéo"
+        },
+        "fields": {
+            "channel": "Entrer dans une chaîne",
+            "webhook": "Entrer un webhook"
         }
     },
     "espeen": {

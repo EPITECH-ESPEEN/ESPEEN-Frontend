@@ -12,11 +12,18 @@ import React, { useState } from "react";
 import '@xyflow/react/dist/style.css';
 import css from "./sidebar.module.css";
 import IconButton from "src/components/buttons/icon/icon";
-import { Plus, Save } from "lucide-react";
+import { Plus, Save, Trash2 } from "lucide-react";
+
+
+/* ----- PROPS ----- */
+interface SidebarProps {
+    handleSave: () => void;
+    handleClear: () => void;
+}
 
 
 /* ----- COMPONENT ----- */
-const Sidebar: React.FC<{handleSave: any}> = ({handleSave}) => {
+const Sidebar: React.FC<SidebarProps> = ({handleSave, handleClear}) => {
     const [show, setShow] = useState(true);
 
     const onDragStart = (event: React.DragEvent, nodeType: string) => {
@@ -32,6 +39,9 @@ const Sidebar: React.FC<{handleSave: any}> = ({handleSave}) => {
                 </div>
                 <div className={css.button}>
                     <IconButton icon={Save} onClick={handleSave} />
+                </div>
+                <div className={css.button}>
+                    <IconButton icon={Trash2} onClick={handleClear} />
                 </div>
             </div>
             <div className={css.container}>
