@@ -36,7 +36,7 @@ const PrivacyPolicyPageContent: React.FC = () => {
             <TextWithAir>
                 <div className="textStyle-title">1. Information We Collect</div>
                 <div className="textStyle-text">
-                    <li><strong>Personal Information</strong>: When you create an account, contact us, or subscribe to our services, we may collect information such as your name, email address, phone number, and other information necessary to fulfill our services.</li>
+                    <li><strong>Personal Information</strong>: When you create an account, contact us, or subscribe to our services, we may collect information such as your name, email address, and other information necessary to fulfill our services.</li>
                     <li><strong>Automatically Collected Information</strong>: We may automatically collect information about your device, browsing actions, and usage patterns. This includes your IP address, browser type, access times, and pages visited.</li>
                     <li><strong>Cookies</strong>: Our website uses cookies to collect data about your browsing behavior. Cookies are small data files stored on your device and help us provide a more personalized experience.</li>
                 </div>
@@ -71,10 +71,10 @@ const PrivacyPolicyPageContent: React.FC = () => {
             <TextWithAir>
             <div className="textStyle-title">5. Your Rights and Choices</div>
             <div className="textStyle-text">
+                Depending on your location, you may have certain rights regarding your personal information:
                 <li><strong>Access</strong>: You may have the right to access the personal information we hold about you.</li>
                 <li><strong>Correction</strong>: You may request that we correct or update any incorrect information.</li>
                 <li><strong>Deletion</strong>: You may request the deletion of your personal information, subject to certain exceptions.</li>
-                <li><strong>Opt-Out</strong>: You may opt out of receiving promotional communications by following the unsubscribe link in emails.</li>
                 To exercise these rights, please contact us using the contact details below.
             </div>
             </TextWithAir>
