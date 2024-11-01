@@ -11,9 +11,7 @@
 import React, { useEffect, useState } from "react";
 import { INodeDatas } from "src/types/Node";
 import css from "./label.module.css";
-import { ISelecterItem } from "src/types/Selecter";
-import { IServiceSelecterItem } from "src/types/Services";
-import { Loader } from "lucide-react";
+import { ISelecterItem, IServiceSelecterItem } from "src/types/Selecter";
 import { useTranslation } from "react-i18next";
 import NodeContentOption from "./nodeContentOption";
 

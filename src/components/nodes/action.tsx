@@ -12,11 +12,11 @@ import React, { useEffect, useState } from "react";
 import { Handle, Position } from "@xyflow/react";
 import { INodeDatas } from "src/types/Node";
 import css from "./label.module.css";
-import { IServiceSelecterItem } from "src/types/Services";
 import { Loader } from "lucide-react";
 import { getAreaServices } from "src/services/services";
 import NodeContent from "./nodeContent";
 import { useTranslation } from "react-i18next";
+import { IServiceSelecterItem } from "src/types/Selecter";
 
 /* ----- PROPS ----- */
 interface ActionNodeProps {

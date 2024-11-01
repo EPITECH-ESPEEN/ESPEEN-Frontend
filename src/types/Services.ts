@@ -6,8 +6,6 @@
     --U-----U------------------------
 */
 
-import { ISelecterItem } from "./Selecter";
-
 export interface IServiceField {
     name: string;
     type: string;
@@ -38,13 +36,3 @@ export interface IService {
     actions: IServiceAction[];
     reactions: IServiceReaction[];
 };
-
-export interface IServiceSelecterItem {
-    service: ISelecterItem;
-    options: ISelecterItem[];
-}
-
-export interface IServiceSelecter {
-    actions: IServiceSelecterItem[];
-    reactions: IServiceSelecterItem[];
-}

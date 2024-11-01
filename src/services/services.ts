@@ -8,7 +8,7 @@
 
 /* ----- IMPORTS ----- */
 import { getLinkedServices, getServices } from 'src/store/Services';
-import { IServiceSelecter } from 'src/types/Services';
+import { IServiceSelecter } from 'src/types/Selecter';
 
 
 /* ----- FUNCTIONS ----- */
