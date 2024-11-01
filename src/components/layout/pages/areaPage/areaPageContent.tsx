@@ -171,6 +171,7 @@ const AreaPageContent: React.FC = () => {
             return;
         }
         user.actionReaction = table;
+        console.log("user", user);
         const response = await fetchPost("user", user);
         if (!response.ok) {
             setLoading(false);
@@ -181,6 +182,11 @@ const AreaPageContent: React.FC = () => {
         setLoading(false);
     }
 
+    const handleClear = () => {
+        setNodes([]);
+        setEdges([]);
+    }
+
     useEffect(() => {
         setInitialNodes(nodes);
         setInitialEdges(edges);
@@ -189,7 +195,7 @@ const AreaPageContent: React.FC = () => {
     return (
         <>
             {loading && <LoaderPage /> }
-            <Sidebar handleSave={handleSave} />
+            <Sidebar handleSave={handleSave} handleClear={handleClear} />
             <div style={{ width: '100vw', height: '100vh' }} onDragOver={onDragOver} onDrop={onDrop}>
                 <ReactFlow
                     nodes={nodes}
