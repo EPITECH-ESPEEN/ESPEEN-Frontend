@@ -15,6 +15,7 @@ import { ISelecterItem } from "src/types/Selecter";
 import { IServiceSelecterItem } from "src/types/Services";
 import { Loader } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import NodeContentOption from "./nodeContentOption";
 
 /* ----- PROPS ----- */
 interface NodeProps {
@@ -28,7 +29,6 @@ interface NodeProps {
 const NodeContent: React.FC<NodeProps> = ({ type, data, services }) => {
     const [selectedService, setSelectedService] = useState<ISelecterItem | null>(null);
     const [options, setOptions] = useState<ISelecterItem[] | null>(null);
-    const [selectedOption, setSelectedOption] = useState<ISelecterItem | null>(null);
     const { t } = useTranslation();
 
     useEffect(() => {
@@ -37,10 +37,6 @@ const NodeContent: React.FC<NodeProps> = ({ type, data, services }) => {
             if (service) {
                 setSelectedService(service.service);
                 setOptions(service.options);
-                if (data.option) {
-                    const option = service.options.find((option) => option.label === data.option);
-                    setSelectedOption(option || null);
-                }
             }
         }
     }, [data.service, data.option, services]);
@@ -58,13 +54,11 @@ const NodeContent: React.FC<NodeProps> = ({ type, data, services }) => {
             setSelectedService(null);
             data.service = null;
             setOptions(null);
-            setSelectedOption(null);
             return;
         }
         setSelectedService(item);
         data.service = item.label;
         setOptions(services.find((service) => service.service.value === item.value)?.options || null);
-        setSelectedOption(null);
     }
 
     return (
@@ -77,17 +71,7 @@ const NodeContent: React.FC<NodeProps> = ({ type, data, services }) => {
                 <option value="">{t("area.select_service")}</option>
                 {services.map((service) => <option key={service.service.value} value={service.service.value}>{service.service.label}</option>)}
             </select>
-            {selectedService ?
-                <select value={selectedOption?.value} onChange={(e) => {
-                    const selected = options?.find((option) => option.value === e.target.value) || null;
-                    setSelectedOption(selected);
-                    data.option = selected?.label || "";
-                }} className={css.select}>
-                    <option value="">{t("area.select_action")}</option>
-                    {options?.map((option) => <option key={option.value} value={option.value}>{t(`area.${option.label}`)}</option>)}
-                </select>
-                : null
-            }
+            { selectedService && options && <NodeContentOption data={data} options={options} /> }
         </>
     );
 };
