@@ -23,7 +23,6 @@ export async function fetchOauth() {
         const jsonResponse = await response.json();
         oauthFetch = Date.now();
         oauth = { ...(jsonResponse.facebook_service as IService) };
-        console.log("Oauth fetched: ", oauth);
     } catch (error) {
         console.error("Error fetching services: ", error);
     }

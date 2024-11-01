@@ -66,7 +66,7 @@ const LoginForm: React.FC = () => {
                         }} />
                         <Button type="submit" label={t('dico.login')} disabled={username.length === 0 || password.length === 0} onClick={() => {}} />
                     </div>
-                    {oauth !== null &&
+                    {oauth !== null && oauth.buttons && oauth.buttons.length > 0 &&
                         <>
                             <Divider color="var(--color-light)" direction="horizontal" />
                             <div className={css.buttons}>
