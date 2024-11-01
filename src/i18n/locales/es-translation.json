@@ -33,6 +33,8 @@
         "logout": "Cerrar sesión"
     },
     "area": {
+        "no_action_reaction": "No hay suficientes acciones y reacciones",
+        "subscribe_action_reaction": "Suscríbete al menos a una acción y una reacción para comenzar a usar Espeen",
         "select_service": "Seleccione un servicio",
         "select_action": "Seleccione una acción",
         "select_reaction": "Seleccione una reacción",
@@ -49,6 +51,12 @@
                 "receive_email": "Recibir un correo electrónico",
                 "send_email": "Enviar un correo electrónico"
             }
+        },
+        "github": {
+            "push_events": "Eventos push"
+        },
+        "youtube": {
+            "new_video": "Nuevo video"
         }
     },
     "espeen": {

@@ -33,6 +33,8 @@
         "logout": "Ausloggen"
     },
     "area": {
+        "no_action_reaction": "Nicht genügend Aktionen und Reaktionen",
+        "subscribe_action_reaction": "Abonnieren Sie mindestens eine Aktion und eine Reaktion, um Espeen nutzen zu können",
         "select_service": "Wählen Sie einen Dienst aus",
         "select_action": "Auswählen einer Aktion",
         "select_reaction": "Wählen Sie eine Reaktion aus",
@@ -49,6 +51,12 @@
                 "receive_email": "Erhalten Sie eine E-Mail",
                 "send_email": "Senden Sie eine E-Mail"
             }
+        },
+        "github": {
+            "push_events": "Push-Ereignisse"
+        },
+        "youtube": {
+            "new_video": "Neues Video"
         }
     },
     "espeen": {
