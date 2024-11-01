@@ -11,7 +11,7 @@
 import React, { useEffect, useState } from "react";
 import { INodeDatas } from "src/types/Node";
 import css from "./label.module.css";
-import { ISelecterItem, IServiceSelecterItem } from "src/types/Selecter";
+import { ISelecterItem, IServiceOptionItem, IServiceSelecterItem } from "src/types/Selecter";
 import { useTranslation } from "react-i18next";
 import NodeContentOption from "./nodeContentOption";
 
@@ -25,7 +25,7 @@ interface NodeProps {
 /* ----- COMPONENT ----- */
 const NodeContent: React.FC<NodeProps> = ({ data, services }) => {
     const [selectedService, setSelectedService] = useState<ISelecterItem | null>(null);
-    const [options, setOptions] = useState<ISelecterItem[] | null>(null);
+    const [options, setOptions] = useState<IServiceOptionItem[] | null>(null);
     const { t } = useTranslation();
 
     useEffect(() => {
