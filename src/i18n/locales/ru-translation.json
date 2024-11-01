@@ -51,6 +51,12 @@
                 "receive_email": "Получить электронное письмо",
                 "send_email": "Отправить электронное письмо"
             }
+        },
+        "github": {
+            "push_events": "События Push"
+        },
+        "youtube": {
+            "new_video": "Новое видео"
         }
     },
     "espeen": {

@@ -51,6 +51,12 @@
                 "receive_email": "Recevoir un email",
                 "send_email": "Envoyer un email"
             }
+        },
+        "github": {
+            "push_events": "Événements push"
+        },
+        "youtube": {
+            "new_video": "Nouvelle vidéo"
         }
     },
     "espeen": {
