@@ -10,6 +10,8 @@
 /* ----- IMPORTS ----- */
 import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ReactFlowProvider } from "@xyflow/react";
+
 import NavBar from "src/components/layout/navbar/navbar";
 import Footer from "src/components/layout/footer";
 import Loader from "src/components/loading/loader";
@@ -17,8 +19,8 @@ import PrivateRoute from "src/components/auth/privateRoute";
 import { getPagesConfigs } from "src/router/routesConfig";
 import { setDefaultColorBlind } from "src/services/colorBlind";
 import { setDefaultLanguage } from "src/i18n/i18n";
-import { ReactFlowProvider } from "@xyflow/react";
 import { defaultLogin } from "./services/authServices";
+import PrivacyPolicyPage from "src/pages/privacyPolicyPage";
 
 
 /* ----- COMPONENT ----- */
@@ -58,6 +60,9 @@ function App() {
                                 <Route key={pageConfig.name} path={pageConfig.path} element={content} />
                             );
                         })}
+
+                        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+
                     </Routes>
                 </body>
                 <footer><Footer /></footer>
