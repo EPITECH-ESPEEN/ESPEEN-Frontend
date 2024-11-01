@@ -43,6 +43,7 @@ const NodeContentFields: React.FC<NodeContentFieldsProps> = ({ data, fields }) =
         const newValues = [...values];
         newValues[index] = value;
         setValues(newValues);
+        data.fields = newValues;
     }
 
     return (
