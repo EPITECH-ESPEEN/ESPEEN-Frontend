@@ -11,8 +11,8 @@
 import React, { useEffect } from "react";
 import MetaData from "src/components/layout/metaData";
 import LoginPageContent from "src/components/layout/pages/loginPage/loginPageContent";
-import { useNavigate } from "react-router-dom";
-import { isAuthenticated } from "src/services/authServices";
+import { useLocation, useNavigate } from "react-router-dom";
+import { isAuthenticated, setToken } from "src/services/authServices";
 
 
 /* ----- COMPONENT ----- */
@@ -23,6 +23,16 @@ const LoginPage: React.FC = () => {
         if (isAuthenticated())
             navigate("/");
     }, [navigate]);
+
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const getToken = () => {
+        const token = queryParams.get('token');
+        if (token === null) return;
+        setToken(token);
+        window.location.reload();
+    };
+    getToken();
 
     return (
         <>

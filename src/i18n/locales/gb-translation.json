@@ -78,6 +78,7 @@
         "hello": "Hello",
         "language": "Language",
         "login": "Login",
+        "login_with": "Login with",
         "logout": "Logout",
         "modify_profile": "Modify profile",
         "name": "Name",

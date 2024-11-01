@@ -82,3 +82,8 @@ export async function defaultLogin() {
     if (isAuthenticated())
         await getUser();
 }
+
+export const setToken = (token: string): void => {
+    localStorage.setItem('authToken', token);
+    setTokenCookie(token);
+}

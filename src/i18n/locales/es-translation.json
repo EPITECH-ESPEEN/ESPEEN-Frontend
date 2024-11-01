@@ -78,6 +78,7 @@
         "hello": "Hola",
         "language": "Idioma",
         "login": "Acceso",
+        "login_with": "Iniciar sesión con",
         "logout": "Cerrar sesión",
         "modify_profile": "Modificar perfil",
         "name": "Nombre",

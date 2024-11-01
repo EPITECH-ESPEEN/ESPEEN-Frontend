@@ -28,7 +28,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
     const { t } = useTranslation();
 
     const callPath = async (action: IServiceButton) => {
-        window.location.href = `${getBaseUrl()}/${action.path}`;
+        window.open(`${getBaseUrl()}/${action.path}`, "_blank");
     };
 
     useEffect(() => {
