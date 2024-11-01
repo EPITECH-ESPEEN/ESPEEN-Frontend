@@ -8,26 +8,35 @@
 
 /* ----- IMPORTS ----- */
 import { getLinkedServices, getServices } from 'src/store/Services';
-import { IServiceSelecterItem } from 'src/types/Services';
+import { IServiceSelecter } from 'src/types/Services';
 
 
 /* ----- FUNCTIONS ----- */
-async function getAreaServices(): Promise<IServiceSelecterItem[]> {
+async function getFormattedAreaServices(): Promise<IServiceSelecter> {
     const tmp = await getServices();
-    const services: IServiceSelecterItem[] = [];
+    const services: IServiceSelecter = {
+        actions: [],
+        reactions: [],
+    }
     tmp.forEach((service) => {
-        services.push({
-            item: {
+        services.actions.push({
+            service: {
                 label: service.name,
                 value: service.uid.toString(),
             },
-            actions: service.actions.map((action) => {
+            options: service.actions.map((action) => {
                 return {
                     label: action.name,
                     value: action.action_id.toString(),
                 };
             }),
-            reactions: service.reactions.map((reaction) => {
+        });
+        services.reactions.push({
+            service: {
+                label: service.name,
+                value: service.uid.toString(),
+            },
+            options: service.reactions.map((reaction) => {
                 return {
                     label: reaction.name,
                     value: reaction.reaction_id.toString(),
@@ -38,23 +47,20 @@ async function getAreaServices(): Promise<IServiceSelecterItem[]> {
     return services;
 }
 
-export async function getAreaServicesActions(): Promise<IServiceSelecterItem[]> {
-    const services = await getAreaServices();
-    const filteredServices = services.filter((service) => service.actions.length > 0);
-    return filteredServices;
+export async function getAreaServices(): Promise<IServiceSelecter> {
+    const services = await getFormattedAreaServices();
+    services.actions = services.actions.filter((service) => service.options.length > 0);
+    services.reactions = services.reactions.filter((service) => service.options.length > 0);
+    return services;
 }
 
-export async function getAreaServicesReactions(): Promise<IServiceSelecterItem[]> {
-
-    const services = await getAreaServices();
-    const filteredServices = services.filter((service) => service.reactions.length > 0);
-    return filteredServices;
-}
 
 export async function atLeastOneActionReaction(): Promise<boolean> {
     const services = await getAreaServices();
-    for (let i = 0; i < services.length; i++) {
-        if (services[i].actions.length > 0 || services[i].reactions.length > 0)
+    for (let i = 0; i < services.actions.length; i++) {
+        if (services.actions[i].options.length > 0)
+            return true;
+        if (services.reactions[i].options.length > 0)
             return true;
     }
     return false;

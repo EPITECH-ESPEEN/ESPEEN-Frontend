@@ -40,7 +40,11 @@ export interface IService {
 };
 
 export interface IServiceSelecterItem {
-    item: ISelecterItem;
-    actions: ISelecterItem[];
-    reactions: ISelecterItem[];
+    service: ISelecterItem;
+    options: ISelecterItem[];
+}
+
+export interface IServiceSelecter {
+    actions: IServiceSelecterItem[];
+    reactions: IServiceSelecterItem[];
 }
