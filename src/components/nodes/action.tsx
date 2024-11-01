@@ -16,6 +16,7 @@ import { IServiceSelecterItem } from "src/types/Services";
 import { Loader } from "lucide-react";
 import { getAreaServices } from "src/services/services";
 import NodeContent from "./nodeContent";
+import { useTranslation } from "react-i18next";
 
 /* ----- PROPS ----- */
 interface ActionNodeProps {
@@ -26,6 +27,7 @@ interface ActionNodeProps {
 /* ----- COMPONENT ----- */
 const ActionNode: React.FC<ActionNodeProps> = ({ data }) => {
     const [servicesAction, setServicesAction] = useState<IServiceSelecterItem[] | null>(null);
+    const { t } = useTranslation();
 
     useEffect(() => {
         if (servicesAction) return;
@@ -46,7 +48,8 @@ const ActionNode: React.FC<ActionNodeProps> = ({ data }) => {
 
     return (
         <div className={css.card}>
-            <NodeContent type="action" data={data} services={servicesAction} />
+            <div className="color-dark textStyle-cardTitle">{t("dico.action")}</div>
+            <NodeContent data={data} services={servicesAction} />
             <Handle type="source" position={Position.Right} id="a" />
         </div>
     );

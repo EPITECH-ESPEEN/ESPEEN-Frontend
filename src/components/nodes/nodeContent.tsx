@@ -19,14 +19,13 @@ import NodeContentOption from "./nodeContentOption";
 
 /* ----- PROPS ----- */
 interface NodeProps {
-    type: string
     data: INodeDatas
     services: IServiceSelecterItem[]
 };
 
 
 /* ----- COMPONENT ----- */
-const NodeContent: React.FC<NodeProps> = ({ type, data, services }) => {
+const NodeContent: React.FC<NodeProps> = ({ data, services }) => {
     const [selectedService, setSelectedService] = useState<ISelecterItem | null>(null);
     const [options, setOptions] = useState<ISelecterItem[] | null>(null);
     const { t } = useTranslation();
@@ -63,7 +62,6 @@ const NodeContent: React.FC<NodeProps> = ({ type, data, services }) => {
 
     return (
         <>
-            <div className="color-dark textStyle-cardTitle">{t(`dico.${type}`)}</div>
             <select value={selectedService?.value} onChange={(e) => {
                 const selected = services.find((service) => service.service.value === e.target.value)?.service || null;
                 handleSelectedServiceChange(selected);
