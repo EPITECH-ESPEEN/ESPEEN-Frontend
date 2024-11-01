@@ -19,6 +19,7 @@
     },
     "error": {
         "fill_all_actions_reactions": "Sie müssen alle Aktionen und Reaktionen ausfüllen",
+        "fill_all_fields": "Sie müssen alle Felder ausfüllen",
         "invalid_login": "Ungültiger Login oder ungültiges Passwort",
         "invalid_register": "Ungültige Registrierung",
         "link_all_actions_reactions": "Sie müssen alle Aktionen und Reaktionen verknüpfen",

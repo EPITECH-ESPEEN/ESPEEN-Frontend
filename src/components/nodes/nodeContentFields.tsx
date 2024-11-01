@@ -33,11 +33,13 @@ const NodeContentFields: React.FC<NodeContentFieldsProps> = ({ data, fields }) =
     }, [data.fields]);
 
     useEffect(() => {
-        if (fields)
-            setValues(new Array(fields.length).fill(""));
-        else
+        if (fields) {
+            const newValues = new Array(fields.length).fill("");
+            setValues(newValues);
+            data.fields = newValues;
+        } else
             setValues([]);
-    }, [fields]);
+    }, [data, fields]);
 
     const handleFieldValueChange = (index: number, value: string) => {
         const newValues = [...values];

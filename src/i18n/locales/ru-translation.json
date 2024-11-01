@@ -19,6 +19,7 @@
     },
     "error": {
         "fill_all_actions_reactions": "Вы должны заполнить все действия и реакции",
+        "fill_all_fields": "Вы должны заполнить все поля",
         "invalid_login": "Неверный логин или пароль",
         "invalid_register": "Недействительная регистрация",
         "link_all_actions_reactions": "Вы должны связать все действия и реакции",
