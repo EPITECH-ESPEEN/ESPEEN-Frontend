@@ -15,7 +15,7 @@ import css from "./label.module.css";
 import { IServiceSelecterItem } from "src/types/Services";
 import { Loader } from "lucide-react";
 import { getAreaServices } from "src/services/services";
-import Node from "./node";
+import NodeContent from "./nodeContent";
 
 /* ----- PROPS ----- */
 interface ActionNodeProps {
@@ -46,7 +46,7 @@ const ActionNode: React.FC<ActionNodeProps> = ({ data }) => {
 
     return (
         <div className={css.card}>
-            <Node type="action" data={data} services={servicesAction} />
+            <NodeContent type="action" data={data} services={servicesAction} />
             <Handle type="source" position={Position.Right} id="a" />
         </div>
     );

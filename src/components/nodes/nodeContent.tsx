@@ -25,7 +25,7 @@ interface NodeProps {
 
 
 /* ----- COMPONENT ----- */
-const Node: React.FC<NodeProps> = ({ type, data, services }) => {
+const NodeContent: React.FC<NodeProps> = ({ type, data, services }) => {
     const [selectedService, setSelectedService] = useState<ISelecterItem | null>(null);
     const [options, setOptions] = useState<ISelecterItem[] | null>(null);
     const [selectedOption, setSelectedOption] = useState<ISelecterItem | null>(null);
@@ -33,7 +33,6 @@ const Node: React.FC<NodeProps> = ({ type, data, services }) => {
 
     useEffect(() => {
         if (data.service && services) {
-            // const service = services.find((service) => service.item.label === data.service);
             const service = services.find((service) => service.service.label === data.service);
             if (service) {
                 setSelectedService(service.service);
@@ -93,4 +92,4 @@ const Node: React.FC<NodeProps> = ({ type, data, services }) => {
     );
 };
 
-export default Node;
+export default NodeContent;
