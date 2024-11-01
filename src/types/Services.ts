@@ -8,6 +8,11 @@
 
 import { ISelecterItem } from "./Selecter";
 
+export interface IServiceField {
+    name: string;
+    type: string;
+};
+
 export interface IServiceButton {
     name: string;
     path: string;
@@ -16,11 +21,13 @@ export interface IServiceButton {
 export interface IServiceAction {
     action_id: number;
     name: string;
+    fields: IServiceField[];
 }
 
 export interface IServiceReaction {
     reaction_id: number;
     name: string;
+    fields: IServiceField[];
 }
 
 export interface IService {
