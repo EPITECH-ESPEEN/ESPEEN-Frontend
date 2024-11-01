@@ -8,8 +8,8 @@
 */
 
 /* ----- IMPORTS ----- */
-import { UserRound, Lock } from "lucide-react";
-import React, { useState } from "react";
+import { UserRound } from "lucide-react";
+import React, { useEffect, useState } from "react";
 import css from "src/components/auth/authForm.module.css";
 import Button from "src/components/buttons/default/button";
 import InputWithIcon from "src/components/inputs/withIcon/withIcon";
@@ -17,6 +17,10 @@ import ModalError from "src/components/modal/error/modalError";
 import { useTranslation } from "react-i18next";
 import { login } from "src/services/authServices";
 import InputPassword from "../inputs/password/inputPassword";
+import Divider from "../divider/divider";
+import { IService, IServiceButton } from "src/types/Services";
+import { getOauth } from "src/store/Oauth";
+import { getBaseUrl } from "src/services/fetch";
 
 
 /* ----- COMPONENT ----- */
@@ -24,8 +28,16 @@ const LoginForm: React.FC = () => {
     const [username, setUsername] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [isError, setIsError] = useState<boolean>(false);
+    const [oauth, setOauth] = useState<IService | null>(null);
     const { t } = useTranslation();
 
+    useEffect(() => {
+        const fetchOauth = async () => {
+            const response = await getOauth();
+            setOauth(response);
+        };
+        fetchOauth();
+    }, []);
 
     const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -33,6 +45,10 @@ const LoginForm: React.FC = () => {
             window.location.reload();
         else
             setIsError(true);
+    };
+
+    const callPath = async (action: IServiceButton) => {
+        window.location.href =`${getBaseUrl()}/${action.path}`;
     };
 
     return (
@@ -50,6 +66,19 @@ const LoginForm: React.FC = () => {
                         }} />
                         <Button type="submit" label={t('dico.login')} disabled={username.length === 0 || password.length === 0} onClick={() => {}} />
                     </div>
+                    {oauth !== null &&
+                        <>
+                            <Divider color="var(--color-light)" direction="horizontal" />
+                            <div className={css.buttons}>
+                                {
+                                    oauth.buttons.map((action, index) => {
+                                        if (action.name !== "not_linked") return null;
+                                        return <Button key={index} label={`${t('dico.login_with')} ${oauth.name}`} onClick={() => callPath(action)} />
+                                    })
+                                }
+                            </div>
+                        </>
+                    }
                 </form>
             </div>
             {isError && <ModalError message={t('error.invalid_login')} onClose={() => {
