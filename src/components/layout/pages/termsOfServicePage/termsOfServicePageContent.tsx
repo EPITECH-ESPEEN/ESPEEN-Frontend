@@ -10,13 +10,10 @@
 /* ----- IMPORTS ----- */
 import React from "react";
 import css from "./termsOfServicePageContent.module.css"
-import { useTranslation } from "react-i18next";
 import TextWithAir from "src/components/text/textWithAir/textWithAir";
 
 /* ----- COMPONENT ----- */
 const TermsOfServicePageContent: React.FC = () => {
-    const { t } = useTranslation();
-
     return (
         <div className={css.container}>
             <TextWithAir left={false}>

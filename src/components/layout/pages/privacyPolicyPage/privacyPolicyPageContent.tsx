@@ -10,13 +10,10 @@
 /* ----- IMPORTS ----- */
 import React from "react";
 import css from "./privacyPolicyPageContent.module.css"
-import { useTranslation } from "react-i18next";
 import TextWithAir from "src/components/text/textWithAir/textWithAir";
 
 /* ----- COMPONENT ----- */
 const PrivacyPolicyPageContent: React.FC = () => {
-    const { t } = useTranslation();
-
     return (
         <div className={css.container}>
             <TextWithAir left={false}>
@@ -85,7 +82,7 @@ const PrivacyPolicyPageContent: React.FC = () => {
                     We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.
                 </div>
             </TextWithAir>
-            
+
             <TextWithAir>
                 <div className="textStyle-title">7. Third-Party Links</div>
                 <div className="textStyle-text">
@@ -97,7 +94,7 @@ const PrivacyPolicyPageContent: React.FC = () => {
                 <div className="textStyle-title">8. Children's Privacy</div>
                 <div className="textStyle-text">
                     Our website is not intended for children under the age of 13. We do not knowingly collect or solicit personal information from children under 13. If we learn that we have collected information from a child under 13, we will delete that information as quickly as possible.
-                </div>  
+                </div>
             </TextWithAir>
 
             <TextWithAir>

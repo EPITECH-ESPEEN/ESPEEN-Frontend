@@ -14,3 +14,17 @@
     padding: 100px 200px;
     gap: 200px;
 }
+
+@media screen and (max-width: 900px) {
+    .container {
+        padding: 100px 100px;
+        gap: 100px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 100px 50px;
+        gap: 50px;
+    }
+}
