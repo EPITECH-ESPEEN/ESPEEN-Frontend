@@ -60,12 +60,12 @@
             "new_video": "Neues Video"
         },
         "twitch": {
-            "update_description": "Biographie aktualisieren",
-            "get_banned_users": "Gesperrte Benutzer abrufen",
-            "get_modos": "Moderatoren abfragen",
+            "update_description": "Biografie aktualisieren",
+            "get_banned_users": "Erhalten Sie gesperrte Benutzer",
+            "get_modos": "Holen Sie sich Moderatoren",
             "get_channel_infos": "Kanalinformationen abrufen",
-            "get_user_clips": "Beliebte Clips des Kanals abrufen",
-            "get_top_games": "Holt die beliebtesten Live-Spiele"
+            "get_user_clips": "Beliebte Clips aus dem Kanal abrufen",
+            "get_top_games": "Holen Sie sich die beliebtesten Live-Spiele"
         },
         "fields": {
             "channel": "Betreten Sie einen Kanal",
@@ -96,6 +96,7 @@
         "clear": "Klar",
         "email": "E-Mail",
         "error": "Fehler",
+        "fields": "Felder",
         "hello": "Hallo",
         "language": "Sprache",
         "login": "Login",

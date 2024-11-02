@@ -50,7 +50,7 @@ const NodeContentFields: React.FC<NodeContentFieldsProps> = ({ data, fields }) =
     return (
         <>
             <div className="h-[20px]"></div>
-            <div className="textStyle-cardTitle">Fields</div>
+            <div className="textStyle-cardTitle">{t("dico.fields")}</div>
             {fields.map((field, index) => {
                 if ([`text`, `password`, `email`, `number`, `phone`, `textarea`].includes(field.type))
                     return <InputDark

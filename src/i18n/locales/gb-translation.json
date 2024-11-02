@@ -38,7 +38,7 @@
         "subscribe_action_reaction": "Subscribe at least one action and one reaction to start using Espeen",
         "select_service": "Select a service",
         "select_action": "Select an action",
-        "select_reaction": "Select an reaction",
+        "select_reaction": "Select a reaction",
         "discord": {
             "bot": {
                 "receive_message": "Receive a message"
@@ -96,6 +96,7 @@
         "clear": "Clear",
         "email": "Email",
         "error": "Error",
+        "fields": "Fields",
         "hello": "Hello",
         "language": "Language",
         "login": "Login",

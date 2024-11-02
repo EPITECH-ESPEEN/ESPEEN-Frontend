@@ -62,10 +62,10 @@
         "twitch": {
             "update_description": "Actualizar biografía",
             "get_banned_users": "Obtener usuarios baneados",
-            "get_modos": "Obtener moderadores",
+            "get_modos": "Conseguir moderadores",
             "get_channel_infos": "Obtener información del canal",
-            "get_user_clips": "Obtener clips populares del canal",
-            "get_top_games": "Obtener los juegos en directo más populares"
+            "get_user_clips": "Obtenga clips populares del canal",
+            "get_top_games": "Obtenga los juegos en vivo más populares"
         },
         "fields": {
             "channel": "Ingresar un canal",
@@ -96,6 +96,7 @@
         "clear": "Claro",
         "email": "Correo electrónico",
         "error": "Error",
+        "fields": "Campos",
         "hello": "Hola",
         "language": "Idioma",
         "login": "Acceso",
