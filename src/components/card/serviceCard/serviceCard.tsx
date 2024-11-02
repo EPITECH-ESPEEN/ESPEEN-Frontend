@@ -53,14 +53,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
                     <div className="textStyle-text color-dark">{t("dico.name")}</div>
                     <div className="textStyle-title color-dark">{service.name}</div>
                 </div>
-                <div className={css.buttonContainer}>
-                    <div className="textStyle-text color-dark">{t("dico.actions")}</div>
-                    {service.buttons.map((action, index) => {
-                        if (action.name === "logout" && !isLinked) return null;
-                        if (action.name === "not_linked" && isLinked) return null;
-                        return <ColoredButton key={index} label={t(`services.${action.name}`)} onClick={() => callPath(action)} color={action.name === "linked" ? "green" : action.name === "not_linked" ? "red" : "dark"} />
-                    })}
-                </div>
+                {
+                    service.buttons.length > 0 &&
+                    <div className={css.buttonContainer}>
+                        <div className="textStyle-text color-dark">{t("dico.actions")}</div>
+                        {service.buttons.map((action, index) => {
+                            if (action.name === "logout" && !isLinked) return null;
+                            if (action.name === "not_linked" && isLinked) return null;
+                            return <ColoredButton key={index} label={t(`services.${action.name}`)} onClick={() => callPath(action)} color={action.name === "linked" ? "green" : action.name === "not_linked" ? "red" : "dark"} />
+                        })}
+                    </div>
+                }
             </div>
         </div>
     );
