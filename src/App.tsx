@@ -20,8 +20,6 @@ import { getPagesConfigs } from "src/router/routesConfig";
 import { setDefaultColorBlind } from "src/services/colorBlind";
 import { setDefaultLanguage } from "src/i18n/i18n";
 import { defaultLogin } from "./services/authServices";
-import PrivacyPolicyPage from "src/pages/privacyPolicyPage";
-import TermsOfServicePage from "src/pages/termsOfServicePage";
 
 
 /* ----- COMPONENT ----- */
@@ -61,10 +59,6 @@ function App() {
                                 <Route key={pageConfig.name} path={pageConfig.path} element={content} />
                             );
                         })}
-
-                        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-                        <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-
                     </Routes>
                 </body>
                 <footer><Footer /></footer>

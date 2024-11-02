@@ -16,12 +16,13 @@ import { useNavigate, useLocation } from "react-router-dom";
 const Footer: React.FC = () => {
     const location = useLocation();
 
-    
     const navigate = useNavigate();
     const navigateToPrivacyPolicy = () => {
+        window.scrollTo(0, 0);
         navigate('/privacy-policy');
     };
     const navigateToTermsOfService = () => {
+        window.scrollTo(0, 0);
         navigate('/terms-of-service');
     }
 
@@ -36,7 +37,6 @@ const Footer: React.FC = () => {
                     </p>
                     <div className="space-x-14 text-sm text-white/60 md:w-auto flex items-center w-full">
                         <button onClick={navigateToPrivacyPolicy}>Privacy Policy</button>
-
                         <button onClick={navigateToTermsOfService}>Terms of Service</button>
                     </div>
                 </div>
