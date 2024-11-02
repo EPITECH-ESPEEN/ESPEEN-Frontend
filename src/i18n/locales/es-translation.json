@@ -59,6 +59,14 @@
         "youtube": {
             "new_video": "Nuevo video"
         },
+        "twitch": {
+            "update_description": "Actualizar biografía",
+            "get_banned_users": "Obtener usuarios baneados",
+            "get_modos": "Obtener moderadores",
+            "get_channel_infos": "Obtener información del canal",
+            "get_user_clips": "Obtener clips populares del canal",
+            "get_top_games": "Obtener los juegos en directo más populares"
+        },
         "fields": {
             "channel": "Ingresar un canal",
             "webhook": "Ingresar un webhook"
