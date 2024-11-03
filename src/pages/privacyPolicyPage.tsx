@@ -17,7 +17,7 @@ import PrivacyPolicyPageContent from "src/components/layout/pages/privacyPolicyP
 const PrivacyPolicyPage: React.FC = () => {
     return (
         <div>
-            <MetaData title="" />
+            <MetaData title="Privacy Policy" />
             <div className="h-[80px]"></div>
             <PrivacyPolicyPageContent />
             <div className="h-[80px]"></div>

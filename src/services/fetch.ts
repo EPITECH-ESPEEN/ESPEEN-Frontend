@@ -7,8 +7,8 @@
 */
 
 /* ----- DATAS ----- */
-// const API_URL = "http://localhost:8080/api";
-const API_URL = "https://certain-catfish-splendid.ngrok-free.app/backend/api";
+const API_URL = "http://localhost:8080/api";
+// const API_URL = "https://certain-catfish-splendid.ngrok-free.app/backend/api";
 
 
 /* ----- PRIVATE FUNCTIONS ----- */

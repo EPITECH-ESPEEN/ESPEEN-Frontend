@@ -98,11 +98,16 @@
         "modify": "Modify your profile informations",
         "modify_password": "If you want to modify your password, please fill the following fields, otherwise leave them empty"
     },
+    "admin": {
+        "access": "Access to the admin panel",
+        "not_admin": "You have to be an administrator to access this page"
+    },
     "dico": {
         "action": "Action",
         "actions": "Actions",
         "cancel": "Cancel",
         "clear": "Clear",
+        "delete_profile": "Delete profile",
         "email": "Email",
         "error": "Error",
         "fields": "Fields",

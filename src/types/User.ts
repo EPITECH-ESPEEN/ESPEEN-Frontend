@@ -9,6 +9,7 @@
 export interface IUser {
     uid: number;
     username: string;
+    role: string;
     email: string;
     actionReaction: string[][];
     password: string;

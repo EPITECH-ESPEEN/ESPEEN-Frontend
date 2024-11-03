@@ -28,6 +28,7 @@ export async function fetchUser() {
         user = {
             uid: tmp.uid,
             username: tmp.username,
+            role: tmp.role,
             email: tmp.email,
             actionReaction: tmp.actionReaction,
             password: "",

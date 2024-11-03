@@ -60,9 +60,6 @@
         "youtube": {
             "new_video": "Nouvelle vidéo"
         },
-        "meteo": {
-            "get_weather": "Récupérer la météo"
-        },
         "twitch": {
             "update_description": "Mettre à jour la biographie",
             "get_banned_users": "Récupérer les utilisateurs bannis",
@@ -74,8 +71,11 @@
             "get_channel_subscriptions": "Récupérer les abonnés de la chaîne",
             "send_chat_announcement": "Envoyer une annonce de chat "
         },
+        "meteo": {
+            "get_weather": "Obtenir la météo"
+        },
         "fields": {
-            "city": "Entrer une ville",
+            "city": "Entrez une ville",
             "channel": "Entrer dans une chaîne",
             "description": "Entrez une description",
             "webhook": "Entrer un webhook"
@@ -98,11 +98,16 @@
         "modify": "Modifiez les informations de votre profil",
         "modify_password": "Si vous souhaitez modifier votre mot de passe, veuillez remplir les champs suivants, sinon laissez-les vides"
     },
+    "admin": {
+        "access": "Accès au panneau d'administration",
+        "not_admin": "Vous devez être administrateur pour accéder à cette page"
+    },
     "dico": {
         "action": "Action",
         "actions": "Actes",
         "cancel": "Annuler",
         "clear": "Clair",
+        "delete_profile": "Supprimer le profil",
         "email": "E-mail",
         "error": "Erreur",
         "fields": "Champs",
