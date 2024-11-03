@@ -27,7 +27,6 @@ const AdminPanelPage: React.FC = () => {
         const fetchData = async () => {
             const response = await getUsers();
             setUsers(response);
-            console.log(response);
         }
         fetchData();
     }, []);

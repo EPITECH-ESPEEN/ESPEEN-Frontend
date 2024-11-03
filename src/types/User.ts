@@ -14,4 +14,5 @@ export interface IUser {
     actionReaction: string[][];
     password: string;
     createdAt: string;
+    user_token: string;
 };

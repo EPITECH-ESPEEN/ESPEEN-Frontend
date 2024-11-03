@@ -56,3 +56,9 @@ export async function getUserByUid(uid: number) {
     if (user === undefined || Date.now() - user.fetch > 1000 * 60 * 60 * 24) await fetchUser(uid);
     return users.get(uid)?.user;
 }
+
+
+/* ----- FUNCTION ----- */
+export function clearUsers() {
+    users.clear();
+}

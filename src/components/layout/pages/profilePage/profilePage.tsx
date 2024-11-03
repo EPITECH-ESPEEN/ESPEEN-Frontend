@@ -22,7 +22,7 @@ import Modal from "src/components/modal/default/modal";
 import ModifyProfile from "./modifyProfile";
 import { fetchDelete, fetchPost } from "src/services/fetch";
 import ColoredButton from "src/components/buttons/colored/coloredButton";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 /* ----- COMPONENT ----- */

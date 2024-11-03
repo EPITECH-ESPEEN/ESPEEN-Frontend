@@ -9,12 +9,18 @@
 
 .container {
     display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 100px;
+}
+
+.cardContainer {
+    display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 50px;
-    padding: 100px;
 }
 
 @media screen and (max-width: 768px) {

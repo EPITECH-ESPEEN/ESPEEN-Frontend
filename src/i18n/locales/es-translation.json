@@ -100,13 +100,16 @@
     },
     "admin": {
         "access": "Acceso al panel de administración",
-        "not_admin": "Debes ser administrador para acceder a esta página."
+        "not_admin": "Debes ser administrador para acceder a esta página.",
+        "search": "Buscar por nombre de usuario..."
     },
     "dico": {
         "action": "Acción",
         "actions": "Comportamiento",
+        "admin": "Administrador",
         "cancel": "Cancelar",
         "clear": "Claro",
+        "created_at": "Creado en",
         "delete_profile": "Eliminar perfil",
         "email": "Correo electrónico",
         "error": "Error",
@@ -124,9 +127,11 @@
         "profile": "Perfil",
         "reaction": "Reacción",
         "register": "Registro",
+        "role": "Role",
         "save": "Ahorrar",
         "services": "Servicios",
         "status": "Estado",
+        "user": "Usuario",
         "username": "Nombre de usuario"
     }
 }

@@ -100,13 +100,16 @@
     },
     "admin": {
         "access": "Access to the admin panel",
-        "not_admin": "You have to be an administrator to access this page"
+        "not_admin": "You have to be an administrator to access this page",
+        "search": "Search by username..."
     },
     "dico": {
         "action": "Action",
         "actions": "Actions",
+        "admin": "Administrator",
         "cancel": "Cancel",
         "clear": "Clear",
+        "created_at": "Created at",
         "delete_profile": "Delete profile",
         "email": "Email",
         "error": "Error",
@@ -124,9 +127,11 @@
         "profile": "Profile",
         "reaction": "Reaction",
         "register": "Register",
+        "role": "Role",
         "save": "Save",
         "services": "Services",
         "status": "Status",
+        "user": "User",
         "username": "Username"
     }
 }

@@ -41,3 +41,10 @@ export function setNodesIds(ids: INodesIds): void {
     nodesIds.action = ids.action;
     nodesIds.reaction = ids.reaction;
 }
+
+export function clearNodes(): void {
+    initialNodes = [];
+    initialEdges = [];
+    nodesIds.action = 1;
+    nodesIds.reaction = 1;
+}
