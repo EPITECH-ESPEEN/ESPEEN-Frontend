@@ -60,6 +60,9 @@
         "youtube": {
             "new_video": "Neues Video"
         },
+        "meteo": {
+            "get_weather": "Wetter abrufen"
+        },
         "twitch": {
             "update_description": "Biografie aktualisieren",
             "get_banned_users": "Erhalten Sie gesperrte Benutzer",
@@ -72,6 +75,7 @@
             "send_chat_announcement": "Chat-Ankündigung senden"
         },
         "fields": {
+            "city": "Geben Sie eine Stadt ein",
             "channel": "Betreten Sie einen Kanal",
             "description": "Geben Sie eine Beschreibung ein",
             "webhook": "Geben Sie einen Webhook ein"
