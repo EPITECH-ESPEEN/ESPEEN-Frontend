@@ -9,27 +9,17 @@
 
 .container {
     display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 100px 200px;
-    gap: 200px;
-}
-
-.picture {
-    width: 400px;
-    height: 400px;
-}
-
-@media screen and (max-width: 1000px) {
-    .container {
-        padding: 50px 100px;
-        gap: 100px;
-    }
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 100px;
 }
 
 @media screen and (max-width: 768px) {
     .container {
-        padding: 20px 40px;
-        gap: 60px;
+        flex-direction: column;
+        padding: 20px;
     }
 }

@@ -13,4 +13,5 @@ export interface IUser {
     email: string;
     actionReaction: string[][];
     password: string;
+    createdAt: string;
 };

@@ -10,14 +10,23 @@
 /* ----- IMPORTS ----- */
 import React from "react";
 import css from "./adminPanelPageContent.module.css"
-import { useTranslation } from "react-i18next";
+import { IUser } from "src/types/User";
+import UserCard from "src/components/card/userCard/userCard";
+
+
+/* ----- PROPS ----- */
+interface AdminPanelPageContentProps {
+    users: IUser[];
+}
+
 
 /* ----- COMPONENT ----- */
-const AdminPanelPageContent: React.FC = () => {
-    const { t } = useTranslation();
-
+const AdminPanelPageContent: React.FC<AdminPanelPageContentProps> = ({ users }) => {
     return (
         <div className={css.container}>
+            {users.map((user, index) => (
+                <UserCard key={index} user={user} />
+            ))}
         </div>
     );
 };

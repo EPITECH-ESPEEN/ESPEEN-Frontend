@@ -11,6 +11,7 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import MetaData from "src/components/layout/metaData";
+import AdminPanelPageContent from "src/components/layout/pages/adminPanelPage/adminPanelPageContent";
 import LoaderPage from "src/components/loading/loaderPage";
 import Modal from "src/components/modal/default/modal";
 import { getUsers } from "src/store/Users";
@@ -43,7 +44,7 @@ const AdminPanelPage: React.FC = () => {
         <div>
             <MetaData title="Admin" />
             <div className="h-[80px]"></div>
-            Hello World
+            <AdminPanelPageContent users={users} />
             <div className="h-[80px]"></div>
         </div>
     );
