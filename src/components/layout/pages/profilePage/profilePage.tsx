@@ -21,6 +21,7 @@ import LoaderPage from "src/components/loading/loaderPage";
 import Modal from "src/components/modal/default/modal";
 import ModifyProfile from "./modifyProfile";
 import { fetchPost } from "src/services/fetch";
+import ColoredButton from "src/components/buttons/colored/coloredButton";
 
 
 /* ----- COMPONENT ----- */
@@ -29,6 +30,7 @@ const ProfilePageContent: React.FC = () => {
     const [showModal, setShowModal] = useState<boolean>(false);
     const [error, setError] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
+    const [askLogout, setAskLogout] = useState<boolean>(false);
     const { t } = useTranslation();
 
     useEffect(() => {
@@ -53,8 +55,30 @@ const ProfilePageContent: React.FC = () => {
         setLoading(false);
     }
 
-    if (user === null)
+    if (user === null) {
+        setTimeout(() => {
+            setAskLogout(true);
+        }, 4000);
+        if (askLogout) {
+            return (
+                <Modal onClose={() => {}}>
+                    <div className="flex flex-col gap-4">
+                        <div className="color-red textStyle-cardTitle">
+                            {t("error.logout")}
+                        </div>
+                        <div className="flex justify-center">
+                            <ColoredButton
+                                label={t("dico.logout")}
+                                onClick={logout}
+                                color="dark"
+                            />
+                        </div>
+                    </div>
+                </Modal>
+            );
+        }
         return <LoaderPage />
+    }
 
     return (
         <>

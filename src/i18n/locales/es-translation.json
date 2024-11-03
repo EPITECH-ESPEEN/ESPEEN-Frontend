@@ -23,6 +23,7 @@
         "invalid_login": "Usuario o contraseña no válidos",
         "invalid_register": "Registro inválido",
         "link_all_actions_reactions": "Debes vincular todas las acciones y reacciones.",
+        "logout": "Intente cerrar sesión y volver a iniciarla",
         "save_failed": "Error al guardar. Inténtalo de nuevo más tarde...",
         "user_not_found": "Usuario no encontrado. Inténtalo más tarde..."
     },

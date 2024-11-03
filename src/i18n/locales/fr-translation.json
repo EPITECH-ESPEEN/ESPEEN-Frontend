@@ -23,6 +23,7 @@
         "invalid_login": "Login ou mot de passe invalide",
         "invalid_register": "Inscription invalide",
         "link_all_actions_reactions": "Vous devez lier toutes les actions et réactions",
+        "logout": "Veuillez essayer de vous déconnecter et de vous reconnecter",
         "save_failed": "L'enregistrement a échoué. Réessayez plus tard...",
         "user_not_found": "Utilisateur non trouvé. Réessayez plus tard..."
     },
