@@ -17,17 +17,20 @@ interface ButtonProps {
     icon: React.ElementType;
     onClick: () => void;
     size?: number;
+    buttonColor?: string;
+    iconColor?: string;
 };
 
 
 /* ----- COMPONENT ----- */
-const IconButton: React.FC<ButtonProps> = ({ icon, onClick, size = 32 }) => {
+const IconButton: React.FC<ButtonProps> = ({ icon, onClick, size = 32, buttonColor = "green", iconColor = "light" }) => {
     return (
         <button
             onClick={onClick}
             className={`${css.button}`}
+            style={{ backgroundColor: `var(--color-${buttonColor})` }}
         >
-            {React.createElement(icon, { size, stroke: "var(--color-light)" })}
+            {React.createElement(icon, { size, stroke: `var(--color-${iconColor})` })}
         </button>
     );
 };

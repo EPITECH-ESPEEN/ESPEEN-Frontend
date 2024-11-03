@@ -9,6 +9,9 @@
 /* ----- IMPORTS ----- */
 import { getUser, setUser } from 'src/store/User';
 import { fetchPost } from './fetch';
+import { clearNodes } from 'src/store/Nodes';
+import { clearServices } from 'src/store/Services';
+import { clearUsers } from 'src/store/Users';
 
 
 /* ----- FUNCTIONS ----- */
@@ -86,4 +89,9 @@ export async function defaultLogin() {
 export const setToken = (token: string): void => {
     localStorage.setItem('authToken', token);
     setTokenCookie(token);
+    clearNodes();
+    clearServices();
+    setUser(null);
+    clearUsers();
+    window.location.href = "/";
 }

@@ -20,8 +20,9 @@ import { IUser } from "src/types/User";
 import LoaderPage from "src/components/loading/loaderPage";
 import Modal from "src/components/modal/default/modal";
 import ModifyProfile from "./modifyProfile";
-import { fetchPost } from "src/services/fetch";
+import { fetchDelete, fetchPost } from "src/services/fetch";
 import ColoredButton from "src/components/buttons/colored/coloredButton";
+import { useNavigate } from "react-router-dom";
 
 
 /* ----- COMPONENT ----- */
@@ -32,6 +33,7 @@ const ProfilePageContent: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [askLogout, setAskLogout] = useState<boolean>(false);
     const { t } = useTranslation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchDatas = async () => {
@@ -53,6 +55,22 @@ const ProfilePageContent: React.FC = () => {
         setStoredUser(newUser);
         setUser(newUser);
         setLoading(false);
+    }
+
+    const handleDeleteProfile = async () => {
+        setLoading(true);
+        const response = await fetchDelete("user");
+        if (!response.ok) {
+            setLoading(false);
+            setError(t("error.delete_failed"));
+            return;
+        }
+        setLoading(false);
+        logout();
+    }
+
+    const navigateToAdminPanel = () => {
+        navigate("/admin");
     }
 
     if (user === null) {
@@ -96,6 +114,16 @@ const ProfilePageContent: React.FC = () => {
                         label={t("dico.modify_profile")}
                         onClick={() => setShowModal(true)}
                     />
+                    <Button
+                        label={t("dico.delete_profile")}
+                        onClick={handleDeleteProfile}
+                    />
+                    {user.role === "admin" &&
+                        <Button
+                            label={t("admin.access")}
+                            onClick={navigateToAdminPanel}
+                        />
+                    }
                 </div>
             </div>
             {showModal &&

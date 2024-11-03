@@ -17,7 +17,7 @@ import TermsOfServicePageContent from "src/components/layout/pages/termsOfServic
 const TermsOfServicePage: React.FC = () => {
     return (
         <div>
-            <MetaData title="" />
+            <MetaData title="Terms of service" />
             <div className="h-[80px]"></div>
                 <TermsOfServicePageContent />
             <div className="h-[80px]"></div>
