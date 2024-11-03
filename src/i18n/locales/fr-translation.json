@@ -72,6 +72,7 @@
         },
         "fields": {
             "channel": "Entrer dans une chaîne",
+            "description": "Entrez une description",
             "webhook": "Entrer un webhook"
         }
     },
@@ -109,6 +110,7 @@
         "name": "Nom",
         "password": "Mot de passe",
         "password_confirm": "Confirmez le mot de passe",
+        "please_reload": "Veuillez recharger la page",
         "profile": "Profil",
         "reaction": "Réaction",
         "register": "Registre",

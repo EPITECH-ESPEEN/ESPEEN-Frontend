@@ -72,6 +72,7 @@
         },
         "fields": {
             "channel": "Enter a channel",
+            "description": "Enter a description",
             "webhook": "Enter a webhook"
         }
     },
@@ -109,6 +110,7 @@
         "name": "Name",
         "password": "Password",
         "password_confirm": "Confirm password",
+        "please_reload": "Please reload the page",
         "profile": "Profile",
         "reaction": "Reaction",
         "register": "Register",

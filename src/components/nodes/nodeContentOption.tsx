@@ -52,6 +52,7 @@ const NodeContentOption: React.FC<NodeContentOptionProps> = ({ data, options }) 
         setSelectedOption(item);
         data.option = item.label;
         setFields(options.find((option) => option.option.value === item.value)?.fields || null);
+        data.fields = [];
     }
 
     return (

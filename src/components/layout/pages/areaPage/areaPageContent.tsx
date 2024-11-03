@@ -171,7 +171,6 @@ const AreaPageContent: React.FC = () => {
             return;
         }
         user.actionReaction = table;
-        console.log("user", user);
         const response = await fetchPost("user", user);
         if (!response.ok) {
             setLoading(false);

@@ -66,12 +66,13 @@
             "get_channel_infos": "Kanalinformationen abrufen",
             "get_user_clips": "Beliebte Clips aus dem Kanal abrufen",
             "get_top_games": "Holen Sie sich die beliebtesten Live-Spiele",
-            "get_followed_channels": "Gefolgte Kanäle abrufen",
-            "get_channel_subscriptions": "Abonnenten des Kanals abrufen",
+            "get_followed_channels": "Abrufen verfolgter Kanäle",
+            "get_channel_subscriptions": "Kanalabonnenten gewinnen",
             "send_chat_announcement": "Chat-Ankündigung senden"
         },
         "fields": {
             "channel": "Betreten Sie einen Kanal",
+            "description": "Geben Sie eine Beschreibung ein",
             "webhook": "Geben Sie einen Webhook ein"
         }
     },
@@ -109,6 +110,7 @@
         "name": "Name",
         "password": "Passwort",
         "password_confirm": "Passwort bestätigen",
+        "please_reload": "Bitte laden Sie die Seite neu",
         "profile": "Profil",
         "reaction": "Reaktion",
         "register": "Registrieren",

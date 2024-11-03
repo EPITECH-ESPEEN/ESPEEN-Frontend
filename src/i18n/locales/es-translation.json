@@ -67,11 +67,12 @@
             "get_user_clips": "Obtenga clips populares del canal",
             "get_top_games": "Obtenga los juegos en vivo más populares",
             "get_followed_channels": "Obtener canales seguidos",
-            "get_channel_subscriptions": "Obtener suscriptores del canal",
+            "get_channel_subscriptions": "Conseguir suscriptores para el canal",
             "send_chat_announcement": "Enviar anuncio de chat"
         },
         "fields": {
             "channel": "Ingresar un canal",
+            "description": "Introduzca una descripción",
             "webhook": "Ingresar un webhook"
         }
     },
@@ -109,6 +110,7 @@
         "name": "Nombre",
         "password": "Contraseña",
         "password_confirm": "Confirmar Contraseña",
+        "please_reload": "Por favor recarga la página",
         "profile": "Perfil",
         "reaction": "Reacción",
         "register": "Registro",
