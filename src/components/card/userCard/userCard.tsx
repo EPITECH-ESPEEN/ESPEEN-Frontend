@@ -58,7 +58,7 @@ const UserCard: React.FC<UserCardProps> = ({ user, setLoading }) => {
         user.role = user.role === 'admin' ? 'user' : 'admin';
         const response = await fetchPost(`users/${user.uid}`, user);
         if (response.status === 200) {
-            fetchUsers();
+            await fetchUsers();
             window.location.reload();
         }
         setLoading(false);
