@@ -30,7 +30,7 @@ const LoginPage: React.FC = () => {
         const token = queryParams.get('token');
         if (token === null) return;
         setToken(token);
-        window.location.reload();
+        window.location.href = "/";
     };
     getToken();
 
