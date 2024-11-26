@@ -24,123 +24,106 @@ import { fetchDelete, fetchPost } from "src/services/fetch";
 import ColoredButton from "src/components/buttons/colored/coloredButton";
 import { useNavigate } from "react-router-dom";
 
-
 /* ----- COMPONENT ----- */
 const ProfilePageContent: React.FC = () => {
-    const [user , setUser] = useState<IUser | null>(null);
-    const [showModal, setShowModal] = useState<boolean>(false);
-    const [error, setError] = useState<string>("");
-    const [loading, setLoading] = useState<boolean>(false);
-    const [askLogout, setAskLogout] = useState<boolean>(false);
-    const { t } = useTranslation();
-    const navigate = useNavigate();
+  const [user, setUser] = useState<IUser | null>(null);
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [askLogout, setAskLogout] = useState<boolean>(false);
+  const { t } = useTranslation();
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchDatas = async () => {
-            const user = await getUser();
-            setUser(user);
-        }
-        fetchDatas();
-    }, [user]);
+  useEffect(() => {
+    const fetchDatas = async () => {
+      const user = await getUser();
+      setUser(user);
+    };
+    fetchDatas();
+  }, [user]);
 
-    const handleProfileChange = async (newUser: IUser) => {
-        setShowModal(false);
-        setLoading(true);
-        const response = await fetchPost("user", newUser);
-        if (!response.ok) {
-            setLoading(false);
-            setError(t("error.save_failed"));
-            return;
-        }
-        setStoredUser(newUser);
-        setUser(newUser);
-        setLoading(false);
+  const handleProfileChange = async (newUser: IUser) => {
+    setShowModal(false);
+    setLoading(true);
+    const response = await fetchPost("user", newUser);
+    if (!response.ok) {
+      setLoading(false);
+      setError(t("error.save_failed"));
+      return;
     }
+    setStoredUser(newUser);
+    setUser(newUser);
+    setLoading(false);
+  };
 
-    const handleDeleteProfile = async () => {
-        setLoading(true);
-        const response = await fetchDelete("user");
-        if (!response.ok) {
-            setLoading(false);
-            setError(t("error.delete_failed"));
-            return;
-        }
-        setLoading(false);
-        logout();
+  const handleDeleteProfile = async () => {
+    setLoading(true);
+    const response = await fetchDelete("user");
+    if (!response.ok) {
+      setLoading(false);
+      setError(t("error.delete_failed"));
+      return;
     }
+    setLoading(false);
+    logout();
+  };
 
-    const navigateToAdminPanel = () => {
-        navigate("/admin");
-    }
+  const navigateToAdminPanel = () => {
+    navigate("/admin");
+  };
 
-    if (user === null) {
-        setTimeout(() => {
-            setAskLogout(true);
-        }, 4000);
-        if (askLogout) {
-            return (
-                <Modal onClose={() => {}}>
-                    <div className="flex flex-col gap-4">
-                        <div className="color-red textStyle-cardTitle">
-                            {t("error.logout")}
-                        </div>
-                        <div className="flex justify-center">
-                            <ColoredButton
-                                label={t("dico.logout")}
-                                onClick={logout}
-                                color="dark"
-                            />
-                        </div>
-                    </div>
-                </Modal>
-            );
-        }
-        return <LoaderPage />
-    }
+  const handleDownloadApp = () => {
+    window.location.href = "client.apk";
+  };
 
-    return (
-        <>
-            {loading && <LoaderPage /> }
-            <div className={css.container}>
-                <div className="textStyle-title">{t("dico.hello")} {user.username}</div>
-                <LangSelecter />
-                <ColorBlindSelecter />
-                <div className={css.buttonContainer}>
-                    <Button
-                        label={t("dico.logout")}
-                        onClick={logout}
-                    />
-                    <Button
-                        label={t("dico.modify_profile")}
-                        onClick={() => setShowModal(true)}
-                    />
-                    <Button
-                        label={t("dico.delete_profile")}
-                        onClick={handleDeleteProfile}
-                    />
-                    {user.role === "admin" &&
-                        <Button
-                            label={t("admin.access")}
-                            onClick={navigateToAdminPanel}
-                        />
-                    }
-                </div>
+  if (user === null) {
+    setTimeout(() => {
+      setAskLogout(true);
+    }, 4000);
+    if (askLogout) {
+      return (
+        <Modal onClose={() => {}}>
+          <div className="flex flex-col gap-4">
+            <div className="color-red textStyle-cardTitle">{t("error.logout")}</div>
+            <div className="flex justify-center">
+              <ColoredButton label={t("dico.logout")} onClick={logout} color="dark" />
             </div>
-            {showModal &&
-                <Modal onClose={() => {}}>
-                    <ModifyProfile onSave={handleProfileChange} user={user} onCancel={() => setShowModal(false)} />
-                </Modal>
-            }
-            {error &&
-                <Modal onClose={() => setError("")}>
-                    <div className="color-red textStyle-cardTitle">
-                        {error}
-                    </div>
-                </Modal>
-            }
-        </>
-    );
+          </div>
+        </Modal>
+      );
+    }
+    return <LoaderPage />;
+  }
+
+  return (
+    <>
+      {loading && <LoaderPage />}
+      <div className={css.container}>
+        <div className="textStyle-title">
+          {t("dico.hello")} {user.username}
+        </div>
+        <LangSelecter />
+        <ColorBlindSelecter />
+        <div className={css.buttonContainer}>
+          <Button label={t("dico.logout")} onClick={logout} />
+          <Button label={t("dico.modify_profile")} onClick={() => setShowModal(true)} />
+          <Button label={t("dico.delete_profile")} onClick={handleDeleteProfile} />
+          {user.role === "admin" && <Button label={t("admin.access")} onClick={navigateToAdminPanel} />}
+          <Button label={t("dico.download_app")} onClick={handleDownloadApp} />
+        </div>
+      </div>
+      {showModal && (
+        <Modal onClose={() => {}}>
+          <ModifyProfile onSave={handleProfileChange} user={user} onCancel={() => setShowModal(false)} />
+        </Modal>
+      )}
+      {error && (
+        <Modal onClose={() => setError("")}>
+          <div className="color-red textStyle-cardTitle">{error}</div>
+        </Modal>
+      )}
+    </>
+  );
 };
 
 export default ProfilePageContent;
-

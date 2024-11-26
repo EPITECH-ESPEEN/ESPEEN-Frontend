@@ -1,138 +1,139 @@
 {
-    "langCode": "en",
-    "langName": "English",
-    "languages": {
-        "select_lang": "Select language",
-        "gb": "English",
-        "fr": "French",
-        "ru": "Russian",
-        "es": "Spanish",
-        "de": "German"
+  "langCode": "en",
+  "langName": "English",
+  "languages": {
+    "select_lang": "Select language",
+    "gb": "English",
+    "fr": "French",
+    "ru": "Russian",
+    "es": "Spanish",
+    "de": "German"
+  },
+  "color_blind": {
+    "select_color_blind": "Select color blind mode",
+    "default": "Default",
+    "protanopia": "Protanopia",
+    "deuteranopia": "Deuteranopia",
+    "tritanopia": "Tritanopia",
+    "achromatopsia": "Achromatopsia"
+  },
+  "error": {
+    "fill_all_actions_reactions": "You must fill all actions and reactions",
+    "fill_all_fields": "You must fill all fields",
+    "invalid_login": "Invalid login or password",
+    "invalid_register": "Invalid registration",
+    "link_all_actions_reactions": "You must link all actions and reactions",
+    "logout": "Please try to logout and login again",
+    "save_failed": "Save failed. Retry later...",
+    "user_not_found": "User not found. Retry later..."
+  },
+  "services": {
+    "search": "Search a service...",
+    "linked": "Linked account",
+    "not_linked": "Link an account",
+    "add_bot": "Add a bot",
+    "logout": "Logout"
+  },
+  "area": {
+    "no_action_reaction": "Not enough actions and reactions",
+    "subscribe_action_reaction": "Subscribe at least one action and one reaction to start using Espeen",
+    "select_service": "Select a service",
+    "select_action": "Select an action",
+    "select_reaction": "Select a reaction",
+    "discord": {
+      "bot": {
+        "receive_message": "Receive a message"
+      },
+      "webhook": {
+        "send_message": "Send a message"
+      }
     },
-    "color_blind": {
-        "select_color_blind": "Select color blind mode",
-        "default": "Default",
-        "protanopia": "Protanopia",
-        "deuteranopia": "Deuteranopia",
-        "tritanopia": "Tritanopia",
-        "achromatopsia": "Achromatopsia"
+    "google": {
+      "gmail": {
+        "receive_email": "Receive an email",
+        "send_email": "Send an email"
+      }
     },
-    "error": {
-        "fill_all_actions_reactions": "You must fill all actions and reactions",
-        "fill_all_fields": "You must fill all fields",
-        "invalid_login": "Invalid login or password",
-        "invalid_register": "Invalid registration",
-        "link_all_actions_reactions": "You must link all actions and reactions",
-        "logout": "Please try to logout and login again",
-        "save_failed": "Save failed. Retry later...",
-        "user_not_found": "User not found. Retry later..."
+    "github": {
+      "create_repo": "Create a repository",
+      "push_events": "Push events"
     },
-    "services": {
-        "search": "Search a service...",
-        "linked": "Linked account",
-        "not_linked": "Link an account",
-        "add_bot": "Add a bot",
-        "logout": "Logout"
+    "youtube": {
+      "new_video": "New video"
     },
-    "area": {
-        "no_action_reaction": "Not enough actions and reactions",
-        "subscribe_action_reaction": "Subscribe at least one action and one reaction to start using Espeen",
-        "select_service": "Select a service",
-        "select_action": "Select an action",
-        "select_reaction": "Select a reaction",
-        "discord": {
-            "bot": {
-                "receive_message": "Receive a message"
-            },
-            "webhook": {
-                "send_message": "Send a message"
-            }
-        },
-        "google": {
-            "gmail": {
-                "receive_email": "Receive an email",
-                "send_email": "Send an email"
-            }
-        },
-        "github": {
-            "create_repo": "Create a repository",
-            "push_events": "Push events"
-        },
-        "youtube": {
-            "new_video": "New video"
-        },
-        "twitch": {
-            "update_description": "Update biography",
-            "get_banned_users": "Get banned users",
-            "get_modos": "Get moderators",
-            "get_channel_infos": "Get channel informations",
-            "get_user_clips": "Get channel popular clips",
-            "get_top_games": "Get the most popular live games",
-            "get_followed_channels": "Get followed channels",
-            "get_channel_subscriptions": "Get channel subscribers",
-            "send_chat_announcement": "Send chat announcement"
-        },
-        "meteo": {
-            "get_weather": "Get weather"
-        },
-        "fields": {
-            "city": "Enter a city",
-            "channel": "Enter a channel",
-            "description": "Enter a description",
-            "webhook": "Enter a webhook"
-        }
+    "twitch": {
+      "update_description": "Update biography",
+      "get_banned_users": "Get banned users",
+      "get_modos": "Get moderators",
+      "get_channel_infos": "Get channel informations",
+      "get_user_clips": "Get channel popular clips",
+      "get_top_games": "Get the most popular live games",
+      "get_followed_channels": "Get followed channels",
+      "get_channel_subscriptions": "Get channel subscribers",
+      "send_chat_announcement": "Send chat announcement"
     },
-    "espeen": {
-        "moto": "Spin actions into reactions !",
-        "presentation": "Espeen is an innovative platform designed to automate workflows by seamlessly connecting APIs in an \"action and reaction\" model. Inspired by tools like Microsoft Power Automate, Espeen empowers users to create customizable triggers (actions) that automatically initiate responses (reactions) across various applications and services. This allows for effortless integration and automation of repetitive tasks, notifications, and data management. Espeen simplifies complex processes, making it easier to streamline daily workflows and improve productivity in both personal and professional contexts.",
-        "team_description": "Our team is composed of five passionate students, each bringing a unique set of skills to the Espeen project. With backgrounds in software development, UI/UX design, and API integration, we collaborate to bring innovative ideas to life. Our commitment to accessibility and user-friendly design drives us to create solutions that not only meet technical demands but also enhance user experience. Together, we are dedicated to building a platform that redefines how people interact with and automate their digital environments.",
-        "team_presentation": "Meet the Team"
+    "meteo": {
+      "get_weather": "Get weather"
     },
-    "team": {
-        "caroline_boilly": "Fullstack Developer & SCRUM Master",
-        "clement_piasco": "CyberSecurity & DevOps Developer",
-        "daniil_stepanov": "Database & Backend Developer",
-        "leonard_oursel": "Database & Backend Developer",
-        "nathan_tirolf": "Frontend & Mobile Developer"
-    },
-    "profile": {
-        "modify": "Modify your profile informations",
-        "modify_password": "If you want to modify your password, please fill the following fields, otherwise leave them empty"
-    },
-    "admin": {
-        "access": "Access to the admin panel",
-        "not_admin": "You have to be an administrator to access this page",
-        "search": "Search by username..."
-    },
-    "dico": {
-        "action": "Action",
-        "actions": "Actions",
-        "admin": "Administrator",
-        "cancel": "Cancel",
-        "clear": "Clear",
-        "created_at": "Created at",
-        "delete_profile": "Delete profile",
-        "email": "Email",
-        "error": "Error",
-        "fields": "Fields",
-        "hello": "Hello",
-        "language": "Language",
-        "login": "Login",
-        "login_with": "Login with",
-        "logout": "Logout",
-        "modify_profile": "Modify profile",
-        "name": "Name",
-        "password": "Password",
-        "password_confirm": "Confirm password",
-        "please_reload": "Please reload the page",
-        "profile": "Profile",
-        "reaction": "Reaction",
-        "register": "Register",
-        "role": "Role",
-        "save": "Save",
-        "services": "Services",
-        "status": "Status",
-        "user": "User",
-        "username": "Username"
+    "fields": {
+      "city": "Enter a city",
+      "channel": "Enter a channel",
+      "description": "Enter a description",
+      "webhook": "Enter a webhook"
     }
+  },
+  "espeen": {
+    "moto": "Spin actions into reactions !",
+    "presentation": "Espeen is an innovative platform designed to automate workflows by seamlessly connecting APIs in an \"action and reaction\" model. Inspired by tools like Microsoft Power Automate, Espeen empowers users to create customizable triggers (actions) that automatically initiate responses (reactions) across various applications and services. This allows for effortless integration and automation of repetitive tasks, notifications, and data management. Espeen simplifies complex processes, making it easier to streamline daily workflows and improve productivity in both personal and professional contexts.",
+    "team_description": "Our team is composed of five passionate students, each bringing a unique set of skills to the Espeen project. With backgrounds in software development, UI/UX design, and API integration, we collaborate to bring innovative ideas to life. Our commitment to accessibility and user-friendly design drives us to create solutions that not only meet technical demands but also enhance user experience. Together, we are dedicated to building a platform that redefines how people interact with and automate their digital environments.",
+    "team_presentation": "Meet the Team"
+  },
+  "team": {
+    "caroline_boilly": "Fullstack Developer & SCRUM Master",
+    "clement_piasco": "CyberSecurity & DevOps Developer",
+    "daniil_stepanov": "Database & Backend Developer",
+    "leonard_oursel": "Database & Backend Developer",
+    "nathan_tirolf": "Frontend & Mobile Developer"
+  },
+  "profile": {
+    "modify": "Modify your profile informations",
+    "modify_password": "If you want to modify your password, please fill the following fields, otherwise leave them empty"
+  },
+  "admin": {
+    "access": "Access to the admin panel",
+    "not_admin": "You have to be an administrator to access this page",
+    "search": "Search by username..."
+  },
+  "dico": {
+    "action": "Action",
+    "actions": "Actions",
+    "admin": "Administrator",
+    "cancel": "Cancel",
+    "clear": "Clear",
+    "created_at": "Created at",
+    "delete_profile": "Delete profile",
+    "download_app": "Download the mobile app",
+    "email": "Email",
+    "error": "Error",
+    "fields": "Fields",
+    "hello": "Hello",
+    "language": "Language",
+    "login": "Login",
+    "login_with": "Login with",
+    "logout": "Logout",
+    "modify_profile": "Modify profile",
+    "name": "Name",
+    "password": "Password",
+    "password_confirm": "Confirm password",
+    "please_reload": "Please reload the page",
+    "profile": "Profile",
+    "reaction": "Reaction",
+    "register": "Register",
+    "role": "Role",
+    "save": "Save",
+    "services": "Services",
+    "status": "Status",
+    "user": "User",
+    "username": "Username"
+  }
 }

@@ -8,24 +8,21 @@
 */
 
 /* ----- IMPORTS ----- */
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import 'src/index.css';
-import App from 'src/App';
-
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "src/index.css";
+import App from "src/App";
 
 /* ----- RENDER ----- */
-const root = ReactDOM.createRoot(
-    document.getElementById('root') as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
 if (!root) {
-    console.error("Root element not found");
-    process.exit(1);
+  console.error("Root element not found");
+  process.exit(1);
 }
 
 root.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );

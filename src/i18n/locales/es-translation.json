@@ -1,138 +1,139 @@
 {
-    "langCode": "es",
-    "langName": "Spanish",
-    "languages": {
-        "select_lang": "Seleccione idioma",
-        "gb": "Inglés",
-        "fr": "Francés",
-        "ru": "ruso",
-        "es": "Español",
-        "de": "Alemán"
+  "langCode": "es",
+  "langName": "Spanish",
+  "languages": {
+    "select_lang": "Seleccione idioma",
+    "gb": "Inglés",
+    "fr": "Francés",
+    "ru": "ruso",
+    "es": "Español",
+    "de": "Alemán"
+  },
+  "color_blind": {
+    "select_color_blind": "Seleccionar el modo para daltónicos",
+    "default": "Por defecto",
+    "protanopia": "Protanopía",
+    "deuteranopia": "Deuteranopía",
+    "tritanopia": "Tritanopía",
+    "achromatopsia": "acromatopsia"
+  },
+  "error": {
+    "fill_all_actions_reactions": "Debes completar todas las acciones y reacciones.",
+    "fill_all_fields": "Debes rellenar todos los campos",
+    "invalid_login": "Usuario o contraseña no válidos",
+    "invalid_register": "Registro inválido",
+    "link_all_actions_reactions": "Debes vincular todas las acciones y reacciones.",
+    "logout": "Intente cerrar sesión y volver a iniciarla",
+    "save_failed": "Error al guardar. Inténtalo de nuevo más tarde...",
+    "user_not_found": "Usuario no encontrado. Inténtalo más tarde..."
+  },
+  "services": {
+    "search": "Buscar un servicio...",
+    "linked": "Cuenta vinculada",
+    "not_linked": "Vincular una cuenta",
+    "add_bot": "Agregar un bot",
+    "logout": "Cerrar sesión"
+  },
+  "area": {
+    "no_action_reaction": "No hay suficientes acciones y reacciones",
+    "subscribe_action_reaction": "Suscríbete al menos a una acción y una reacción para comenzar a usar Espeen",
+    "select_service": "Seleccione un servicio",
+    "select_action": "Seleccione una acción",
+    "select_reaction": "Seleccione una reacción",
+    "discord": {
+      "bot": {
+        "receive_message": "Recibir un mensaje"
+      },
+      "webhook": {
+        "send_message": "Enviar un mensaje"
+      }
     },
-    "color_blind": {
-        "select_color_blind": "Seleccionar el modo para daltónicos",
-        "default": "Por defecto",
-        "protanopia": "Protanopía",
-        "deuteranopia": "Deuteranopía",
-        "tritanopia": "Tritanopía",
-        "achromatopsia": "acromatopsia"
+    "google": {
+      "gmail": {
+        "receive_email": "Recibir un correo electrónico",
+        "send_email": "Enviar un correo electrónico"
+      }
     },
-    "error": {
-        "fill_all_actions_reactions": "Debes completar todas las acciones y reacciones.",
-        "fill_all_fields": "Debes rellenar todos los campos",
-        "invalid_login": "Usuario o contraseña no válidos",
-        "invalid_register": "Registro inválido",
-        "link_all_actions_reactions": "Debes vincular todas las acciones y reacciones.",
-        "logout": "Intente cerrar sesión y volver a iniciarla",
-        "save_failed": "Error al guardar. Inténtalo de nuevo más tarde...",
-        "user_not_found": "Usuario no encontrado. Inténtalo más tarde..."
+    "github": {
+      "create_repo": "Crear un repositorio",
+      "push_events": "Eventos push"
     },
-    "services": {
-        "search": "Buscar un servicio...",
-        "linked": "Cuenta vinculada",
-        "not_linked": "Vincular una cuenta",
-        "add_bot": "Agregar un bot",
-        "logout": "Cerrar sesión"
+    "youtube": {
+      "new_video": "Nuevo video"
     },
-    "area": {
-        "no_action_reaction": "No hay suficientes acciones y reacciones",
-        "subscribe_action_reaction": "Suscríbete al menos a una acción y una reacción para comenzar a usar Espeen",
-        "select_service": "Seleccione un servicio",
-        "select_action": "Seleccione una acción",
-        "select_reaction": "Seleccione una reacción",
-        "discord": {
-            "bot": {
-                "receive_message": "Recibir un mensaje"
-            },
-            "webhook": {
-                "send_message": "Enviar un mensaje"
-            }
-        },
-        "google": {
-            "gmail": {
-                "receive_email": "Recibir un correo electrónico",
-                "send_email": "Enviar un correo electrónico"
-            }
-        },
-        "github": {
-            "create_repo": "Crear un repositorio",
-            "push_events": "Eventos push"
-        },
-        "youtube": {
-            "new_video": "Nuevo video"
-        },
-        "twitch": {
-            "update_description": "Actualizar biografía",
-            "get_banned_users": "Obtener usuarios baneados",
-            "get_modos": "Conseguir moderadores",
-            "get_channel_infos": "Obtener información del canal",
-            "get_user_clips": "Obtenga clips populares del canal",
-            "get_top_games": "Obtenga los juegos en vivo más populares",
-            "get_followed_channels": "Obtener canales seguidos",
-            "get_channel_subscriptions": "Conseguir suscriptores para el canal",
-            "send_chat_announcement": "Enviar anuncio de chat"
-        },
-        "meteo": {
-            "get_weather": "Obtener el tiempo"
-        },
-        "fields": {
-            "city": "Introduzca una ciudad",
-            "channel": "Ingresar un canal",
-            "description": "Introduzca una descripción",
-            "webhook": "Ingresar un webhook"
-        }
+    "twitch": {
+      "update_description": "Actualizar biografía",
+      "get_banned_users": "Obtener usuarios baneados",
+      "get_modos": "Conseguir moderadores",
+      "get_channel_infos": "Obtener información del canal",
+      "get_user_clips": "Obtenga clips populares del canal",
+      "get_top_games": "Obtenga los juegos en vivo más populares",
+      "get_followed_channels": "Obtener canales seguidos",
+      "get_channel_subscriptions": "Conseguir suscriptores para el canal",
+      "send_chat_announcement": "Enviar anuncio de chat"
     },
-    "espeen": {
-        "moto": "¡Convierte las acciones en reacciones!",
-        "presentation": "Espeen es una plataforma innovadora diseñada para automatizar flujos de trabajo mediante la conexión fluida de API en un modelo de \"acción y reacción\". Inspirada en herramientas como Microsoft Power Automate, Espeen permite a los usuarios crear activadores personalizables (acciones) que inician automáticamente respuestas (reacciones) en varias aplicaciones y servicios. Esto permite una integración y automatización sin esfuerzo de tareas repetitivas, notificaciones y gestión de datos. Espeen simplifica procesos complejos, lo que facilita la optimización de los flujos de trabajo diarios y la mejora de la productividad tanto en contextos personales como profesionales.",
-        "team_description": "Nuestro equipo está compuesto por cinco estudiantes apasionados, cada uno de los cuales aporta un conjunto único de habilidades al proyecto Espeen. Con experiencia en desarrollo de software, diseño de UI/UX e integración de API, colaboramos para dar vida a ideas innovadoras. Nuestro compromiso con la accesibilidad y el diseño fácil de usar nos impulsa a crear soluciones que no solo satisfacen las demandas técnicas, sino que también mejoran la experiencia del usuario. Juntos, nos dedicamos a construir una plataforma que redefina la forma en que las personas interactúan con sus entornos digitales y los automatizan.",
-        "team_presentation": "Conozca al equipo"
+    "meteo": {
+      "get_weather": "Obtener el tiempo"
     },
-    "team": {
-        "caroline_boilly": "Desarrollador Fullstack y SCRUM Master",
-        "clement_piasco": "Desarrollador de ciberseguridad y DevOps",
-        "daniil_stepanov": "Desarrollador de bases de datos y backend",
-        "leonard_oursel": "Desarrollador de bases de datos y backend",
-        "nathan_tirolf": "Desarrollador de frontend y móvil"
-    },
-    "profile": {
-        "modify": "Modificar la información de tu perfil",
-        "modify_password": "Si desea modificar su contraseña, por favor rellene los siguientes campos, en caso contrario déjelos vacíos"
-    },
-    "admin": {
-        "access": "Acceso al panel de administración",
-        "not_admin": "Debes ser administrador para acceder a esta página.",
-        "search": "Buscar por nombre de usuario..."
-    },
-    "dico": {
-        "action": "Acción",
-        "actions": "Comportamiento",
-        "admin": "Administrador",
-        "cancel": "Cancelar",
-        "clear": "Claro",
-        "created_at": "Creado en",
-        "delete_profile": "Eliminar perfil",
-        "email": "Correo electrónico",
-        "error": "Error",
-        "fields": "Campos",
-        "hello": "Hola",
-        "language": "Idioma",
-        "login": "Acceso",
-        "login_with": "Iniciar sesión con",
-        "logout": "Cerrar sesión",
-        "modify_profile": "Modificar perfil",
-        "name": "Nombre",
-        "password": "Contraseña",
-        "password_confirm": "Confirmar Contraseña",
-        "please_reload": "Por favor recarga la página",
-        "profile": "Perfil",
-        "reaction": "Reacción",
-        "register": "Registro",
-        "role": "Role",
-        "save": "Ahorrar",
-        "services": "Servicios",
-        "status": "Estado",
-        "user": "Usuario",
-        "username": "Nombre de usuario"
+    "fields": {
+      "city": "Introduzca una ciudad",
+      "channel": "Ingresar un canal",
+      "description": "Introduzca una descripción",
+      "webhook": "Ingresar un webhook"
     }
+  },
+  "espeen": {
+    "moto": "¡Convierte las acciones en reacciones!",
+    "presentation": "Espeen es una plataforma innovadora diseñada para automatizar flujos de trabajo mediante la conexión fluida de API en un modelo de \"acción y reacción\". Inspirada en herramientas como Microsoft Power Automate, Espeen permite a los usuarios crear activadores personalizables (acciones) que inician automáticamente respuestas (reacciones) en varias aplicaciones y servicios. Esto permite una integración y automatización sin esfuerzo de tareas repetitivas, notificaciones y gestión de datos. Espeen simplifica procesos complejos, lo que facilita la optimización de los flujos de trabajo diarios y la mejora de la productividad tanto en contextos personales como profesionales.",
+    "team_description": "Nuestro equipo está compuesto por cinco estudiantes apasionados, cada uno de los cuales aporta un conjunto único de habilidades al proyecto Espeen. Con experiencia en desarrollo de software, diseño de UI/UX e integración de API, colaboramos para dar vida a ideas innovadoras. Nuestro compromiso con la accesibilidad y el diseño fácil de usar nos impulsa a crear soluciones que no solo satisfacen las demandas técnicas, sino que también mejoran la experiencia del usuario. Juntos, nos dedicamos a construir una plataforma que redefina la forma en que las personas interactúan con sus entornos digitales y los automatizan.",
+    "team_presentation": "Conozca al equipo"
+  },
+  "team": {
+    "caroline_boilly": "Desarrollador Fullstack y SCRUM Master",
+    "clement_piasco": "Desarrollador de ciberseguridad y DevOps",
+    "daniil_stepanov": "Desarrollador de bases de datos y backend",
+    "leonard_oursel": "Desarrollador de bases de datos y backend",
+    "nathan_tirolf": "Desarrollador de frontend y móvil"
+  },
+  "profile": {
+    "modify": "Modificar la información de tu perfil",
+    "modify_password": "Si desea modificar su contraseña, por favor rellene los siguientes campos, en caso contrario déjelos vacíos"
+  },
+  "admin": {
+    "access": "Acceso al panel de administración",
+    "not_admin": "Debes ser administrador para acceder a esta página.",
+    "search": "Buscar por nombre de usuario..."
+  },
+  "dico": {
+    "action": "Acción",
+    "actions": "Comportamiento",
+    "admin": "Administrador",
+    "cancel": "Cancelar",
+    "clear": "Claro",
+    "created_at": "Creado en",
+    "delete_profile": "Eliminar perfil",
+    "download_app": "Descargar la aplicación móvil",
+    "email": "Correo electrónico",
+    "error": "Error",
+    "fields": "Campos",
+    "hello": "Hola",
+    "language": "Idioma",
+    "login": "Acceso",
+    "login_with": "Iniciar sesión con",
+    "logout": "Cerrar sesión",
+    "modify_profile": "Modificar perfil",
+    "name": "Nombre",
+    "password": "Contraseña",
+    "password_confirm": "Confirmar Contraseña",
+    "please_reload": "Por favor recarga la página",
+    "profile": "Perfil",
+    "reaction": "Reacción",
+    "register": "Registro",
+    "role": "Role",
+    "save": "Ahorrar",
+    "services": "Servicios",
+    "status": "Estado",
+    "user": "Usuario",
+    "username": "Nombre de usuario"
+  }
 }
